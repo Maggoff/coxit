@@ -47,3 +47,8 @@ const onMouseUp = (e) => {
 
 slider.addEventListener('mousedown', onMouseDown);
 slider.addEventListener('mouseup', onMouseUp);
+
+let wid = document.getElementById('id1');
+wid = getComputedStyle(wid);
+
+console.log(wid.width);

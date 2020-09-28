@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Futura';
+  src: local('Futura Bk BT'), url('../fonts/Futura\ Bk\ BT\ Book.woff2') format('woff2'), url('../fonts/Futura\ Bk\ BT\ Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat Black'), local('Montserrat-Black'), url('../fonts/montserratblack.woff2') format('woff2'), url('../fonts/montserratblack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stolzl';
+  src: local('Stolzl Regular'), local('Stolzl-Regular'), url('../fonts/Stolzl-Regular.woff2') format('woff2'), url('../fonts/Stolzl-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
