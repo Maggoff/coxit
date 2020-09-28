@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+
+#slider {
+  height: 90vh;
+  display: flex;
+  scroll-snap-type: x mandatory;  
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+}
+
+section {
+  height: 100%;
+  min-width: 90vw;
+  scroll-snap-align: start;
+}
+
+/* Поки зі скролбаром є проблема: зменшення товщини */
+#slider::-webkit-scrollbar {
+  height: 12px;
+}
+
+#slider::-webkit-scrollbar {
+  background-color: white;
+}
+
+#slider::-webkit-scrollbar-thumb {
+  background: #FA8C16; 
+  height: 12px;
+}
+
+
+@media(max-width: 768px) {
+  section {
+    min-width: 100vw;
+  }
+}
+
+
+/* Тимчасов кольори, щоб можна було добре бачити секції */
+section:nth-of-type(1) {
+  background-color: #ac5f5f;
+} 
+section:nth-of-type(2) {
+  background-color: #aca75f;
+} 
+section:nth-of-type(3) {
+  background-color: #71ac5f;
+} 
+section:nth-of-type(4) {
+  background-color: #5faca8;
+} 
+section:nth-of-type(5) {
+  background-color: #5f74ac;
+} 
