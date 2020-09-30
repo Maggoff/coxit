@@ -65,8 +65,7 @@ body {
   -webkit-overflow-scrolling: touch;
 	overflow-x: scroll;
 	overflow-y: hidden;
-	z-index: 2;
-	height: 89.4vh;
+	height: 88.5vh;
 }
 
 section {
@@ -79,7 +78,7 @@ section {
 
 /* Поки зі скролбаром є проблема: зменшення товщини */
 #slider::-webkit-scrollbar {
-	height: 6px;
+	height: 0;
 }
 
 #slider::-webkit-scrollbar {
@@ -160,6 +159,7 @@ section {
 	background-color: rgba(196, 196, 196, 0.1);
 	display: flex;
 	align-items: center;
+	z-index: 1;
 }
 
 .cookie img{
@@ -196,12 +196,14 @@ section {
 	position: relative;
 }
 
-.weCanHelp__container__item::after{
+.weCanHelp__container__item:hover{
+	padding-top: 20px;
+}
+
+.weCanHelp__container__item__background{
 	position: absolute;
-	content: '1';
 	font-family: 'Stolzl', sans-serif;
 	font-size: 500px;
-	padding-left: 50%;
 	overflow: hidden;
 	bottom: 0;
 	left: 0;
@@ -209,27 +211,23 @@ section {
 	height: 0;
 	background-color: #fa8c16;
 	transition: 0.4s;
-	z-index: -5;
+	z-index: -1;
 }
 
-.weCanHelp__container__item:nth-of-type(2)::after{
-	content: '2';
-}
-
-.weCanHelp__container__item:nth-of-type(3)::after{
-	content: '3';
-}
-
-.weCanHelp__container__item:nth-of-type(4)::after{
-	content: '4';
-}
-
-.weCanHelp__container__item:hover{
-	padding-top: 20px;
-}
-
-.weCanHelp__container__item:hover::after{
+.weCanHelp__container__item:hover .weCanHelp__container__item__background{
 	height: 100%;
+}
+
+.weCanHelp__container__item__background__text{
+	position: absolute;
+	top: -75px;
+	right: -100px;
+	opacity: 0.2;
+	user-select: none;
+}
+
+.weCanHelp__container__item:first-child .weCanHelp__container__item__background__text{
+	right: -50px;
 }
 
 .weCanHelp__container__item__title{
@@ -240,6 +238,10 @@ section {
 	text-transform: uppercase;
 	margin-bottom: 25px;
 	text-shadow: -5px -5px 10px rgba(8, 55, 219, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.weCanHelp__container__item:hover .weCanHelp__container__item__title{
+	text-shadow: -5px -5px 10px rgba(255, 77, 0, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .weCanHelp__container__item__text{
@@ -253,13 +255,21 @@ section {
 .weCanHelp__container__item__hidden{
 	color: transparent;
 	transition: 0.4s;
+	margin-top: 10px;
+	/* height: 100%; */
+	user-select: none;
 }
 
 .weCanHelp__container__item:hover .weCanHelp__container__item__hidden{
 	color: #ffffff;
+	user-select: auto;
 }
 
 .weCanHelp__container__item__button{
+	display: inline-block;
+	font-size: 22px;
+	line-height: 26px;
+	margin-top: 10px;
 	color: transparent;
 	text-decoration: none;
 }
@@ -292,6 +302,7 @@ section:nth-of-type(3) .title__after{
 
 #howCanWeHelp{
 	padding-right: 25vw;
+	z-index: 4;
 }
 
 #howCanWeHelp .title{
@@ -360,7 +371,7 @@ section:nth-of-type(6) {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	z-index: -1;
+	z-index: 2
 }
 
 .footer::before{
@@ -371,6 +382,15 @@ section:nth-of-type(6) {
 	width: 82vw;
 	height: 2px;
 	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.scrollbar{
+	position: absolute;
+	left: 9%;
+	top: -6px;
+	width: 13.666666%;
+	height: 6px;
+	background-color: #fa8c16;
 }
 
 .footer__text{
