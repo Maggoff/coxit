@@ -9,6 +9,7 @@
 body {
 	margin: 0;
 	background-color: #232323;
+	overflow-y: hidden;
 }
 
 .line{
@@ -65,7 +66,7 @@ body {
 	overflow-x: scroll;
 	overflow-y: hidden;
 	z-index: 2;
-	height: 88.5vh;
+	height: 89.4vh;
 }
 
 section {
@@ -73,6 +74,7 @@ section {
   min-width: 82vw;
 	scroll-snap-align: start;
 	scroll-margin: 9vw;
+	margin-right: 5vw;
 }
 
 /* Поки зі скролбаром є проблема: зменшення товщини */
@@ -123,7 +125,7 @@ section {
 	font-size: 12px;
 	line-height: 14px;
 	font-weight: 400;
-	bottom: 23px;
+	bottom: 15vh;
 	color: #ffffff;
 	opacity: 0.4;
 	padding-right: 30px;
@@ -144,24 +146,53 @@ section {
 	width: 21px;
 }
 
-section:nth-of-type(2) {
+.cookie{
+	position: absolute;
+	right: 0;
+	bottom: 14vh;
+	font-family: 'Futura', sans-serif;
+	font-size: 10px;
+	line-height: 12px;
+	font-weight: 400;
+	color: #ffffff;
+	padding: 5px 10px;
+	padding-right: 9vw;
+	background-color: rgba(196, 196, 196, 0.1);
+	display: flex;
+	align-items: center;
+}
+
+.cookie img{
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.cookie a{
+	color: #ffffff;
+	margin-left: 5px;
+}
+
+#weCanHelp{
 	position: relative;
+}
+
+#weCanHelp .title{
+	margin-top: 15vh;
+	width: 50%;
 }
 
 .weCanHelp__container{
 	display: flex;
 	justify-content: space-between;
 	height: 100%;
-	position: relative;
+	position: absolute;
 }
 
 .weCanHelp__container__item{
 	width: 25%;
-	height: 100%;
-	padding: 85px 5px 0 15px;
+	padding: 80px 5px 0 15px;
 	color: #ffffff;
 	transition: 0.4s;
-	z-index: 2;
 	position: relative;
 }
 
@@ -207,7 +238,7 @@ section:nth-of-type(2) {
 	line-height: 24px;
 	font-weight: 900;
 	text-transform: uppercase;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 	text-shadow: -5px -5px 10px rgba(8, 55, 219, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -259,15 +290,64 @@ section:nth-of-type(3) .title__after{
 	width: 100%;
 }
 
-section:nth-of-type(4) {
-  background-color: #5faca8;
-} 
+#howCanWeHelp{
+	padding-right: 25vw;
+}
+
+#howCanWeHelp .title{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title__box{
+	display: flex;
+	align-items: center;
+}
+
+.title span,
+.title a{
+	font-family: 'Futura', sans-serif;
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: 400;
+	margin-left: 35px;
+}
+
+.title a{
+	margin-left: 0;
+	color: #ffffff;
+	text-decoration: none;
+	transition: 0.4s;
+}
+
+.title a:hover{
+	color: #fa8c16;
+}
+
+.form__input{
+	margin-top: 15vh;
+	width: 100%;
+	background-color: transparent;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 1px solid #ffffff;
+	outline: none;
+	color: #fa8c16;
+	font-family: 'Futura', sans-serif;
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: 400;
+}
+
 section:nth-of-type(5) {
 	background-color: #5f74ac;
 }
 section:nth-of-type(6) {
 	background-color: #a35fac;
 	min-width: 92.5vw;
+	margin-right: 0;
 }
 
 .footer{
@@ -280,16 +360,15 @@ section:nth-of-type(6) {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	z-index: -10;
-	display: none;
+	z-index: -1;
 }
 
 .footer::before{
 	position: absolute;
-	left: 0;
+	left: 9vw;
 	top: -4px;
 	content: '';
-	width: 100%;
+	width: 82vw;
 	height: 2px;
 	background-color: rgba(255, 255, 255, 0.4);
 }
