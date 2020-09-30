@@ -164,7 +164,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section id="whoWe">
       <div class="title">
         Who we are
       </div>
@@ -180,28 +180,123 @@
     </section>
     <section id="howCanWeHelp">
       <div class="form">
-        <div class="form__first">
+        <div class="form__first" id="form__first">
           <div class="title">
             How can we help you
             <div class="title__box">
               <span>01/05</span>
-              <a href="#">></a>
+              <a href="#" class="next__form__first">></a>
             </div>
           </div>
           <input class="form__input" type="text" placeholder="Tell us how can we help you">
+          <a href="#" class="button line next__form__first">Next step</a>
         </div>
-
+        <div class="form__second" id="form__second">
+          <div class="title">
+            what`s your role
+            <br>
+            in a project
+            <div class="title__box">
+              <a href="#" class="prev__form__second">♣</a>
+              <span>02/05</span>
+              <a href="#" class="next__form__second">></a>
+            </div>
+          </div>
+          <div class="form__choice">
+            <select id="form__second__select">
+              <option value="0">CEO/CTO</option>
+              <option value="1">Project manager</option>
+              <option value="2">Techical Lead</option>
+              <option value="3">Other</option>
+            </select>
+            <div class="form__second__item">CEO / <br> CTO</div>
+            <div class="form__second__item">Project manager</div>
+            <div class="form__second__item">Technical lead</div>
+            <div class="form__second__item">Other</div>
+          </div>
+          <div class="form__buttons">
+            <a href="#" class="button line next__form__second">Next step</a>
+            <a href="#blog" class="button line skip__button">Skip</a>
+          </div>
+        </div>
+        <div class="form__third" id="form__third">
+          <div class="title">
+            how long do you expect for a project to take
+            <div class="title__box">
+              <a href="#" class="prev__form__third">♣</a>
+              <span>03/05</span>
+              <a href="#" class="next__form__third">></a>
+            </div>
+          </div>
+          <div class="form__choice">
+            <select id="form__third__select">
+              <option value="0">Less than 1 month</option>
+              <option value="1">From 1 to 3 months</option>
+              <option value="2">From 3 to 6 months</option>
+              <option value="3">More than 6 months</option>
+            </select>
+            <div class="form__third__item">Less than 1 month</div>
+            <div class="form__third__item">From 1 to 3 months</div>
+            <div class="form__third__item">From 3 to 6 months</div>
+            <div class="form__third__item">More than 6 months</div>
+          </div>
+          <div class="form__buttons">
+            <a href="#" class="button line next__form__third">Next step</a>
+            <a href="#blog" class="button line skip__button">Skip</a>
+          </div>
+        </div>
+        <div class="form__fourth" id="form__fourth">
+          <div class="title">
+            what`s your budget
+            <div class="title__box">
+              <a href="#" class="prev__form__fourth">♣</a>
+              <span>04/05</span>
+              <a href="#" class="next__form__fourth">></a>
+            </div>
+          </div>
+          <div class="form__choice">
+            <select id="form__fourth__select">
+              <option value="0">Less than 1000 $</option>
+              <option value="1">1000 $ - 5000 $</option>
+              <option value="2">5000 $ - 10 000 $</option>
+              <option value="3">More than 10 000 $</option>
+            </select>
+            <div class="form__fourth__item">Less than 1000 $</div>
+            <div class="form__fourth__item">1000 $ - 5000 $</div>
+            <div class="form__fourth__item">5000 $ - 10000 $</div>
+            <div class="form__fourth__item">More than 10000 $</div>
+          </div>
+          <div class="form__buttons">
+            <a href="#" class="button line next__form__fourth">Next step</a>
+            <a href="#blog" class="button line skip__button">Skip</a>
+          </div>
+        </div>
+        <div class="form__fifth" id="form__fifth">
+          <div class="title">
+            how can we contact you
+            <div class="title__box">
+              <a href="#" class="prev__form__fifth">♣</a>
+              <span>05/05</span>
+            </div>
+          </div>
+          <input required class="form__input" type="email" placeholder="Your E-mail">
+          <div class="form__input__required">*This field is mandatory</div>
+          <input required class="form__input" type="text" placeholder="Anything else you want to tell us">
+          <div class="form__buttons">
+            <button class="button line" type="submit">Send</button>
+            <a href="#blog" class="button line skip__button">Cancell</a>
+          </div>
+        </div>
       </div>
-
     </section>
-    <section>
+    <section id="blog">
       <h1>Header 5</h1>
     </section>
     <section id="contacts">
       <h1>Header 6</h1>
     </section>
   </div>
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <span class="scrollbar" id="scrollbar"></span>
     <div class="footer__text">
       All rights reserved

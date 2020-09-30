@@ -220,7 +220,7 @@ section {
 
 .weCanHelp__container__item__background__text{
 	position: absolute;
-	top: -75px;
+	top: -10%;
 	right: -100px;
 	opacity: 0.2;
 	user-select: none;
@@ -282,9 +282,15 @@ section {
 	background-color: #ffffff;
 }
 
-section:nth-of-type(3) .title__after{
-	margin-top: 5vh;
-	margin-bottom: 5vh;
+#whoWe .title{
+	margin-top: 18vh;
+	letter-spacing: 2px;
+}
+
+#whoWe .title__after{
+	margin-top: 7vh;
+	margin-bottom: 7vh;
+	width: 66%;
 }
 
 .button{
@@ -301,7 +307,7 @@ section:nth-of-type(3) .title__after{
 }
 
 #howCanWeHelp{
-	padding-right: 25vw;
+	padding-right: 27.5vw;
 	z-index: 4;
 }
 
@@ -310,6 +316,7 @@ section:nth-of-type(3) .title__after{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	letter-spacing: 2px;
 }
 
 .title__box{
@@ -323,11 +330,9 @@ section:nth-of-type(3) .title__after{
 	font-size: 22px;
 	line-height: 26px;
 	font-weight: 400;
-	margin-left: 35px;
 }
 
 .title a{
-	margin-left: 0;
 	color: #ffffff;
 	text-decoration: none;
 	transition: 0.4s;
@@ -338,7 +343,7 @@ section:nth-of-type(3) .title__after{
 }
 
 .form__input{
-	margin-top: 15vh;
+	margin-top: 17vh;
 	width: 100%;
 	background-color: transparent;
 	padding: 10px 0;
@@ -350,6 +355,217 @@ section:nth-of-type(3) .title__after{
 	font-size: 22px;
 	line-height: 26px;
 	font-weight: 400;
+}
+
+.form__input::-webkit-input-placeholder{
+	color: #fa8c16;
+}
+
+.form__first .button{
+	display: inline-block;
+	margin-top: 3vh;
+}
+
+.form__second{
+	opacity: 0;
+	display: none;
+}
+
+.form__second .title{
+	margin-top: 16vh;
+}
+
+.form__second .title .title__box{
+	margin-bottom: 7vh;
+}
+
+.form__choice{
+	margin-top: 4vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#form__second__select{
+	display: none;
+}
+
+.form__second__item{
+	width: 23%;
+	height: 12vh;
+	padding: 23px 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 900;
+	color: #ffffff;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+}
+
+.form__second__item::after{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+ 	content: '';
+	height: 100%;
+	width: 100%;
+	background-color: #fa8c16;
+	z-index: -1;
+	transition: 0.4s;
+}
+
+.form__second__item:last-of-type::after{
+	background-color: #c4c4c4;
+}
+
+.form__second__item:hover::after,
+.active.form__second__item::after{
+	height: 4px;
+}
+
+.form__buttons{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.form__second .button{
+	display: inline-block;
+	margin-top: 3vh;
+}
+
+.skip__button{
+	color: rgba(255, 255, 255, 0.49);
+}
+
+.form__third{
+	opacity: 0;
+	display: none;
+}
+
+.form__third .title{
+	margin-top: 9vh;
+}
+
+#form__third__select{
+	display: none;
+}
+
+.form__third__item{
+	width: 23%;
+	height: 12vh;
+	padding: 20px 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 900;
+	color: #ffffff;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+}
+
+.form__third__item::after{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+ 	content: '';
+	height: 100%;
+	width: 100%;
+	background-color: #fa8c16;
+	z-index: -1;
+	transition: 0.4s;
+}
+
+.form__third__item:hover::after,
+.active.form__third__item::after{
+	height: 4px;
+}
+
+.form__third .button{
+	display: inline-block;
+	margin-top: 3vh;
+}
+
+.form__fourth{
+	opacity: 0;
+	display: none;
+}
+
+#form__fourth__select{
+	display: none;
+}
+
+.form__fourth__item{
+	margin-top: 7.5vh;
+	width: 23%;
+	height: 12vh;
+	padding: 20px 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 900;
+	color: #ffffff;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+}
+
+.form__fourth__item::after{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+ 	content: '';
+	height: 100%;
+	width: 100%;
+	background-color: #fa8c16;
+	z-index: -1;
+	transition: 0.4s;
+}
+
+.form__fourth__item:hover::after,
+.active.form__fourth__item::after{
+	height: 4px;
+}
+
+.form__fourth .button{
+	display: inline-block;
+	margin-top: 3vh;
+}
+
+.form__fifth{
+	opacity: 0;
+	display: none;
+}
+
+.form__fifth .title .title__box{
+	margin-bottom: 6.5vh;
+}
+
+.form__fifth .form__input{
+	margin-top: 1.5vh;
+}
+
+.form__input__required{
+	font-family: 'Futura', sans-serif;
+	font-size: 14px;
+	line-height: 17px;
+	font-weight: 400;
+	color: #982e00;
+}
+
+.form__fifth .form__input:last-of-type{
+	margin-top: 0;
+}
+
+.form__fifth .button{
+	display: inline-block;
+	margin-top: 3vh;
+	background-color: transparent;
+	border: none;
+	outline: none;
 }
 
 section:nth-of-type(5) {
