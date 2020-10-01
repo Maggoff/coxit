@@ -44,11 +44,31 @@ if (slider.addEventListener) {
   slider.attachEvent("onmousewheel", onWheel);
 }
 
+let cookie = document.getElementById("cookie");
+let cookieClose = document.getElementById("cookie__close");
+$(cookieClose).click(function(){
+  $(cookie).animate({opacity: 0}, 400, function(){
+    cookie.style.display = 'none';
+  })
+})
+
+
+
+
 let item = document.getElementsByClassName("weCanHelp__container__item");
+let itemBlog = document.getElementsByClassName("blog__item");
 let footer = document.getElementById("footer");
 
 for (let i = 0; i < item.length; i++) {
   $(item[i]).hover(function(){
+    footer.style.zIndex = -2;
+  }, function(){
+    footer.style.zIndex = 2;
+  })
+}
+
+for (let i = 0; i < itemBlog.length; i++) {
+  $(itemBlog[i]).hover(function(){
     footer.style.zIndex = -2;
   }, function(){
     footer.style.zIndex = 2;
@@ -63,12 +83,14 @@ let nextThird = document.getElementsByClassName("next__form__third");
 let prevFourth = document.getElementsByClassName("prev__form__fourth");
 let nextFourth = document.getElementsByClassName("next__form__fourth");
 let prevFifth = document.getElementsByClassName("prev__form__fifth");
+let nextFifth = document.getElementsByClassName("next__form__fifth");
 
 let formFirst = document.getElementById("form__first");
 let formSecond = document.getElementById("form__second");
 let formThird = document.getElementById("form__third");
 let formFourth = document.getElementById("form__fourth");
 let formFifth = document.getElementById("form__fifth");
+let formSixth = document.getElementById("form__sixth");
 
 for(let i = 0; i < nextFirst.length; i++){
   $(nextFirst[i]).click(function(){
@@ -148,6 +170,16 @@ for(let i = 0; i < prevFifth.length; i++){
       formFourth.style.display = 'block';
     });
     $(formFourth).animate({opacity: 1}, 400);
+  })
+}
+
+for(let i = 0; i < nextFifth.length; i++){
+  $(nextFifth[i]).click(function(){
+    $(formFifth).animate({opacity: 0}, 400, function(){
+      formFifth.style.display = 'none';
+      formSixth.style.display = 'block';
+    });
+    $(formSixth).animate({opacity: 1}, 400);
   })
 }
 

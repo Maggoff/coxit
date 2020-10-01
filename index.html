@@ -4,6 +4,7 @@
 <head>
   <title>Coxit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -31,7 +32,7 @@
         Scroll for more
       </div>
       <div class="cookie" id="cookie">
-        <img src="img/cookieClose.svg" alt="Close cookie">
+        <img id="cookie__close" src="img/cookieClose.svg" alt="Close cookie">
         We use cookies. Please see our
         <a href="#">cookie`s policy</a>
       </div>
@@ -185,7 +186,9 @@
             How can we help you
             <div class="title__box">
               <span>01/05</span>
-              <a href="#" class="next__form__first">></a>
+              <a href="#" class="next__form__first">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
           <input class="form__input" type="text" placeholder="Tell us how can we help you">
@@ -197,9 +200,13 @@
             <br>
             in a project
             <div class="title__box">
-              <a href="#" class="prev__form__second">♣</a>
+              <a href="#" class="prev__form__second">
+                <i class="fas fa-angle-left"></i>
+              </a>
               <span>02/05</span>
-              <a href="#" class="next__form__second">></a>
+              <a href="#" class="next__form__second">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
           <div class="form__choice">
@@ -221,11 +228,15 @@
         </div>
         <div class="form__third" id="form__third">
           <div class="title">
-            how long do you expect for a project to take
+            how long do you <br> expect for a project <br> to take
             <div class="title__box">
-              <a href="#" class="prev__form__third">♣</a>
+              <a href="#" class="prev__form__third">
+                <i class="fas fa-angle-left"></i>
+              </a>
               <span>03/05</span>
-              <a href="#" class="next__form__third">></a>
+              <a href="#" class="next__form__third">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
           <div class="form__choice">
@@ -249,9 +260,13 @@
           <div class="title">
             what`s your budget
             <div class="title__box">
-              <a href="#" class="prev__form__fourth">♣</a>
+              <a href="#" class="prev__form__fourth">
+                <i class="fas fa-angle-left"></i>
+              </a>
               <span>04/05</span>
-              <a href="#" class="next__form__fourth">></a>
+              <a href="#" class="next__form__fourth">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
           <div class="form__choice">
@@ -273,9 +288,11 @@
         </div>
         <div class="form__fifth" id="form__fifth">
           <div class="title">
-            how can we contact you
+            how can we contact <br> you
             <div class="title__box">
-              <a href="#" class="prev__form__fifth">♣</a>
+              <a href="#" class="prev__form__fifth">
+                <i class="fas fa-angle-left"></i>
+              </a>
               <span>05/05</span>
             </div>
           </div>
@@ -283,17 +300,89 @@
           <div class="form__input__required">*This field is mandatory</div>
           <input required class="form__input" type="text" placeholder="Anything else you want to tell us">
           <div class="form__buttons">
-            <button class="button line" type="submit">Send</button>
+            <button class="button line next__form__fifth" type="submit">Send</button>
             <a href="#blog" class="button line skip__button">Cancell</a>
+          </div>
+        </div>
+        <div class="form__sixth" id="form__sixth">
+          <div class="title">
+            thank you for <br> contacting. we will <br> reach you back as soon <br> as possible.
           </div>
         </div>
       </div>
     </section>
     <section id="blog">
-      <h1>Header 5</h1>
+      <div class="title">
+        Our tech blog
+      </div>
+      <div class="blog__container">
+        <div class="blog__item">
+          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+          <div class="blog__item__title">
+            IoT & Connected Devices
+            IoT & Connected Devices
+          </div>
+          <div class="blog__item__text">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+            some form, by injected humour, or believable...
+          </div>
+          <a href="#" class="button line blog__item__btn">Read more</a>
+        </div>
+        <div class="blog__item">
+          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+          <div class="blog__item__title">
+            IoT & Connected Devices
+            IoT & Connected Devices
+          </div>
+          <div class="blog__item__text">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+            some form, by injected humour, or believable...
+          </div>
+          <a href="#" class="button line blog__item__btn">Read more</a>
+        </div>
+        <div class="blog__item">
+          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+          <div class="blog__item__title">
+            IoT & Connected Devices
+            IoT & Connected Devices
+          </div>
+          <div class="blog__item__text">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+            some form, by injected humour, or believable...
+          </div>
+          <a href="#" class="button line blog__item__btn">Read more</a>
+        </div>
+      </div>
     </section>
     <section id="contacts">
-      <h1>Header 6</h1>
+      <div class="title">Contacts</div>
+      <div class="contacts__address">
+        Kulparkivska 200a, <br>
+        73000 Lviv, Ukraine
+      </div>
+      <div class="contacts__email">
+        E-mail: contact@coxit.co
+      </div>
+      <div class="contacts__phone">
+        Tel: +390 (30) 303 202 03
+      </div>
+      <div class="sotial__title">
+        Follow us on
+      </div>
+      <div class="sotial__container">
+        <a href="#" class="sotial__icon">
+          <img src="img/lin.svg" alt="Linkedin">
+        </a>
+        <a href="#" class="sotial__icon">
+          <img src="img/fb.svg" alt="Facebook">
+        </a>
+        <a href="#" class="sotial__icon">
+          <img src="img/md.svg" alt="Medium">
+        </a>
+        <a href="#" class="sotial__icon">
+          <img src="img/upw.svg" alt="Up work">
+        </a>
+      </div>
     </section>
   </div>
   <footer class="footer" id="footer">
