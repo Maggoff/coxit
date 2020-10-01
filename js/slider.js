@@ -1,6 +1,31 @@
-const slider = document.getElementById('slider');
+let scrollbarLeft;
 
-let scrollbarLeft = 9;
+let contentHide = document.getElementsByClassName("content__hide");
+
+let j = 0;
+
+let jOld;
+
+if (window.location.hash == '#contacts') {
+  scrollbarLeft = (16.666666 * 5);
+  contentHide[9].style.opacity = 1;
+  jOld = j;
+  j = 5;
+} else {
+  scrollbarLeft = 0;
+  contentHide[0].style.opacity = 1;
+  jOld = j;
+  j = 0;
+}
+
+let scrollbar = document.getElementById('scrollbar');
+
+scrollbar.style.left = scrollbarLeft + '%';
+
+let hashs = ['#main', '#weCanHelp', '#whoWe', '#howCanWeHelp', '#blog', '#contacts'];
+
+
+const slider = document.getElementById('slider');
 
 const onWheel = (e) => {
   slider.removeEventListener("wheel", onWheel);
@@ -13,21 +38,76 @@ const onWheel = (e) => {
   setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 600);
   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-  let scrollbar = document.getElementById('scrollbar');
-
   if (delta > 0) {
-    if (scrollbarLeft < 77) {
-      scrollbarLeft = scrollbarLeft + 13.666666;
+    if (scrollbarLeft < 83) {
+      scrollbarLeft = scrollbarLeft + 16.666666;
+      jOld = j;
+      j++;
     }
   } else {
-    if (scrollbarLeft > 10) {
-      scrollbarLeft = scrollbarLeft - 13.666666;
+    if (scrollbarLeft > 0) {
+      scrollbarLeft = scrollbarLeft - 16.666666;
+      jOld = j;
+      j--;
     }
   }
 
-  if (scrollbarLeft > 8 && scrollbarLeft < 78) {
+  if (scrollbarLeft > -1 && scrollbarLeft < 99) {
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+    // document.location.hash = hashs[j];
   }
+
+
+  switch (j) {
+    case 0:
+      contentHide[0].style.opacity = 1;
+      break;
+    case 1:
+      contentHide[1].style.opacity = 1;
+      break;
+    case 2:
+      contentHide[2].style.opacity = 1;
+      break;
+    case 3:
+      contentHide[3].style.opacity = 1;
+      contentHide[4].style.opacity = 1;
+      contentHide[5].style.opacity = 1;
+      contentHide[6].style.opacity = 1;
+      contentHide[7].style.opacity = 1;
+      break;
+    case 4:
+      contentHide[8].style.opacity = 1;
+      break;
+    case 5:
+      contentHide[9].style.opacity = 1;
+      break;
+  }
+
+  switch (jOld) {
+    case 0:
+      contentHide[0].style.opacity = 0;
+      break;
+    case 1:
+      contentHide[1].style.opacity = 0;
+      break;
+    case 2:
+      contentHide[2].style.opacity = 0;
+      break;
+    case 3:
+      contentHide[3].style.opacity = 0;
+      contentHide[4].style.opacity = 0;
+      contentHide[5].style.opacity = 0;
+      contentHide[6].style.opacity = 0;
+      contentHide[7].style.opacity = 0;
+      break;
+    case 4:
+      contentHide[8].style.opacity = 0;
+      break;
+    case 5:
+      contentHide[9].style.opacity = 0;
+      break;
+  }
+
 }
 
 
@@ -44,36 +124,101 @@ if (slider.addEventListener) {
   slider.attachEvent("onmousewheel", onWheel);
 }
 
+
+let logo = document.getElementById("header__logo");
+let contacts = document.getElementById("menu__contacts");
+
+$(logo).click(function () {
+  scrollbarLeft = 0;
+  contentHide[0].style.opacity = 1;
+  jOld = j;
+  j = 0;
+  switch (jOld) {
+    case 0:
+      contentHide[0].style.opacity = 0;
+      break;
+    case 1:
+      contentHide[1].style.opacity = 0;
+      break;
+    case 2:
+      contentHide[2].style.opacity = 0;
+      break;
+    case 3:
+      contentHide[3].style.opacity = 0;
+      contentHide[4].style.opacity = 0;
+      contentHide[5].style.opacity = 0;
+      contentHide[6].style.opacity = 0;
+      contentHide[7].style.opacity = 0;
+      break;
+    case 4:
+      contentHide[8].style.opacity = 0;
+      break;
+    case 5:
+      contentHide[9].style.opacity = 0;
+      break;
+  }
+  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+})
+
+$(contacts).click(function () {
+  scrollbarLeft = (16.666666 * 5);
+  contentHide[9].style.opacity = 1;
+  jOld = j;
+  j = 5;
+  switch (jOld) {
+    case 0:
+      contentHide[0].style.opacity = 0;
+      break;
+    case 1:
+      contentHide[1].style.opacity = 0;
+      break;
+    case 2:
+      contentHide[2].style.opacity = 0;
+      break;
+    case 3:
+      contentHide[3].style.opacity = 0;
+      contentHide[4].style.opacity = 0;
+      contentHide[5].style.opacity = 0;
+      contentHide[6].style.opacity = 0;
+      contentHide[7].style.opacity = 0;
+      break;
+    case 4:
+      contentHide[8].style.opacity = 0;
+      break;
+    case 5:
+      contentHide[9].style.opacity = 0;
+      break;
+  }
+  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+})
+
+
 let cookie = document.getElementById("cookie");
 let cookieClose = document.getElementById("cookie__close");
-$(cookieClose).click(function(){
-  $(cookie).animate({opacity: 0}, 400, function(){
+$(cookieClose).click(function () {
+  $(cookie).animate({ opacity: 0 }, 400, function () {
     cookie.style.display = 'none';
   })
 })
 
 
-
-
-let item = document.getElementsByClassName("weCanHelp__container__item");
+let itemServices = document.getElementsByClassName("weCanHelp__container__item");
 let itemBlog = document.getElementsByClassName("blog__item");
 let footer = document.getElementById("footer");
 
-for (let i = 0; i < item.length; i++) {
-  $(item[i]).hover(function(){
-    footer.style.zIndex = -2;
-  }, function(){
-    footer.style.zIndex = 2;
-  })
+zIndex(itemServices, footer);
+zIndex(itemBlog, footer);
+
+function zIndex(itemHover, footerZ) {
+  for (let i = 0; i < itemHover.length; i++) {
+    $(itemHover[i]).hover(function () {
+      footerZ.style.zIndex = -2;
+    }, function () {
+      footerZ.style.zIndex = 2;
+    })
+  }
 }
 
-for (let i = 0; i < itemBlog.length; i++) {
-  $(itemBlog[i]).hover(function(){
-    footer.style.zIndex = -2;
-  }, function(){
-    footer.style.zIndex = 2;
-  })
-}
 
 let nextFirst = document.getElementsByClassName("next__form__first");
 let prevSecond = document.getElementsByClassName("prev__form__second");
@@ -92,128 +237,64 @@ let formFourth = document.getElementById("form__fourth");
 let formFifth = document.getElementById("form__fifth");
 let formSixth = document.getElementById("form__sixth");
 
-for(let i = 0; i < nextFirst.length; i++){
-  $(nextFirst[i]).click(function(){
-    $(formFirst).animate({opacity: 0}, 400, function(){
-      formFirst.style.display = 'none';
-      formSecond.style.display = 'block';
-    });
-    $(formSecond).animate({opacity: 1}, 400);
-  })
+changeNext(nextFirst, formFirst, formSecond);
+
+changePrev(prevSecond, formSecond, formFirst);
+changeNext(nextSecond, formSecond, formThird);
+
+changePrev(prevThird, formThird, formSecond);
+changeNext(nextThird, formThird, formFourth);
+
+changePrev(prevFourth, formFourth, formThird);
+changeNext(nextFourth, formFourth, formFifth);
+
+changePrev(prevFifth, formFifth, formFourth);
+changeNext(nextFifth, formFifth, formSixth);
+
+function changePrev(prev, currentSlide, changeSlide) {
+  for (let i = 0; i < prev.length; i++) {
+    $(prev[i]).click(function () {
+      $(currentSlide).animate({ opacity: 0 }, 400, function () {
+        currentSlide.style.display = 'none';
+        changeSlide.style.display = 'block';
+      });
+      $(changeSlide).animate({ opacity: 1 }, 400);
+    })
+  }
 }
 
-for(let i = 0; i < prevSecond.length; i++){
-  $(prevSecond[i]).click(function(){
-    $(formSecond).animate({opacity: 0}, 400, function(){
-      formSecond.style.display = 'none';
-      formFirst.style.display = 'block';
-    });
-    $(formFirst).animate({opacity: 1}, 400);
-  })
+function changeNext(next, currentSlide, changeSlide) {
+  for (let i = 0; i < next.length; i++) {
+    $(next[i]).click(function () {
+      $(currentSlide).animate({ opacity: 0 }, 400, function () {
+        currentSlide.style.display = 'none';
+        changeSlide.style.display = 'block';
+      });
+      $(changeSlide).animate({ opacity: 1 }, 400);
+    })
+  }
 }
-
-for(let i = 0; i < nextSecond.length; i++){
-  $(nextSecond[i]).click(function(){
-    $(formSecond).animate({opacity: 0}, 400, function(){
-      formSecond.style.display = 'none';
-      formThird.style.display = 'block';
-    });
-    $(formThird).animate({opacity: 1}, 400);
-  })
-}
-
-
-for(let i = 0; i < prevThird.length; i++){
-  $(prevThird[i]).click(function(){
-    $(formThird).animate({opacity: 0}, 400, function(){
-      formThird.style.display = 'none';
-      formSecond.style.display = 'block';
-    });
-    $(formSecond).animate({opacity: 1}, 400);
-  })
-}
-
-for(let i = 0; i < nextThird.length; i++){
-  $(nextThird[i]).click(function(){
-    $(formThird).animate({opacity: 0}, 400, function(){
-      formThird.style.display = 'none';
-      formFourth.style.display = 'block';
-    });
-    $(formFourth).animate({opacity: 1}, 400);
-  })
-}
-
-for(let i = 0; i < prevFourth.length; i++){
-  $(prevFourth[i]).click(function(){
-    $(formFourth).animate({opacity: 0}, 400, function(){
-      formFourth.style.display = 'none';
-      formThird.style.display = 'block';
-    });
-    $(formThird).animate({opacity: 1}, 400);
-  })
-}
-
-for(let i = 0; i < nextFourth.length; i++){
-  $(nextFourth[i]).click(function(){
-    $(formFourth).animate({opacity: 0}, 400, function(){
-      formFourth.style.display = 'none';
-      formFifth.style.display = 'block';
-    });
-    $(formFifth).animate({opacity: 1}, 400);
-  })
-}
-
-for(let i = 0; i < prevFifth.length; i++){
-  $(prevFifth[i]).click(function(){
-    $(formFifth).animate({opacity: 0}, 400, function(){
-      formFifth.style.display = 'none';
-      formFourth.style.display = 'block';
-    });
-    $(formFourth).animate({opacity: 1}, 400);
-  })
-}
-
-for(let i = 0; i < nextFifth.length; i++){
-  $(nextFifth[i]).click(function(){
-    $(formFifth).animate({opacity: 0}, 400, function(){
-      formFifth.style.display = 'none';
-      formSixth.style.display = 'block';
-    });
-    $(formSixth).animate({opacity: 1}, 400);
-  })
-}
-
 
 
 let choiceSecond = document.getElementsByClassName("form__second__item");
-let choiceSecondOld = choiceSecond[0];
-for(let i = 0; i < choiceSecond.length; i++){
-  $(choiceSecond[i]).click(function(){
-    choiceSecondOld.classList.remove("active");
-    choiceSecond[i].classList.add("active");
-    choiceSecondOld = choiceSecond[i];
-  })
-}
-
 let choiceThird = document.getElementsByClassName("form__third__item");
-let choiceThirdOld = choiceThird[0];
-for(let i = 0; i < choiceThird.length; i++){
-  $(choiceThird[i]).click(function(){
-    choiceThirdOld.classList.remove("active");
-    choiceThird[i].classList.add("active");
-    choiceThirdOld = choiceThird[i];
-  })
+let choiceFourth = document.getElementsByClassName("form__fourth__item");
+
+choice(choiceSecond);
+choice(choiceThird);
+choice(choiceFourth);
+
+function choice(choiceItem) {
+  let choiceOld = choiceItem[0];
+  for (let i = 0; i < choiceItem.length; i++) {
+    $(choiceItem[i]).click(function () {
+      choiceOld.classList.remove("active");
+      choiceItem[i].classList.add("active");
+      choiceOld = choiceItem[i];
+    })
+  }
 }
 
-let choiceFourth = document.getElementsByClassName("form__fourth__item");
-let choiceFourthOld = choiceFourth[0];
-for(let i = 0; i < choiceFourth.length; i++){
-  $(choiceFourth[i]).click(function(){
-    choiceFourthOld.classList.remove("active");
-    choiceFourth[i].classList.add("active");
-    choiceFourthOld = choiceFourth[i];
-  })
-}
 
 // Слайд за допомогою drag
 // let oldx = 0;

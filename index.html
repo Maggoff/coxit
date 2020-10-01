@@ -11,13 +11,13 @@
 
 <body>
   <header class="header">
-    <a href="#main" class="header__logo">
+    <a href="#main" class="header__logo" id="header__logo">
       <img src="img/logo.svg" alt="Logo">
     </a>
     <nav class="header__menu">
       <a href="#" class="header__menu__item line">services</a>
-      <a href="#" class="header__menu__item line">careers</a>
-      <a href="#contacts" class="header__menu__item line">contacts</a>
+      <a href="careers.html" class="header__menu__item line">careers</a>
+      <a href="#contacts" class="header__menu__item line" id="menu__contacts">contacts</a>
     </nav>
   </header>
   <div id="slider">
@@ -25,141 +25,146 @@
       <div class="title">
         We are professional software development team
       </div>
-      <div class="title__after">
-        Development you've been dreaming of.
-      </div>
-      <div class="flesh">
-        Scroll for more
-      </div>
-      <div class="cookie" id="cookie">
-        <img id="cookie__close" src="img/cookieClose.svg" alt="Close cookie">
-        We use cookies. Please see our
-        <a href="#">cookie`s policy</a>
+      <div class="content__hide">
+        <div class="title__after">
+          Development you've been dreaming of.
+        </div>
+        <div class="flesh">
+          Scroll for more
+        </div>
+        <div class="cookie" id="cookie">
+          <img id="cookie__close" src="img/cookieClose.svg" alt="Close cookie">
+          We use cookies. Please see our
+          <a href="#">cookie`s policy</a>
+        </div>
       </div>
     </section>
     <section id="weCanHelp">
       <div class="title">
         We can help your business with
       </div>
-      <div class="weCanHelp__container">
-        <div class="weCanHelp__container__item">
-          <div class="weCanHelp__container__item__title">
-            API <br> Design
-          </div>
-          <div class="weCanHelp__container__item__text">
-            We will provide you with an expert level API for Linux based C++ library, REST API server, WebSocket Server,
-            or any other kind of API development.
-          </div>
-          <div class="weCanHelp__container__item__hidden">
+      <div class="content__hide">
+        <div class="weCanHelp__container">
+          <div class="weCanHelp__container__item">
+            <div class="weCanHelp__container__item__title">
+              API <br> Design
+            </div>
             <div class="weCanHelp__container__item__text">
-              You will receive:
-              <br>
-              -Documented API;
-              <br>
-              -Project structure;
-              <br>
-              -CI proposal;
-              <br>
-              -Time and cost estimates for API development.
+              We will provide you with an expert level API for Linux based C++ library, REST API server, WebSocket
+              Server,
+              or any other kind of API development.
             </div>
-            <a href="#" class="weCanHelp__container__item__button line">Order a service</a>
-          </div>
-          <div class="weCanHelp__container__item__background">
-            <div class="weCanHelp__container__item__background__text">
-              1
+            <div class="weCanHelp__container__item__hidden">
+              <div class="weCanHelp__container__item__text">
+                You will receive:
+                <br>
+                -Documented API;
+                <br>
+                -Project structure;
+                <br>
+                -CI proposal;
+                <br>
+                -Time and cost estimates for API development.
+              </div>
+              <a href="#" class="weCanHelp__container__item__button line">Order a service</a>
+            </div>
+            <div class="weCanHelp__container__item__background">
+              <div class="weCanHelp__container__item__background__text">
+                1
+              </div>
             </div>
           </div>
-        </div>
-        <div class="weCanHelp__container__item">
-          <div class="weCanHelp__container__item__title">
-            API <br> Development
-          </div>
-          <div class="weCanHelp__container__item__text">
-            We provide high-quality C++ and Python API Development Services of creation useful, scalable, and reliable
-            solutions, using all API’s benefits. We use the most efficient and modern tools during the development
-            process following best practices, considering your business needs, and keeping deadlines.
-          </div>
-          <div class="weCanHelp__container__item__hidden">
+          <div class="weCanHelp__container__item">
+            <div class="weCanHelp__container__item__title">
+              API <br> Development
+            </div>
             <div class="weCanHelp__container__item__text">
-              You will receive:
-              <br>
-              -Fully developed API;
-              <br>
-              -Documentation;
-              <br>
-              -Unit tests with coverage level >80%;
-              <br>
-              -CI and code coverage tool integration;
-              <br>
-              -Functional testing proposal.
+              We provide high-quality C++ and Python API Development Services of creation useful, scalable, and reliable
+              solutions, using all API’s benefits. We use the most efficient and modern tools during the development
+              process following best practices, considering your business needs, and keeping deadlines.
             </div>
-            <a href="#" class="weCanHelp__container__item__button line">Order a service</a>
-          </div>
-          <div class="weCanHelp__container__item__background">
-            <div class="weCanHelp__container__item__background__text">
-              2
+            <div class="weCanHelp__container__item__hidden">
+              <div class="weCanHelp__container__item__text">
+                You will receive:
+                <br>
+                -Fully developed API;
+                <br>
+                -Documentation;
+                <br>
+                -Unit tests with coverage level >80%;
+                <br>
+                -CI and code coverage tool integration;
+                <br>
+                -Functional testing proposal.
+              </div>
+              <a href="#" class="weCanHelp__container__item__button line">Order a service</a>
+            </div>
+            <div class="weCanHelp__container__item__background">
+              <div class="weCanHelp__container__item__background__text">
+                2
+              </div>
             </div>
           </div>
-        </div>
-        <div class="weCanHelp__container__item">
-          <div class="weCanHelp__container__item__title">
-            C++ Project <br> Audit
-          </div>
-          <div class="weCanHelp__container__item__text">
-            We will help you to understand the current state of your code quality, opportunities for optimization, and
-            help you to upgrade your current system.
-          </div>
-          <div class="weCanHelp__container__item__hidden">
+          <div class="weCanHelp__container__item">
+            <div class="weCanHelp__container__item__title">
+              C++ Project <br> Audit
+            </div>
             <div class="weCanHelp__container__item__text">
-              As a deliverable, you will receive a report regarding:
-              <br>
-              Code formatting check;
-              <br>
-              Linter check;
-              <br>
-              Memory error analysis;
-              <br>
-              Memory profiling analysis;
-              <br>
-              Project structure and build system analysis;
-              <br>
-              Test coverage analysis;
-              <br>
-              Code delivery process analysis.
-              <br>
-              Documented proposal for improvements for each analysis listed above.
+              We will help you to understand the current state of your code quality, opportunities for optimization, and
+              help you to upgrade your current system.
+            </div>
+            <div class="weCanHelp__container__item__hidden">
+              <div class="weCanHelp__container__item__text">
+                As a deliverable, you will receive a report regarding:
+                <br>
+                Code formatting check;
+                <br>
+                Linter check;
+                <br>
+                Memory error analysis;
+                <br>
+                Memory profiling analysis;
+                <br>
+                Project structure and build system analysis;
+                <br>
+                Test coverage analysis;
+                <br>
+                Code delivery process analysis.
+                <br>
+                Documented proposal for improvements for each analysis listed above.
+              </div>
+            </div>
+            <div class="weCanHelp__container__item__background">
+              <div class="weCanHelp__container__item__background__text">
+                3
+              </div>
             </div>
           </div>
-          <div class="weCanHelp__container__item__background">
-            <div class="weCanHelp__container__item__background__text">
-              3
+          <div class="weCanHelp__container__item">
+            <div class="weCanHelp__container__item__title">
+              C++/Python team <br> extension
             </div>
-          </div>
-        </div>
-        <div class="weCanHelp__container__item">
-          <div class="weCanHelp__container__item__title">
-            C++/Python team <br> extension
-          </div>
-          <div class="weCanHelp__container__item__text">
-            We will find and interview software engineers with the right expertise and high loyalty for software
-            projects, helping you to decide on the best fit for your project.
-          </div>
-          <div class="weCanHelp__container__item__hidden">
             <div class="weCanHelp__container__item__text">
-              You will receive:
-              <br>
-              Interview process description document;
-              <br>
-              Recorded interviews;
-              <br>
-              Reports regarding each interviewee;
-              <br>
-              Interviewees CVs;
+              We will find and interview software engineers with the right expertise and high loyalty for software
+              projects, helping you to decide on the best fit for your project.
             </div>
-          </div>
-          <div class="weCanHelp__container__item__background">
-            <div class="weCanHelp__container__item__background__text">
-              4
+            <div class="weCanHelp__container__item__hidden">
+              <div class="weCanHelp__container__item__text">
+                You will receive:
+                <br>
+                Interview process description document;
+                <br>
+                Recorded interviews;
+                <br>
+                Reports regarding each interviewee;
+                <br>
+                Interviewees CVs;
+              </div>
+            </div>
+            <div class="weCanHelp__container__item__background">
+              <div class="weCanHelp__container__item__background__text">
+                4
+              </div>
             </div>
           </div>
         </div>
@@ -169,15 +174,17 @@
       <div class="title">
         Who we are
       </div>
-      <div class="title__after">
-        We are a team of proffesional individuals, cooperating together to provide a high quality software development
-        and being here on all needed stages, from an investigation till deployment and future support.
-        <br>
-        We are awesome, just like you are!
+      <div class="content__hide">
+        <div class="title__after">
+          We are a team of proffesional individuals, cooperating together to provide a high quality software development
+          and being here on all needed stages, from an investigation till deployment and future support.
+          <br>
+          We are awesome, just like you are!
+        </div>
+        <a href="team.html" class="button line">
+          Meet some of us personally
+        </a>
       </div>
-      <a href="team.html" class="button line">
-        Meet some of us personally
-      </a>
     </section>
     <section id="howCanWeHelp">
       <div class="form">
@@ -191,8 +198,10 @@
               </a>
             </div>
           </div>
-          <input class="form__input" type="text" placeholder="Tell us how can we help you">
-          <a href="#" class="button line next__form__first">Next step</a>
+          <div class="content__hide">
+            <input class="form__input" type="text" placeholder="Tell us how can we help you">
+            <a href="#" class="button line next__form__first">Next step</a>
+          </div>
         </div>
         <div class="form__second" id="form__second">
           <div class="title">
@@ -209,21 +218,23 @@
               </a>
             </div>
           </div>
-          <div class="form__choice">
-            <select id="form__second__select">
-              <option value="0">CEO/CTO</option>
-              <option value="1">Project manager</option>
-              <option value="2">Techical Lead</option>
-              <option value="3">Other</option>
-            </select>
-            <div class="form__second__item">CEO / <br> CTO</div>
-            <div class="form__second__item">Project manager</div>
-            <div class="form__second__item">Technical lead</div>
-            <div class="form__second__item">Other</div>
-          </div>
-          <div class="form__buttons">
-            <a href="#" class="button line next__form__second">Next step</a>
-            <a href="#blog" class="button line skip__button">Skip</a>
+          <div class="content__hide">
+            <div class="form__choice">
+              <select id="form__second__select">
+                <option value="0">CEO/CTO</option>
+                <option value="1">Project manager</option>
+                <option value="2">Techical Lead</option>
+                <option value="3">Other</option>
+              </select>
+              <div class="form__second__item">CEO / <br> CTO</div>
+              <div class="form__second__item">Project manager</div>
+              <div class="form__second__item">Technical lead</div>
+              <div class="form__second__item">Other</div>
+            </div>
+            <div class="form__buttons">
+              <a href="#" class="button line next__form__second">Next step</a>
+              <a href="#blog" class="button line skip__button">Skip</a>
+            </div>
           </div>
         </div>
         <div class="form__third" id="form__third">
@@ -239,21 +250,23 @@
               </a>
             </div>
           </div>
-          <div class="form__choice">
-            <select id="form__third__select">
-              <option value="0">Less than 1 month</option>
-              <option value="1">From 1 to 3 months</option>
-              <option value="2">From 3 to 6 months</option>
-              <option value="3">More than 6 months</option>
-            </select>
-            <div class="form__third__item">Less than 1 month</div>
-            <div class="form__third__item">From 1 to 3 months</div>
-            <div class="form__third__item">From 3 to 6 months</div>
-            <div class="form__third__item">More than 6 months</div>
-          </div>
-          <div class="form__buttons">
-            <a href="#" class="button line next__form__third">Next step</a>
-            <a href="#blog" class="button line skip__button">Skip</a>
+          <div class="content__hide">
+            <div class="form__choice">
+              <select id="form__third__select">
+                <option value="0">Less than 1 month</option>
+                <option value="1">From 1 to 3 months</option>
+                <option value="2">From 3 to 6 months</option>
+                <option value="3">More than 6 months</option>
+              </select>
+              <div class="form__third__item">Less than 1 month</div>
+              <div class="form__third__item">From 1 to 3 months</div>
+              <div class="form__third__item">From 3 to 6 months</div>
+              <div class="form__third__item">More than 6 months</div>
+            </div>
+            <div class="form__buttons">
+              <a href="#" class="button line next__form__third">Next step</a>
+              <a href="#blog" class="button line skip__button">Skip</a>
+            </div>
           </div>
         </div>
         <div class="form__fourth" id="form__fourth">
@@ -269,21 +282,23 @@
               </a>
             </div>
           </div>
-          <div class="form__choice">
-            <select id="form__fourth__select">
-              <option value="0">Less than 1000 $</option>
-              <option value="1">1000 $ - 5000 $</option>
-              <option value="2">5000 $ - 10 000 $</option>
-              <option value="3">More than 10 000 $</option>
-            </select>
-            <div class="form__fourth__item">Less than 1000 $</div>
-            <div class="form__fourth__item">1000 $ - 5000 $</div>
-            <div class="form__fourth__item">5000 $ - 10000 $</div>
-            <div class="form__fourth__item">More than 10000 $</div>
-          </div>
-          <div class="form__buttons">
-            <a href="#" class="button line next__form__fourth">Next step</a>
-            <a href="#blog" class="button line skip__button">Skip</a>
+          <div class="content__hide">
+            <div class="form__choice">
+              <select id="form__fourth__select">
+                <option value="0">Less than 1000 $</option>
+                <option value="1">1000 $ - 5000 $</option>
+                <option value="2">5000 $ - 10 000 $</option>
+                <option value="3">More than 10 000 $</option>
+              </select>
+              <div class="form__fourth__item">Less than 1000 $</div>
+              <div class="form__fourth__item">1000 $ - 5000 $</div>
+              <div class="form__fourth__item">5000 $ - 10000 $</div>
+              <div class="form__fourth__item">More than 10000 $</div>
+            </div>
+            <div class="form__buttons">
+              <a href="#" class="button line next__form__fourth">Next step</a>
+              <a href="#blog" class="button line skip__button">Skip</a>
+            </div>
           </div>
         </div>
         <div class="form__fifth" id="form__fifth">
@@ -294,14 +309,17 @@
                 <i class="fas fa-angle-left"></i>
               </a>
               <span>05/05</span>
+              <i class="fas fa-angle-right"></i>
             </div>
           </div>
-          <input required class="form__input" type="email" placeholder="Your E-mail">
-          <div class="form__input__required">*This field is mandatory</div>
-          <input required class="form__input" type="text" placeholder="Anything else you want to tell us">
-          <div class="form__buttons">
-            <button class="button line next__form__fifth" type="submit">Send</button>
-            <a href="#blog" class="button line skip__button">Cancell</a>
+          <div class="content__hide">
+            <input required class="form__input" type="email" placeholder="Your E-mail">
+            <div class="form__input__required">*This field is mandatory</div>
+            <input required class="form__input" type="text" placeholder="Anything else you want to tell us">
+            <div class="form__buttons">
+              <button class="button line next__form__fifth" type="submit">Send</button>
+              <a href="#blog" class="button line skip__button">Cancell</a>
+            </div>
           </div>
         </div>
         <div class="form__sixth" id="form__sixth">
@@ -315,73 +333,80 @@
       <div class="title">
         Our tech blog
       </div>
-      <div class="blog__container">
-        <div class="blog__item">
-          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
-          <div class="blog__item__title">
-            IoT & Connected Devices
-            IoT & Connected Devices
+      <div class="content__hide">
+        <div class="blog__container">
+          <div class="blog__item">
+            <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+            <div class="blog__item__title">
+              IoT & Connected Devices
+              IoT & Connected Devices
+            </div>
+            <div class="blog__item__text">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in
+              some form, by injected humour, or believable...
+            </div>
+            <a href="#" class="button line blog__item__btn">Read more</a>
           </div>
-          <div class="blog__item__text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-            some form, by injected humour, or believable...
+          <div class="blog__item">
+            <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+            <div class="blog__item__title">
+              IoT & Connected Devices
+              IoT & Connected Devices
+            </div>
+            <div class="blog__item__text">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in
+              some form, by injected humour, or believable...
+            </div>
+            <a href="#" class="button line blog__item__btn">Read more</a>
           </div>
-          <a href="#" class="button line blog__item__btn">Read more</a>
-        </div>
-        <div class="blog__item">
-          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
-          <div class="blog__item__title">
-            IoT & Connected Devices
-            IoT & Connected Devices
+          <div class="blog__item">
+            <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
+            <div class="blog__item__title">
+              IoT & Connected Devices
+              IoT & Connected Devices
+            </div>
+            <div class="blog__item__text">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in
+              some form, by injected humour, or believable...
+            </div>
+            <a href="#" class="button line blog__item__btn">Read more</a>
           </div>
-          <div class="blog__item__text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-            some form, by injected humour, or believable...
-          </div>
-          <a href="#" class="button line blog__item__btn">Read more</a>
-        </div>
-        <div class="blog__item">
-          <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
-          <div class="blog__item__title">
-            IoT & Connected Devices
-            IoT & Connected Devices
-          </div>
-          <div class="blog__item__text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-            some form, by injected humour, or believable...
-          </div>
-          <a href="#" class="button line blog__item__btn">Read more</a>
         </div>
       </div>
     </section>
     <section id="contacts">
       <div class="title">Contacts</div>
-      <div class="contacts__address">
-        Kulparkivska 200a, <br>
-        73000 Lviv, Ukraine
-      </div>
-      <div class="contacts__email">
-        E-mail: contact@coxit.co
-      </div>
-      <div class="contacts__phone">
-        Tel: +390 (30) 303 202 03
-      </div>
-      <div class="sotial__title">
-        Follow us on
-      </div>
-      <div class="sotial__container">
-        <a href="#" class="sotial__icon">
-          <img src="img/lin.svg" alt="Linkedin">
-        </a>
-        <a href="#" class="sotial__icon">
-          <img src="img/fb.svg" alt="Facebook">
-        </a>
-        <a href="#" class="sotial__icon">
-          <img src="img/md.svg" alt="Medium">
-        </a>
-        <a href="#" class="sotial__icon">
-          <img src="img/upw.svg" alt="Up work">
-        </a>
+      <div class="content__hide">
+        <div class="contacts__address">
+          Kulparkivska 200a, <br>
+          73000 Lviv, Ukraine
+        </div>
+        <div class="contacts__email">
+          E-mail: contact@coxit.co
+        </div>
+        <div class="contacts__phone">
+          Tel: +390 (30) 303 202 03
+        </div>
+        <div class="sotial__title">
+          Follow us on
+        </div>
+        <div class="sotial__container">
+          <a href="#" class="sotial__icon">
+            <img src="img/lin.svg" alt="Linkedin">
+          </a>
+          <a href="#" class="sotial__icon">
+            <img src="img/fb.svg" alt="Facebook">
+          </a>
+          <a href="#" class="sotial__icon">
+            <img src="img/md.svg" alt="Medium">
+          </a>
+          <a href="#" class="sotial__icon">
+            <img src="img/upw.svg" alt="Up work">
+          </a>
+        </div>
       </div>
     </section>
   </div>
