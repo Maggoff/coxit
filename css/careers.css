@@ -1,0 +1,95 @@
+body{
+  overflow-y: scroll;
+}
+
+section{
+  padding-top: 16vh;
+  margin: 0 9vw;
+}
+
+.screen{
+  height: 88.5vh;
+}
+
+.arrowDown{
+  position: absolute;
+  right: 9vw;
+  bottom: 8vh;
+}
+
+.title{
+  margin-top: 0;
+  margin-bottom: 10vh;
+}
+
+.careers{
+  background-color: #ffffff;
+  margin: 0;
+  padding: 150px 9vw 50px;
+}
+
+.careers .title{
+  color: #000000;
+  width: 100%;
+  text-shadow: none;
+}
+
+.careers .title__after{
+  color: #000000;
+  width: 100%;
+  margin-bottom: 75px;
+}
+
+.careers__text{
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #000000;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.careers__file{
+  width: 0.1px;
+  height: 0.1px;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.careers__file + label{
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #fa8c16;
+  width: 100%;
+  padding: 10px 0;
+  margin-left: 15vw;
+  cursor: pointer;
+  position: relative;
+}
+
+.careers__file + label::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  width: 50vw;
+  height: 1px;
+  background-color: #c4c4c4;
+}
+
+.footer{
+  position: relative;
+  background-color: #232323;
+}
+
+.footer::before{
+  display: none;
+}
+
+.scrollbar{
+  display: none;
+}
