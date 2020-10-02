@@ -15,6 +15,7 @@ body {
 .line{
 	position: relative;
 	transition: 0.4s ease;
+	text-decoration: none;
 }
 
 .line::after{
@@ -50,6 +51,11 @@ body {
   line-height: 19px;
   font-weight: 400;
   text-decoration: none;
+}
+
+.header__menu__item:hover{
+	color: #ffffff;
+	text-decoration: none;
 }
 
 .header__menu__item:first-child{
@@ -300,6 +306,11 @@ section {
 	font-size: 22px;
 	line-height: 26px;
 	font-weight: 400;
+	text-decoration: none;
+}
+
+.button:hover{
+	color: #ffffff;
 	text-decoration: none;
 }
 

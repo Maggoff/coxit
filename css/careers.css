@@ -25,19 +25,144 @@ section{
 .careers{
   background-color: #ffffff;
   margin: 0;
-  padding: 150px 9vw 50px;
+  padding: 150px 0 50px;
 }
 
 .careers .title{
   color: #000000;
-  width: 100%;
+  width: auto;
   text-shadow: none;
+  margin-left: 9vw;
+  margin-right: 9vw;
 }
 
 .careers .title__after{
   color: #000000;
-  width: 100%;
+  width: auto;
+  margin-left: 9vw;
+  margin-right: 9vw;
   margin-bottom: 75px;
+}
+
+.careers__head{
+  display: flex;
+  padding: 10px 9vw;
+  border-bottom: 2px solid #c4c4c4;
+}
+
+.careers__head__position,
+.careers__head__type,
+.careers__head__location{
+  width: 50%;
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #c4c4c4;
+}
+
+.careers__head__type{
+  width: 30%;
+}
+
+.careers__head__location{
+  width: 20%;
+}
+
+.careers__card{
+  border-bottom: 2px solid #c4c4c4;
+}
+
+.careers__card__head{
+  display: flex;
+  padding: 35px 9vw;
+  cursor: pointer;
+}
+
+.careers__card__head__position{
+  width: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.careers__card__head__type,
+.careers__card__head__location{
+  width: 30%;
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #c4c4c4;
+}
+
+.careers__card__head__location{
+  width: 20%;
+}
+
+.careers__card__body{
+  padding: 20px 9vw 40px;
+}
+
+.careers__card__body__info{
+  display: flex;
+}
+
+.careers__card__body__info__item{
+  width: 50%;
+  padding-right: 25px;
+}
+
+.careers__card__body__info__item__title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.careers__card__body__info__item__text{
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.careers__card__body__form{
+  margin-top: 45px;
+}
+
+.careers__card__body__form__file{
+  width: 0.1px;
+  height: 0.1px;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.careers__card__body__form__file + label{
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #fa8c16;
+  padding: 12px 55px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.careers__card__body__form .button{
+  margin-left: 55px;
+  background-color: transparent;
+  border: none;
+  color: #c4c4c4;
 }
 
 .careers__text{
@@ -46,8 +171,14 @@ section{
   line-height: 26px;
   font-weight: 400;
   color: #000000;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin: 100px 9vw 50px;
+}
+
+.careers__form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 25vw;
 }
 
 .careers__file{
@@ -66,7 +197,7 @@ section{
   color: #fa8c16;
   width: 100%;
   padding: 10px 0;
-  margin-left: 15vw;
+  display: inline-block;
   cursor: pointer;
   position: relative;
 }
@@ -76,9 +207,46 @@ section{
   content: '';
   left: 0;
   bottom: 0;
-  width: 50vw;
+  width: 100%;
   height: 1px;
   background-color: #c4c4c4;
+}
+
+.careers__form .button{
+  color: #c4c4c4;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.careers__question{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100px;
+  line-height: 122px;
+  font-weight: 900;
+  color: #fa8c16;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.careers__contact{
+  font-family: 'Futura', sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #fa8c16;
+  display: flex;
+  flex-direction: column;
+}
+
+.careers__contact a{
+  color: #fa8c16;
+  text-decoration: none;
 }
 
 .footer{
