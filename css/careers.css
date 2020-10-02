@@ -259,6 +259,10 @@ section{
   display: none;
 }
 
+.footer__text a{
+  text-decoration: underline;
+}
+
 .scrollbar{
   display: none;
 }

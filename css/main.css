@@ -50,12 +50,20 @@ body {
   font-size: 16px;
   line-height: 19px;
   font-weight: 400;
-  text-decoration: none;
+	text-decoration: none;
+	transition: 0.4s;
 }
 
 .header__menu__item:hover{
-	color: #ffffff;
+	color: #fa8c16;
 	text-decoration: none;
+}
+
+.header__menu__item.active{
+	transition: 0.4s;
+	color: #fa8c16;
+	pointer-events: none;
+  cursor: auto;
 }
 
 .header__menu__item:first-child{

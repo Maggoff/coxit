@@ -2,20 +2,24 @@ let scrollbarLeft;
 
 let contentHide = document.getElementsByClassName("content__hide");
 
+let logo = document.getElementById("header__logo");
+let contacts = document.getElementById("menu__contacts");
+
 let j = 0;
 
 let jOld;
 
 if (window.location.hash == '#contacts') {
   scrollbarLeft = (16.666666 * 5);
-  contentHide[9].style.opacity = 1;
   jOld = j;
   j = 5;
+  opacityOn(j);
+  contacts.classList.add('active');
 } else {
   scrollbarLeft = 0;
-  contentHide[0].style.opacity = 1;
   jOld = j;
   j = 0;
+  opacityOn(j);
 }
 
 let scrollbar = document.getElementById('scrollbar');
@@ -56,8 +60,50 @@ const onWheel = (e) => {
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
   }
 
+  opacityOn(j);
 
-  switch (j) {
+  opacityOff(jOld);
+
+}
+
+
+// Забезпечення підтримки старих браузерів
+if (slider.addEventListener) {
+  if ('onwheel' in document) {
+    slider.addEventListener("wheel", onWheel);
+  } else if ('onmousewheel' in document) {
+    slider.addEventListener("mousewheel", onWheel);
+  } else {
+    slider.addEventListener("MozMousePixelScroll", onWheel);
+  }
+} else {
+  slider.attachEvent("onmousewheel", onWheel);
+}
+
+
+$(logo).click(function () {
+  scrollbarLeft = 0;
+  jOld = j;
+  j = 0;
+  opacityOn(j);
+  opacityOff(jOld);
+  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  
+})
+
+$(contacts).click(function () {
+  scrollbarLeft = (16.666666 * 5);
+  jOld = j;
+  j = 5;
+  opacityOn(j)
+  opacityOff(jOld);
+  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  
+})
+
+
+function opacityOn(page) {
+  switch (page) {
     case 0:
       contentHide[0].style.opacity = 1;
       break;
@@ -78,119 +124,39 @@ const onWheel = (e) => {
       contentHide[8].style.opacity = 1;
       break;
     case 5:
+      contacts.classList.add('active');
       contentHide[9].style.opacity = 1;
       break;
   }
-
-  switch (jOld) {
-    case 0:
-      contentHide[0].style.opacity = 0;
-      break;
-    case 1:
-      contentHide[1].style.opacity = 0;
-      break;
-    case 2:
-      contentHide[2].style.opacity = 0;
-      break;
-    case 3:
-      contentHide[3].style.opacity = 0;
-      contentHide[4].style.opacity = 0;
-      contentHide[5].style.opacity = 0;
-      contentHide[6].style.opacity = 0;
-      contentHide[7].style.opacity = 0;
-      break;
-    case 4:
-      contentHide[8].style.opacity = 0;
-      break;
-    case 5:
-      contentHide[9].style.opacity = 0;
-      break;
-  }
-
 }
 
-
-// Забезпечення підтримки старих браузерів
-if (slider.addEventListener) {
-  if ('onwheel' in document) {
-    slider.addEventListener("wheel", onWheel);
-  } else if ('onmousewheel' in document) {
-    slider.addEventListener("mousewheel", onWheel);
-  } else {
-    slider.addEventListener("MozMousePixelScroll", onWheel);
+function opacityOff(page) {
+  switch (page) {
+    case 0:
+      contentHide[0].style.opacity = 0;
+      break;
+    case 1:
+      contentHide[1].style.opacity = 0;
+      break;
+    case 2:
+      contentHide[2].style.opacity = 0;
+      break;
+    case 3:
+      contentHide[3].style.opacity = 0;
+      contentHide[4].style.opacity = 0;
+      contentHide[5].style.opacity = 0;
+      contentHide[6].style.opacity = 0;
+      contentHide[7].style.opacity = 0;
+      break;
+    case 4:
+      contentHide[8].style.opacity = 0;
+      break;
+    case 5:
+      contacts.classList.remove('active');
+      contentHide[9].style.opacity = 0;
+      break;
   }
-} else {
-  slider.attachEvent("onmousewheel", onWheel);
 }
-
-
-let logo = document.getElementById("header__logo");
-let contacts = document.getElementById("menu__contacts");
-
-$(logo).click(function () {
-  scrollbarLeft = 0;
-  contentHide[0].style.opacity = 1;
-  jOld = j;
-  j = 0;
-  switch (jOld) {
-    case 0:
-      contentHide[0].style.opacity = 0;
-      break;
-    case 1:
-      contentHide[1].style.opacity = 0;
-      break;
-    case 2:
-      contentHide[2].style.opacity = 0;
-      break;
-    case 3:
-      contentHide[3].style.opacity = 0;
-      contentHide[4].style.opacity = 0;
-      contentHide[5].style.opacity = 0;
-      contentHide[6].style.opacity = 0;
-      contentHide[7].style.opacity = 0;
-      break;
-    case 4:
-      contentHide[8].style.opacity = 0;
-      break;
-    case 5:
-      contentHide[9].style.opacity = 0;
-      break;
-  }
-  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-})
-
-$(contacts).click(function () {
-  scrollbarLeft = (16.666666 * 5);
-  contentHide[9].style.opacity = 1;
-  jOld = j;
-  j = 5;
-  switch (jOld) {
-    case 0:
-      contentHide[0].style.opacity = 0;
-      break;
-    case 1:
-      contentHide[1].style.opacity = 0;
-      break;
-    case 2:
-      contentHide[2].style.opacity = 0;
-      break;
-    case 3:
-      contentHide[3].style.opacity = 0;
-      contentHide[4].style.opacity = 0;
-      contentHide[5].style.opacity = 0;
-      contentHide[6].style.opacity = 0;
-      contentHide[7].style.opacity = 0;
-      break;
-    case 4:
-      contentHide[8].style.opacity = 0;
-      break;
-    case 5:
-      contentHide[9].style.opacity = 0;
-      break;
-  }
-  $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-})
-
 
 let cookie = document.getElementById("cookie");
 let cookieClose = document.getElementById("cookie__close");
@@ -294,40 +260,45 @@ function choice(choiceItem) {
   }
 }
 
+function timer() {
+  idTimer = setTimeout(function tick() {
+      let time = 0;
+      if (scrollbarLeft != (16.666666 * 5)) {
+          $('#flesh').animate({ opacity: 0.05 }, 1000);
+          $('#flesh').animate({ opacity: 0.4 }, 1000);
+          $('#scrollbar').animate({ left: '83.3%' }, 2000);
+          time += 2000;
+      }
+      if (scrollbarLeft != 0) {
+          $('#flesh').animate({ opacity: 0.05 }, 1000);
+          $('#flesh').animate({ opacity: 0.4 }, 1000);
+          $('#scrollbar').animate({ left: '0%' }, 2000);
+          time += 2000;
+      }
+      $('#flesh').animate({ opacity: 0.05 }, 1000);
+      $('#flesh').animate({ opacity: 0.4 }, 1000);
+      $('#scrollbar').animate({ left: scrollbarLeft + '%' }, 2000);
+      idTimer = setTimeout(tick, 32000 + time);
+  }, 30000);
+};
+timer();
+
 
 //Слайд за допомогою drag
-let oldx = 0;
+// let oldx = 0;
 
-const onMouseDown = (e) => {
-  dragging = true;
-  oldx = e.pageX;
-}
-const onMouseUp = (e) => {
-  const difference = e.pageX - oldx;
+// const onMouseDown = (e) => {
+//   dragging = true;
+//   oldx = e.pageX;
+// }
+// const onMouseUp = (e) => {
+//   const difference = e.pageX - oldx;
 
-  if (Math.abs(difference) > 50) {
-    const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
-    slider.scrollBy({ left: left, behavior: 'smooth' });
-  }
+//   if (Math.abs(difference) > 50) {
+//     const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+//     slider.scrollBy({ left: left, behavior: 'smooth' });
+//   }
+// }
 
-  if (difference < 0) {
-    if (scrollbarLeft < 83) {
-      scrollbarLeft = scrollbarLeft + 16.666666;
-      jOld = j;
-      j++;
-    }
-  } else {
-    if (scrollbarLeft > 0) {
-      scrollbarLeft = scrollbarLeft - 16.666666;
-      jOld = j;
-      j--;
-    }
-  }
-
-  if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-  }
-}
-
-slider.addEventListener('mousedown', onMouseDown);
-slider.addEventListener('mouseup', onMouseUp);
+// slider.addEventListener('mousedown', onMouseDown);
+// slider.addEventListener('mouseup', onMouseUp);
