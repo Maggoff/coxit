@@ -238,8 +238,8 @@
           </div>
         </div>
         <div class="form__third" id="form__third">
-          <div class="title">
-            how long do you <br> expect for a project <br> to take
+          <div class="title" id="form__third__title">
+            How long do you <br> expect for a project <br> to take
             <div class="title__box">
               <a href="javascript:void(0);" class="prev__form__third">
                 <i class="fas fa-angle-left"></i>
@@ -335,6 +335,9 @@
       </div>
       <div class="content__hide">
         <div class="blog__container">
+
+          <div id="medium-widget"></div>
+
           <div class="blog__item">
             <img src="img/blogImg.jpg" alt="#" class="blog__item__img">
             <div class="blog__item__title">
@@ -423,6 +426,8 @@
     </div>
   </footer>
 
+  <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
+  <script>MediumWidget.Init({ renderTo: '#medium-widget', params: { "resource": "https://medium.com/@iryna.mykytyn", "postsPerLine": 3, "limit": 3, "picture": "big", "fields": ["description"], "ratio": "landscape" } })</script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/slider.js"></script>
 </body>

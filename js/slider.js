@@ -9,6 +9,10 @@ let j = 0;
 
 let jOld;
 
+let thirdTitle = document.getElementById("form__third__title");
+thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 16)) - 57 + 'px';
+console.log((document.documentElement.clientHeight / (100 / 16)) - 57);
+
 if (window.location.hash == '#contacts') {
   scrollbarLeft = (16.666666 * 5);
   jOld = j;
@@ -64,6 +68,9 @@ const onWheel = (e) => {
 
   opacityOff(jOld);
 
+  clearTimeout(idTimer);
+  timer();
+
 }
 
 
@@ -88,7 +95,7 @@ $(logo).click(function () {
   opacityOn(j);
   opacityOff(jOld);
   $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-  
+
 })
 
 $(contacts).click(function () {
@@ -98,7 +105,7 @@ $(contacts).click(function () {
   opacityOn(j)
   opacityOff(jOld);
   $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-  
+
 })
 
 
@@ -262,23 +269,23 @@ function choice(choiceItem) {
 
 function timer() {
   idTimer = setTimeout(function tick() {
-      let time = 0;
-      if (scrollbarLeft != (16.666666 * 5)) {
-          $('#flesh').animate({ opacity: 0.05 }, 1000);
-          $('#flesh').animate({ opacity: 0.4 }, 1000);
-          $('#scrollbar').animate({ left: '83.3%' }, 2000);
-          time += 2000;
-      }
-      if (scrollbarLeft != 0) {
-          $('#flesh').animate({ opacity: 0.05 }, 1000);
-          $('#flesh').animate({ opacity: 0.4 }, 1000);
-          $('#scrollbar').animate({ left: '0%' }, 2000);
-          time += 2000;
-      }
+    let time = 0;
+    if (scrollbarLeft != (16.666666 * 5)) {
       $('#flesh').animate({ opacity: 0.05 }, 1000);
       $('#flesh').animate({ opacity: 0.4 }, 1000);
-      $('#scrollbar').animate({ left: scrollbarLeft + '%' }, 2000);
-      idTimer = setTimeout(tick, 32000 + time);
+      $('#scrollbar').animate({ left: '83.3%' }, 2000);
+      time += 2000;
+    }
+    if (scrollbarLeft != 0) {
+      $('#flesh').animate({ opacity: 0.05 }, 1000);
+      $('#flesh').animate({ opacity: 0.4 }, 1000);
+      $('#scrollbar').animate({ left: '0%' }, 2000);
+      time += 2000;
+    }
+    $('#flesh').animate({ opacity: 0.05 }, 1000);
+    $('#flesh').animate({ opacity: 0.4 }, 1000);
+    $('#scrollbar').animate({ left: scrollbarLeft + '%' }, 2000);
+    idTimer = setTimeout(tick, 32000 + time);
   }, 30000);
 };
 timer();

@@ -400,7 +400,7 @@ section {
 }
 
 .form__second .title .title__box{
-	margin-bottom: 7.5vh;
+	margin-bottom: 55px;
 }
 
 .form__choice{
@@ -470,7 +470,7 @@ section {
 }
 
 .form__third .title{
-	margin-top: 8.5vh;
+	margin-top: 16vh;
 }
 
 #form__third__select{
@@ -565,7 +565,7 @@ section {
 }
 
 .form__fifth .title .title__box{
-	margin-bottom: 7.5vh;
+	margin-bottom: 55px;
 }
 
 .form__fifth .fa-angle-right{
