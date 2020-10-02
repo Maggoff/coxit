@@ -187,20 +187,20 @@
       </div>
     </section>
     <section id="howCanWeHelp">
-      <div class="form">
+      <form action="php/send.php" class="form" method="POST">
         <div class="form__first" id="form__first">
           <div class="title">
             How can we help you
             <div class="title__box">
               <span>01/05</span>
-              <a href="#" class="next__form__first">
+              <a href="javascript:void(0);" class="next__form__first">
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
           </div>
           <div class="content__hide">
-            <input class="form__input" type="text" placeholder="Tell us how can we help you">
-            <a href="#" class="button line next__form__first">Next step</a>
+            <input class="form__input" name="title" type="text" placeholder="Tell us how can we help you">
+            <a href="javascript:void(0);" class="button line next__form__first">Next step</a>
           </div>
         </div>
         <div class="form__second" id="form__second">
@@ -209,18 +209,18 @@
             <br>
             in a project
             <div class="title__box">
-              <a href="#" class="prev__form__second">
+              <a href="javascript:void(0);" class="prev__form__second">
                 <i class="fas fa-angle-left"></i>
               </a>
               <span>02/05</span>
-              <a href="#" class="next__form__second">
+              <a href="javascript:void(0);" class="next__form__second">
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
           </div>
           <div class="content__hide">
             <div class="form__choice">
-              <select id="form__second__select">
+              <select name="role" id="form__second__select">
                 <option value="0">CEO/CTO</option>
                 <option value="1">Project manager</option>
                 <option value="2">Techical Lead</option>
@@ -232,8 +232,8 @@
               <div class="form__second__item">Other</div>
             </div>
             <div class="form__buttons">
-              <a href="#" class="button line next__form__second">Next step</a>
-              <a href="#blog" class="button line skip__button">Skip</a>
+              <a href="javascript:void(0);" class="button line next__form__second">Next step</a>
+              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -241,18 +241,18 @@
           <div class="title">
             how long do you <br> expect for a project <br> to take
             <div class="title__box">
-              <a href="#" class="prev__form__third">
+              <a href="javascript:void(0);" class="prev__form__third">
                 <i class="fas fa-angle-left"></i>
               </a>
               <span>03/05</span>
-              <a href="#" class="next__form__third">
+              <a href="javascript:void(0);" class="next__form__third">
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
           </div>
           <div class="content__hide">
             <div class="form__choice">
-              <select id="form__third__select">
+              <select name="period" id="form__third__select">
                 <option value="0">Less than 1 month</option>
                 <option value="1">From 1 to 3 months</option>
                 <option value="2">From 3 to 6 months</option>
@@ -264,8 +264,8 @@
               <div class="form__third__item">More than 6 months</div>
             </div>
             <div class="form__buttons">
-              <a href="#" class="button line next__form__third">Next step</a>
-              <a href="#blog" class="button line skip__button">Skip</a>
+              <a href="javascript:void(0);" class="button line next__form__third">Next step</a>
+              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -273,18 +273,18 @@
           <div class="title">
             what`s your budget
             <div class="title__box">
-              <a href="#" class="prev__form__fourth">
+              <a href="javascript:void(0);" class="prev__form__fourth">
                 <i class="fas fa-angle-left"></i>
               </a>
               <span>04/05</span>
-              <a href="#" class="next__form__fourth">
+              <a href="javascript:void(0);" class="next__form__fourth">
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
           </div>
           <div class="content__hide">
             <div class="form__choice">
-              <select id="form__fourth__select">
+              <select name="budget" id="form__fourth__select">
                 <option value="0">Less than 1000 $</option>
                 <option value="1">1000 $ - 5000 $</option>
                 <option value="2">5000 $ - 10 000 $</option>
@@ -296,8 +296,8 @@
               <div class="form__fourth__item">More than 10000 $</div>
             </div>
             <div class="form__buttons">
-              <a href="#" class="button line next__form__fourth">Next step</a>
-              <a href="#blog" class="button line skip__button">Skip</a>
+              <a href="javascript:void(0);" class="button line next__form__fourth">Next step</a>
+              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -305,7 +305,7 @@
           <div class="title">
             how can we contact <br> you
             <div class="title__box">
-              <a href="#" class="prev__form__fifth">
+              <a href="javascript:void(0);" class="prev__form__fifth">
                 <i class="fas fa-angle-left"></i>
               </a>
               <span>05/05</span>
@@ -313,12 +313,12 @@
             </div>
           </div>
           <div class="content__hide">
-            <input required class="form__input" type="email" placeholder="Your E-mail">
+            <input required class="form__input" type="email" name="email" placeholder="Your E-mail">
             <div class="form__input__required">*This field is mandatory</div>
-            <input required class="form__input" type="text" placeholder="Anything else you want to tell us">
+            <input class="form__input" type="text" name="text" placeholder="Anything else you want to tell us">
             <div class="form__buttons">
               <button class="button line next__form__fifth" type="submit">Send</button>
-              <a href="#blog" class="button line skip__button">Cancell</a>
+              <a href="javascript:void(0);" class="button line skip__button">Cancell</a>
             </div>
           </div>
         </div>
@@ -327,7 +327,7 @@
             thank you for <br> contacting. we will <br> reach you back as soon <br> as possible.
           </div>
         </div>
-      </div>
+      </form>
     </section>
     <section id="blog">
       <div class="title">
