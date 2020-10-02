@@ -136,6 +136,7 @@ section{
 
 .careers__card__body__form{
   margin-top: 45px;
+  transition: 0.4s;
 }
 
 .careers__card__body__form__file{

@@ -54,7 +54,6 @@ const onWheel = (e) => {
 
   if (scrollbarLeft > -1 && scrollbarLeft < 99) {
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-    // document.location.hash = hashs[j];
   }
 
 
@@ -296,21 +295,39 @@ function choice(choiceItem) {
 }
 
 
-// Слайд за допомогою drag
-// let oldx = 0;
+//Слайд за допомогою drag
+let oldx = 0;
 
-// const onMouseDown = (e) => {
-// 	dragging = true;
-// 	oldx = e.pageX;
-// }
-// const onMouseUp = (e) => {
-// 	const difference = e.pageX - oldx;
+const onMouseDown = (e) => {
+  dragging = true;
+  oldx = e.pageX;
+}
+const onMouseUp = (e) => {
+  const difference = e.pageX - oldx;
 
-// 	if (Math.abs(difference) > 50) {
-// 		const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
-// 		slider.scrollBy({ left: left, behavior: 'smooth' });
-// 	}
-// }
+  if (Math.abs(difference) > 50) {
+    const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+    slider.scrollBy({ left: left, behavior: 'smooth' });
+  }
 
-// slider.addEventListener('mousedown', onMouseDown);
-// slider.addEventListener('mouseup', onMouseUp);
+  if (difference < 0) {
+    if (scrollbarLeft < 83) {
+      scrollbarLeft = scrollbarLeft + 16.666666;
+      jOld = j;
+      j++;
+    }
+  } else {
+    if (scrollbarLeft > 0) {
+      scrollbarLeft = scrollbarLeft - 16.666666;
+      jOld = j;
+      j--;
+    }
+  }
+
+  if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  }
+}
+
+slider.addEventListener('mousedown', onMouseDown);
+slider.addEventListener('mouseup', onMouseUp);
