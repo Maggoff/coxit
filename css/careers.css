@@ -76,7 +76,6 @@ section{
 .careers__card__head{
   display: flex;
   padding: 35px 9vw;
-  cursor: pointer;
 }
 
 .careers__card__head__position{
@@ -156,7 +155,6 @@ section{
   background-color: #fa8c16;
   padding: 12px 55px;
   margin: 0;
-  cursor: pointer;
 }
 
 .careers__card__body__form .button{
@@ -199,7 +197,6 @@ section{
   width: 100%;
   padding: 10px 0;
   display: inline-block;
-  cursor: pointer;
   position: relative;
 }
 
@@ -218,7 +215,6 @@ section{
   background-color: transparent;
   border: none;
   outline: none;
-  cursor: pointer;
   display: inline-block;
   margin-top: 25px;
   margin-bottom: 20px;

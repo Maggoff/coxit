@@ -178,7 +178,6 @@ section {
 
 .cookie img{
 	margin-right: 10px;
-	cursor: pointer;
 }
 
 .cookie a{
@@ -243,6 +242,17 @@ section {
 
 .weCanHelp__container__item:first-child .weCanHelp__container__item__background__text{
 	right: -50px;
+}
+
+.weCanHelp__check{
+	position: absolute;
+	left: 0;
+	top: 88px;
+	height: 8px;
+	width: 8px;
+	border-radius: 90px;
+	background-color: #fa8c16;
+	opacity: 1;
 }
 
 .weCanHelp__container__item__title{
@@ -594,7 +604,7 @@ section {
 	background-color: transparent;
 	border: none;
 	outline: none;
-	cursor: pointer;
+	cursor: none;
 }
 
 .form__sixth{
@@ -638,6 +648,10 @@ section {
 	height: 100%;
 }
 
+.medium-widget-article__image{
+	cursor: none;
+}
+
 .medium-widget-article__column .medium-widget-article__image img{
 	width: 100%;
 	margin: 0;
@@ -658,6 +672,7 @@ section {
 	color: #ffffff;
 	text-transform: uppercase;
 	padding: 0 10px;
+	cursor: none;
 	text-shadow: -5px -5px 10px rgba(8, 55, 219, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 

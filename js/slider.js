@@ -33,6 +33,19 @@ $(document).ready(function () {
 
   // let hashs = ['#main', '#weCanHelp', '#whoWe', '#howCanWeHelp', '#blog', '#contacts'];
 
+
+  let weCanHelpCheck = document.getElementById("weCanHelp__check");
+
+  function timerCheck() {
+    idTimer = setTimeout(function tick() {
+      $(weCanHelpCheck).animate({height: '12px', width: '12px', left: '-2px', top: '86px'}, 400);
+      $(weCanHelpCheck).animate({height: '8px', width: '8px', left: '0px', top: '88px'}, 400);
+      idTimer = setTimeout(tick, 2800);
+    }, 2000);
+  };
+  timerCheck();
+
+
   let itemServices = document.getElementsByClassName("weCanHelp__container__item");
   let itemBlog = document.getElementsByClassName("medium-widget-article__item");
   let footer = document.getElementById("footer");
@@ -42,14 +55,13 @@ $(document).ready(function () {
   zIndex(itemServices, footer);
 
   function zIndex(itemHover, footerZ) {
-    console.log("function");
     for (let i = 0; i < itemHover.length; i++) {
-      console.log("for");
       $(itemHover[i]).hover(function () {
-        console.log("hover");
+        $(weCanHelpCheck).animate({ opacity: 0 }, 400, function () {
+          weCanHelpCheck.style.display = 'none';
+        });
         footerZ.style.zIndex = -2;
       }, function () {
-        console.log("hoveroff")
         footerZ.style.zIndex = 2;
       })
     }
@@ -96,7 +108,7 @@ $(document).ready(function () {
 
     itemBlog = document.getElementsByClassName("medium-widget-article__item");
 
-    if(z == 0){
+    if (z == 0) {
       zIndex(itemBlog, footer);
       z++;
     }

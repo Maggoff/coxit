@@ -7,10 +7,15 @@
   <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
   <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/cursor.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
+
+  <div class="cursor cursor--small"></div>
+  <canvas class="cursor cursor--canvas" resize></canvas>
+
   <header class="header">
     <a href="#main" class="header__logo" id="header__logo">
       <img src="img/logo.svg" alt="Logo">
@@ -47,6 +52,7 @@
       <div class="content__hide">
         <div class="weCanHelp__container">
           <div class="weCanHelp__container__item">
+            <span class="weCanHelp__check" id="weCanHelp__check"></span>
             <div class="weCanHelp__container__item__title">
               API <br> Design
             </div>
@@ -402,6 +408,8 @@
 
   <script>MediumWidget.Init({ renderTo: '#medium-widget', params: { "resource": "https://medium.com/@iryna.mykytyn", "postsPerLine": 3, "limit": 3, "picture": "big", "fields": ["description"], "ratio": "landscape" } })</script>
   <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/paper-full.js"></script>
+  <script src="js/cursor.js"></script>
   <script src="js/slider.js"></script>
 </body>
 
