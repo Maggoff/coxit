@@ -295,9 +295,9 @@ $(document).ready(function () {
     idTimer = setTimeout(function tick() {
       let time = 0;
       if (scrollbarLeft != (16.666666 * 5)) {
-        $('#flesh').animate({ opacity: 0.05 }, 1000);
-        $('#flesh').animate({ opacity: 0.4 }, 1000);
-        $('#scrollbar').animate({ left: '83.3%' }, 2000);
+        $('#flesh').finish().animate({ opacity: 0.05 }, 1000);
+        $('#flesh').finish().animate({ opacity: 0.4 }, 1000);
+        $('#scrollbar').finish().animate({ left: '83.3%' }, 2000);
         time += 2000;
       }
       if (scrollbarLeft != 0) {
