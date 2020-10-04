@@ -117,7 +117,7 @@ $(document).ready(function () {
     const left = delta > 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
 
     slider.scrollBy({ left: left, behavior: 'smooth' });
-    setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 1000);
+    setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 600);
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
     if (delta > 0) {
@@ -137,7 +137,7 @@ $(document).ready(function () {
     }
 
     if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-      $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
+      $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
     }
 
 
@@ -178,7 +178,7 @@ $(document).ready(function () {
     if(document.documentElement.clientWidth > 768){
       opacityOn(j);
     }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
   })
 
   $(contacts).click(function () {
@@ -189,7 +189,7 @@ $(document).ready(function () {
     if(document.documentElement.clientWidth > 768){
       opacityOn(j);
     }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
   })
 
 
