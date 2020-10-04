@@ -11,18 +11,7 @@ $(document).ready(function () {
   let jOld;
 
   let thirdTitle = document.getElementById("form__third__title");
-  thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 7)) - 57 + 'px';
-
-  let a = document.getElementsByTagName("a");
-  let cursor = document.getElementById("cursor--small");
-
-  for (let i = 0; i < a.length; i++) {
-    $(a[i]).hover(function () {
-      $(cursor).animate({ width: 14, height: 14, left: -7, top: -7 }, 100);
-    }, function () {
-      $(cursor).animate({ width: 10, height: 10, left: -5, top: -5 }, 100);
-    })
-  }
+  thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 12)) - 57 + 'px';
 
   if (window.location.hash == '#contacts') {
     scrollbarLeft = (16.666666 * 5);
@@ -128,7 +117,7 @@ $(document).ready(function () {
     const left = delta > 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
 
     slider.scrollBy({ left: left, behavior: 'smooth' });
-    setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 600);
+    setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 1000);
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
     if (delta > 0) {
@@ -148,7 +137,7 @@ $(document).ready(function () {
     }
 
     if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-      $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+      $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
     }
 
 
@@ -189,7 +178,7 @@ $(document).ready(function () {
     if(document.documentElement.clientWidth > 768){
       opacityOn(j);
     }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
   })
 
   $(contacts).click(function () {
@@ -200,7 +189,7 @@ $(document).ready(function () {
     if(document.documentElement.clientWidth > 768){
       opacityOn(j);
     }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 1000);
   })
 
 

@@ -434,7 +434,7 @@ section {
 
 .form__second__item{
 	width: 23%;
-	height: 12vh;
+	min-height: 12vh;
 	padding: 23px 20px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
@@ -497,7 +497,7 @@ section {
 
 .form__third__item{
 	width: 23%;
-	height: 12vh;
+	min-height: 12vh;
 	padding: 20px 20px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
@@ -543,7 +543,7 @@ section {
 .form__fourth__item{
 	margin-top: 7.5vh;
 	width: 23%;
-	height: 12vh;
+	min-height: 12vh;
 	padding: 20px 20px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
@@ -704,7 +704,7 @@ section {
 }
 
 .contacts__address{
-	margin-top: 65px;
+	margin-top: 6vh;
 	font-family: 'Futura', sans-serif;
 	font-size: 22px;
 	line-height: 26px;
@@ -731,7 +731,7 @@ section {
 }
 
 .sotial__title{
-	margin-top: 70px;
+	margin-top: 5vh;
 	margin-bottom: 5px;
 	font-family: 'Futura', sans-serif;
 	font-size: 22px;
@@ -842,7 +842,7 @@ section {
 		font-size: 38px;
 		line-height: 46px;
 		width: 100%;
-		margin-top: 7vh;
+		margin-top: 11vh;
 	}
 	
 	.title__after{
@@ -861,7 +861,7 @@ section {
 	}
 	
 	#weCanHelp .title{
-		margin-top: 7vh;
+		margin-top: 11vh;
 		width: 100%;
 	}
 
@@ -928,7 +928,7 @@ section {
 	}
 
 	#whoWe .title{
-		margin-top: 7vh;
+		margin-top: 11vh;
 		width: 100%;
 	}
 	
@@ -962,7 +962,7 @@ section {
 	}
 	
 	.form__second .title{
-		margin-top: 7vh;
+		margin-top: 11vh;
 	}
 	
 	.form__second .title .title__box{
@@ -1018,7 +1018,7 @@ section {
 	}
 
 	#blog .title{
-		margin-bottom: 7vh;
+		margin-bottom: 5vh;
 	}
 
 	#blog .weCanHelp__container__item__text{
@@ -1078,12 +1078,91 @@ section {
 	}
 
 	.footer__text:last-of-type{
-		width: 50%;
+		width: 40%;
 		text-align: right;
 	}
 
 	.footer__text a{
 		text-decoration: underline;
+	}
+
+}
+
+@media (max-width: 450px) and (max-height: 750px){
+
+	.mobile__card__head{
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+
+}
+
+@media (max-width: 450px) and (max-height: 700px){
+
+	.title{
+		font-size: 34px;
+		line-height: 38px;
+	}
+
+	#howCanWeHelp .title{
+		min-height: 20vh;
+		height: auto;
+	}
+
+	.form__fifth .form__input{
+		margin-top: 30px;
+	}
+
+}
+
+@media (max-width: 450px) and (max-height: 600px){
+
+	.title{
+		font-size: 28px;
+		margin-top: 6vh;
+	}
+
+	#weCanHelp .title{
+		margin-top: 6vh;
+	}
+
+	#whoWe .title{
+		margin-top: 6vh;
+	}
+
+	#howCanWeHelp .title{
+		margin-top: 6vh;
+	}
+
+}
+
+@media (max-width: 400px){
+
+	.footer__text:last-of-type{
+		width: 50%;
+	}
+
+}
+
+@media (max-width: 400px) and (max-height: 700px){
+
+	
+
+}
+
+@media (max-width: 355px){
+
+	.title{
+		font-size: 32px;
+		line-height: 38px;
+	}
+
+}
+
+@media (max-width: 320px){
+
+	.footer__text:last-of-type{
+		width: 55%;
 	}
 
 }
