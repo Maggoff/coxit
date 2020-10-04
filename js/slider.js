@@ -8,23 +8,36 @@ $(document).ready(function () {
   let contacts = document.getElementById("menu__contacts");
 
   let j = 0;
-
   let jOld;
 
   let thirdTitle = document.getElementById("form__third__title");
-  thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 16)) - 57 + 'px';
+  thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 7)) - 57 + 'px';
+
+  let a = document.getElementsByTagName("a");
+  let cursor = document.getElementById("cursor--small");
+
+  for (let i = 0; i < a.length; i++) {
+    $(a[i]).hover(function () {
+      $(cursor).animate({ width: 14, height: 14, left: -7, top: -7 }, 100);
+    }, function () {
+      $(cursor).animate({ width: 10, height: 10, left: -5, top: -5 }, 100);
+    })
+  }
 
   if (window.location.hash == '#contacts') {
     scrollbarLeft = (16.666666 * 5);
     jOld = j;
     j = 5;
-    opacityOn(j);
-    contacts.classList.add('active');
+    if(document.documentElement.clientWidth > 768){
+      opacityOn(j);
+    }
   } else {
     scrollbarLeft = 0;
     jOld = j;
     j = 0;
-    opacityOn(j);
+    if(document.documentElement.clientWidth > 768){
+      opacityOn(j);
+    }
   }
 
   let scrollbar = document.getElementById('scrollbar');
@@ -36,14 +49,26 @@ $(document).ready(function () {
 
   let weCanHelpCheck = document.getElementById("weCanHelp__check");
 
-  function timerCheck() {
+  timerCheck(weCanHelpCheck);
+
+  function timerCheck(check) {
     idTimer = setTimeout(function tick() {
-      $(weCanHelpCheck).animate({height: '12px', width: '12px', left: '-2px', top: '86px'}, 400);
-      $(weCanHelpCheck).animate({height: '8px', width: '8px', left: '0px', top: '88px'}, 400);
+      $(check).animate({ height: '120px', width: '120px', left: '-2px', top: '86px' }, 400);
+      $(check).animate({ height: '8px', width: '8px', left: '0px', top: '88px' }, 400);
       idTimer = setTimeout(tick, 2800);
     }, 2000);
   };
-  timerCheck();
+
+  let weCanHelpCheckMobile = document.getElementById("weCanHelp__check__mobile");
+  let weCanHelpMobile = document.getElementsByClassName("mobile__card__head");
+
+  for(let i = 0; i<weCanHelpMobile.length; i++){
+    $(weCanHelpMobile).click(function(){
+      $(weCanHelpCheckMobile).animate({opacity: 0}, 400, function(){
+        weCanHelpCheckMobile.style.display = 'none';
+      })
+    })
+  }
 
 
   let itemServices = document.getElementsByClassName("weCanHelp__container__item");
@@ -57,7 +82,7 @@ $(document).ready(function () {
   function zIndex(itemHover, footerZ) {
     for (let i = 0; i < itemHover.length; i++) {
       $(itemHover[i]).hover(function () {
-        $(weCanHelpCheck).animate({ opacity: 0 }, 400, function () {
+        $(weCanHelpCheck).finish().animate({ opacity: 0 }, 400, function () {
           weCanHelpCheck.style.display = 'none';
         });
         footerZ.style.zIndex = -2;
@@ -66,6 +91,31 @@ $(document).ready(function () {
       })
     }
   }
+
+
+  function timer() {
+    clearTimeout(idTimer);
+    idTimer = setTimeout(function tick() {
+      let time = 0;
+      if (scrollbarLeft != (16.666666 * 5)) {
+        $('#flesh').finish().animate({ opacity: 0.05 }, 1000);
+        $('#flesh').finish().animate({ opacity: 0.4 }, 1000);
+        $(scrollbar).finish().animate({ left: '83.3%' }, 2000);
+        time += 2000;
+      }
+      if (scrollbarLeft != 0) {
+        $('#flesh').animate({ opacity: 0.05 }, 1000);
+        $('#flesh').animate({ opacity: 0.4 }, 1000);
+        $(scrollbar).animate({ left: '0%' }, 2000);
+        time += 2000;
+      }
+      $('#flesh').animate({ opacity: 0.05 }, 1000);
+      $('#flesh').animate({ opacity: 0.4 }, 1000);
+      $(scrollbar).animate({ left: scrollbarLeft + '%' }, 2000);
+      idTimer = setTimeout(tick, 32000 + time);
+    }, 30000);
+  };
+  timer();
 
 
   const slider = document.getElementById('slider');
@@ -86,12 +136,14 @@ $(document).ready(function () {
         scrollbarLeft = scrollbarLeft + 16.666666;
         jOld = j;
         j++;
+        timer();
       }
     } else {
       if (scrollbarLeft > 0) {
         scrollbarLeft = scrollbarLeft - 16.666666;
         jOld = j;
         j--;
+        timer();
       }
     }
 
@@ -99,12 +151,11 @@ $(document).ready(function () {
       $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
     }
 
-    opacityOn(j);
 
-    opacityOff(jOld);
+    if(document.documentElement.clientWidth > 768){
+      opacityOn(j);
+    }
 
-    clearTimeout(idTimer);
-    timer();
 
     itemBlog = document.getElementsByClassName("medium-widget-article__item");
 
@@ -134,78 +185,114 @@ $(document).ready(function () {
     scrollbarLeft = 0;
     jOld = j;
     j = 0;
-    opacityOn(j);
-    opacityOff(jOld);
+    timer();
+    if(document.documentElement.clientWidth > 768){
+      opacityOn(j);
+    }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
   })
 
   $(contacts).click(function () {
     scrollbarLeft = (16.666666 * 5);
     jOld = j;
     j = 5;
-    opacityOn(j)
-    opacityOff(jOld);
+    timer();
+    if(document.documentElement.clientWidth > 768){
+      opacityOn(j);
+    }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
   })
 
 
   function opacityOn(page) {
     switch (page) {
       case 0:
+        logo.classList.add('active');
+        contacts.classList.remove('active');
         contentHide[0].style.opacity = 1;
-        break;
-      case 1:
-        contentHide[1].style.opacity = 1;
-        break;
-      case 2:
-        contentHide[2].style.opacity = 1;
-        break;
-      case 3:
-        contentHide[3].style.opacity = 1;
-        contentHide[4].style.opacity = 1;
-        contentHide[5].style.opacity = 1;
-        contentHide[6].style.opacity = 1;
-        contentHide[7].style.opacity = 1;
-        break;
-      case 4:
-        contentHide[8].style.opacity = 1;
-        break;
-      case 5:
-        contacts.classList.add('active');
-        contentHide[9].style.opacity = 1;
-        break;
-    }
-  }
-
-  function opacityOff(page) {
-    switch (page) {
-      case 0:
-        contentHide[0].style.opacity = 0;
-        break;
-      case 1:
         contentHide[1].style.opacity = 0;
-        break;
-      case 2:
         contentHide[2].style.opacity = 0;
-        break;
-      case 3:
         contentHide[3].style.opacity = 0;
         contentHide[4].style.opacity = 0;
         contentHide[5].style.opacity = 0;
         contentHide[6].style.opacity = 0;
         contentHide[7].style.opacity = 0;
+        contentHide[8].style.opacity = 0;
+        contentHide[9].style.opacity = 0;
+        break;
+      case 1:
+        logo.classList.remove('active');
+        contacts.classList.remove('active');
+        contentHide[0].style.opacity = 0;
+        contentHide[1].style.opacity = 1;
+        contentHide[2].style.opacity = 0;
+        contentHide[3].style.opacity = 0;
+        contentHide[4].style.opacity = 0;
+        contentHide[5].style.opacity = 0;
+        contentHide[6].style.opacity = 0;
+        contentHide[7].style.opacity = 0;
+        contentHide[8].style.opacity = 0;
+        contentHide[9].style.opacity = 0;
+        break;
+      case 2:
+        logo.classList.remove('active');
+        contacts.classList.remove('active');
+        contentHide[0].style.opacity = 0;
+        contentHide[1].style.opacity = 0;
+        contentHide[2].style.opacity = 1;
+        contentHide[3].style.opacity = 0;
+        contentHide[4].style.opacity = 0;
+        contentHide[5].style.opacity = 0;
+        contentHide[6].style.opacity = 0;
+        contentHide[7].style.opacity = 0;
+        contentHide[8].style.opacity = 0;
+        contentHide[9].style.opacity = 0;
+        break;
+      case 3:
+        logo.classList.remove('active');
+        contacts.classList.remove('active');
+        contentHide[0].style.opacity = 0;
+        contentHide[1].style.opacity = 0;
+        contentHide[2].style.opacity = 0;
+        contentHide[3].style.opacity = 1;
+        contentHide[4].style.opacity = 1;
+        contentHide[5].style.opacity = 1;
+        contentHide[6].style.opacity = 1;
+        contentHide[7].style.opacity = 1;
+        contentHide[8].style.opacity = 0;
+        contentHide[9].style.opacity = 0;
         break;
       case 4:
-        contentHide[8].style.opacity = 0;
+        logo.classList.remove('active');
+        contacts.classList.remove('active');
+        contentHide[0].style.opacity = 0;
+        contentHide[1].style.opacity = 0;
+        contentHide[2].style.opacity = 0;
+        contentHide[3].style.opacity = 0;
+        contentHide[4].style.opacity = 0;
+        contentHide[5].style.opacity = 0;
+        contentHide[6].style.opacity = 0;
+        contentHide[7].style.opacity = 0;
+        contentHide[8].style.opacity = 1;
+        contentHide[9].style.opacity = 0;
         break;
       case 5:
-        contacts.classList.remove('active');
-        contentHide[9].style.opacity = 0;
+        logo.classList.remove('active');
+        contacts.classList.add('active');
+        contentHide[0].style.opacity = 0;
+        contentHide[1].style.opacity = 0;
+        contentHide[2].style.opacity = 0;
+        contentHide[3].style.opacity = 0;
+        contentHide[4].style.opacity = 0;
+        contentHide[5].style.opacity = 0;
+        contentHide[6].style.opacity = 0;
+        contentHide[7].style.opacity = 0;
+        contentHide[8].style.opacity = 0;
+        contentHide[9].style.opacity = 1;
         break;
     }
   }
+
 
   let cookie = document.getElementById("cookie");
   let cookieClose = document.getElementById("cookie__close");
@@ -291,28 +378,34 @@ $(document).ready(function () {
     }
   }
 
-  function timer() {
-    idTimer = setTimeout(function tick() {
-      let time = 0;
-      if (scrollbarLeft != (16.666666 * 5)) {
-        $('#flesh').finish().animate({ opacity: 0.05 }, 1000);
-        $('#flesh').finish().animate({ opacity: 0.4 }, 1000);
-        $('#scrollbar').finish().animate({ left: '83.3%' }, 2000);
-        time += 2000;
-      }
-      if (scrollbarLeft != 0) {
-        $('#flesh').animate({ opacity: 0.05 }, 1000);
-        $('#flesh').animate({ opacity: 0.4 }, 1000);
-        $('#scrollbar').animate({ left: '0%' }, 2000);
-        time += 2000;
-      }
-      $('#flesh').animate({ opacity: 0.05 }, 1000);
-      $('#flesh').animate({ opacity: 0.4 }, 1000);
-      $('#scrollbar').animate({ left: scrollbarLeft + '%' }, 2000);
-      idTimer = setTimeout(tick, 32000 + time);
-    }, 30000);
-  };
-  timer();
+
+  let blogItemTitle = document.getElementsByClassName("medium-widget-article__title");
+  let blogItemDescript = document.getElementsByClassName("medium-widget-article__description");
+
+  let blogTitleOne = document.getElementById("headingOneBlog");
+  let blogTitleTwo = document.getElementById("headingTwoBlog");
+  let blogTitleThree = document.getElementById("headingThreeBlog");
+  let blogDescriptionOne = document.getElementById("collapseOneBlog");
+  let blogDescriptionTwo = document.getElementById("collapseTwoBlog");
+  let blogDescriptionThree = document.getElementById("collapseThreeBlog");
+
+window.onload = function(){
+  blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
+  blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
+  blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
+
+  blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+  blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+  blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+}
+
+  // blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
+  // blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
+  // blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
+
+  // blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+  // blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+  // blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
 
 
   //Слайд за допомогою drag

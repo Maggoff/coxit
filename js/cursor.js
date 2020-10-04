@@ -47,7 +47,7 @@ const initCanvas = () => {
   const strokeColor = "#ffffff";
   const strokeWidth = 1;
   const segments = 8;
-  let radius = 15;
+  let radius = 20;
   
   // we'll need these later for the noisy circle
   const noiseScale = 150; // speed

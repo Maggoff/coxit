@@ -29,6 +29,14 @@ body {
 	transition: 0.4s ease;
 }
 
+.desctop{
+	display: block;
+}
+
+.mobile{
+	display: none;
+}
+
 .header{
 	height: 11.5vh;
   display: flex;
@@ -59,7 +67,8 @@ body {
 	text-decoration: none;
 }
 
-.header__menu__item.active{
+.header__menu__item.active,
+.header__logo.active{
 	transition: 0.4s;
 	color: #fa8c16;
 	pointer-events: none;
@@ -118,7 +127,7 @@ section {
 	color: #ffffff;
 	text-transform: uppercase;
 	width: 70%;
-	margin-top: 16vh;
+	margin-top: 12vh;
 	text-shadow: -5px -5px 10px rgba(8, 55, 219, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -190,14 +199,14 @@ section {
 }
 
 #weCanHelp .title{
-	margin-top: 15vh;
+	margin-top: 12vh;
 	width: 50%;
 }
 
 .weCanHelp__container{
 	display: flex;
 	justify-content: space-between;
-	height: 70%;
+	height: 100%;
 	position: absolute;
 }
 
@@ -281,7 +290,6 @@ section {
 	color: transparent;
 	transition: 0.4s;
 	margin-top: 10px;
-	/* height: 100%; */
 	user-select: none;
 }
 
@@ -308,7 +316,7 @@ section {
 }
 
 #whoWe .title{
-	margin-top: 18vh;
+	margin-top: 12vh;
 	letter-spacing: 2px;
 }
 
@@ -406,7 +414,7 @@ section {
 }
 
 .form__second .title{
-	margin-top: 16vh;
+	margin-top: 12vh;
 }
 
 .form__second .title .title__box{
@@ -435,7 +443,7 @@ section {
 	color: #ffffff;
 	text-transform: uppercase;
 	position: relative;
-	cursor: pointer;
+	cursor: none;
 }
 
 .form__second__item::after{
@@ -480,7 +488,7 @@ section {
 }
 
 .form__third .title{
-	margin-top: 16vh;
+	margin-top: 12vh;
 }
 
 #form__third__select{
@@ -498,7 +506,7 @@ section {
 	color: #ffffff;
 	text-transform: uppercase;
 	position: relative;
-	cursor: pointer;
+	cursor: none;
 }
 
 .form__third__item::after{
@@ -544,7 +552,7 @@ section {
 	color: #ffffff;
 	text-transform: uppercase;
 	position: relative;
-	cursor: pointer;
+	cursor: none;
 }
 
 .form__fourth__item::after{
@@ -690,23 +698,6 @@ section {
 	color: #ffffff;
 }
 
-/* .blog__item__btn{
-	display: inline-block;
-	margin: 20px 10px 0;
-	opacity: 0;
-	user-select: none;
-	transition: 0.4s;
-}
-
-.blog__item:hover .blog__item__btn{
-	opacity: 1;
-	user-select: auto;
-}
-
-.blog__item__btn.line::after{
-	background-color: #ffffff;
-} */
-
 #contacts{
 	min-width: 92.5vw;
 	margin-right: 0;
@@ -776,9 +767,9 @@ section {
 	align-items: center;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	top: 88.8vh;
 	width: 82%;
-	z-index: 2
+	z-index: 2;
 }
 
 .footer::before{
@@ -851,7 +842,7 @@ section {
 		font-size: 38px;
 		line-height: 46px;
 		width: 100%;
-		margin-top: 11vh;
+		margin-top: 7vh;
 	}
 	
 	.title__after{
@@ -865,8 +856,211 @@ section {
 		bottom: 17vh;
 	}
 
+	#weCanHelp{
+		padding: 0 6vw;
+	}
+	
+	#weCanHelp .title{
+		margin-top: 7vh;
+		width: 100%;
+	}
+
+	.mobile{
+		display: block;
+	}
+
+	.mobile__card{
+		color: #ffffff;
+	}
+
+	.mobile__card__head{
+		padding-top: 20px;
+		padding-bottom: 15px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 900;
+		text-transform: uppercase;
+		padding-left: 15px;
+		position: relative;
+	}
+
+	.weCanHelp__check{
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 8px;
+		width: 8px;
+		border-radius: 90px;
+		background-color: #fa8c16;
+		opacity: 1;
+	}
+
+	.mobile__card__body{
+		padding-top: 0px;
+	}
+
+	.weCanHelp__container__item__text{
+		font-family: 'Futura', sans-serif;
+		font-size: 14px;
+		line-height: 17px;
+		font-weight: 400;
+		text-transform: capitalize;
+		width: 75%;
+	}
+
+	.weCanHelp__container__item__button{
+		font-family: 'Futura', sans-serif;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 400;
+		color: #ffffff;
+	}
+
+	.weCanHelp__container__item__button:hover{
+		color: #ffffff;
+		text-decoration: none;
+	}
+
+	#whoWe{
+		padding: 0 6vw;
+	}
+
+	#whoWe .title{
+		margin-top: 7vh;
+		width: 100%;
+	}
+	
+	#whoWe .title__after{
+		margin-top: 7vh;
+		margin-bottom: 7vh;
+		width: 100%;
+	}
+	
+	.button{
+		font-size: 20px;
+		line-height: 24px;
+	}
+
+	#howCanWeHelp{
+		padding: 0 6vw;
+	}
+	
+	#howCanWeHelp .title{
+		width: 100%;
+		height: 25vh;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		letter-spacing: 2px;
+	}
+	
+	.form__input{
+		margin-top: 7vh;
+	}
+	
+	.form__second .title{
+		margin-top: 7vh;
+	}
+	
+	.form__second .title .title__box{
+		margin-bottom: 0;
+	}
+	
+	.form__choice{
+		margin-top: 1vh;
+		flex-wrap: wrap;
+	}
+	
+	#form__second__select{
+		display: none;
+	}
+	
+	.form__second__item{
+		width: 47%;
+		margin-bottom: 3vh;
+	}
+	
+	.form__second .button{
+		margin-top: 0vh;
+	}
+	#howCanWeHelp .form__third .title{
+		height: auto;
+	}
+	
+	.form__third__item{
+		width: 47%;
+		margin-bottom: 3vh;
+	}
+
+	.form__third .button{
+		margin-top: 0vh;
+	}
+	
+	.form__fourth__item{
+		margin-top: 0vh;
+		width: 47%;
+		margin-bottom: 3vh;
+	}
+	
+	.form__fourth .button{
+		margin-top: 0vh;
+	}
+	
+	.form__fifth .title .title__box{
+		margin-bottom: 0px;
+	}
+
+	#blog{
+		padding: 0 6vw;;
+	}
+
+	#blog .title{
+		margin-bottom: 7vh;
+	}
+
+	#blog .weCanHelp__container__item__text{
+		width: 100%;
+	}
+
+	#contacts{
+		min-width: 100vw;
+		padding: 0 6vw;
+	}
+	
+	.contacts__address{
+		font-size: 20px;
+		line-height: 24px;
+	}
+	
+	.contacts__email{
+		font-size: 20px;
+		line-height: 24px;
+	}
+	
+	.contacts__phone{
+		font-size: 20px;
+		line-height: 24px;
+	}
+	
+	.sotial__title{
+		font-size: 20px;
+		line-height: 24px;
+	}
+	
+	.sotial__icon{
+		margin-right: 12px;
+	}
+	
+	.content__hide{
+		opacity: 1;
+	}
+
 	.footer{
 		height: 15vh;
+		top: 85vh;
 		margin: 0 6vw;
 		width: 88%;
 		align-items: flex-start;
@@ -886,6 +1080,10 @@ section {
 	.footer__text:last-of-type{
 		width: 50%;
 		text-align: right;
+	}
+
+	.footer__text a{
+		text-decoration: underline;
 	}
 
 }

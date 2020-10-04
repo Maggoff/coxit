@@ -3,8 +3,7 @@ body{
 }
 
 section{
-  padding-top: 16vh;
-  margin: 0 9vw;
+  padding: 16vh 9vw;
 }
 
 .screen{
@@ -34,6 +33,7 @@ section{
   text-shadow: none;
   margin-left: 9vw;
   margin-right: 9vw;
+  text-transform: none;
 }
 
 .careers .title__after{
@@ -50,6 +50,11 @@ section{
   border-bottom: 2px solid #c4c4c4;
 }
 
+.careers__card__head__box{
+  display: flex;
+  width: 50%;
+}
+
 .careers__head__position,
 .careers__head__type,
 .careers__head__location{
@@ -62,11 +67,11 @@ section{
 }
 
 .careers__head__type{
-  width: 30%;
+  width: 60%;
 }
 
 .careers__head__location{
-  width: 20%;
+  width: 40%;
 }
 
 .careers__card{
@@ -261,4 +266,132 @@ section{
 
 .scrollbar{
   display: none;
+}
+
+@media (max-width: 768px) {
+
+  section{
+    padding: 10vh 6vw;
+  }
+  
+  .screen{
+    height: 90vh;
+  }
+  
+  .arrowDown{
+    position: absolute;
+    right: 9vw;
+    bottom: 8vh;
+    transform: rotate(180deg);
+  }
+  
+  .title{
+    margin-bottom: 10vh;
+  }
+  
+  .careers{
+    padding: 70px 0 50px;
+  }
+  
+  .careers .title{
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-bottom: 10px;
+  }
+  
+  .careers .title__after{
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-bottom: 55px;
+  }
+  
+  .careers__head{
+    padding: 10px 6vw;
+  }
+  
+  .careers__head__position{
+    width: 70%;
+  }
+  
+  .careers__head__type{
+    display: none;
+  }
+  
+  .careers__head__location{
+    width: 30%;
+  }
+  
+  .careers__card__head{
+    padding: 25px 6vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .careers__card__head__box{
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .careers__card__head__position{
+    width: 100%;
+  }
+  
+  .careers__card__head__type,
+  .careers__card__head__location{
+    width: 70%;
+  }
+  
+  .careers__card__head__location{
+    width: 30%;
+  }
+  
+  .careers__card__body{
+    padding: 20px 6vw 40px;
+  }
+  
+  .careers__card__body__info{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .careers__card__body__info__item{
+    width: 100%;
+    padding-right: 0px;
+    margin-bottom: 30px;
+  }
+  
+  .careers__card__body__info__item__text{
+    font-size: 20px;
+    line-height: 24px;
+  }
+  
+  .careers__card__body__form{
+    margin-top: 5px;
+  }
+  
+  .careers__text{
+    font-size: 20px;
+    line-height: 24px;
+    margin: 70px 6vw 40px;
+  }
+  
+  .careers__form{
+    margin: 0 6vw;
+  }
+  
+  .careers__question{
+    font-size: 53px;
+    line-height: 65px;
+    margin-bottom: 25px;
+  }
+  
+  .careers__contact{
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .footer{
+    top: 0;
+  }
+
 }
