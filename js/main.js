@@ -6,7 +6,7 @@ $(document).ready(function () {
     event.preventDefault();
     let id = $(this).attr('href');
     let top = $(id).offset().left;
-    topOld += top;
+    topOld += (-(document.documentElement.clientWidth / (100 / 9)) + top);
     console.log(top);
     console.log(topOld);
     $('#slider').animate({ scrollLeft: topOld}, 600);

@@ -11,4 +11,10 @@ $(document).ready(function () {
     send[0].classList.add('active');
   });
 
+  window.addEventListener('scroll', function() {
+    if(pageYOffset == 0){
+      document.location = 'index.html';
+    };
+  });
+
 })
