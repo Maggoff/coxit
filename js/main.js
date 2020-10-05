@@ -1,10 +1,15 @@
 $(document).ready(function () {
 
-  $("#header__logo, #menu__contacts").click(function (event) {
+  let topOld = 0;
+
+  $("#header__logo, #menu__contacts, #menu__weCanHelp").click(function (event) {
     event.preventDefault();
-    let id = $(this).attr('href'),
-      top = $(id).offset().left;
-    $('#slider').animate({ scrollLeft: top }, 600);
+    let id = $(this).attr('href');
+    let top = $(id).offset().left;
+    topOld += top;
+    console.log(top);
+    console.log(topOld);
+    $('#slider').animate({ scrollLeft: topOld}, 600);
   });
 
 
@@ -14,6 +19,7 @@ $(document).ready(function () {
 
   let logo = document.getElementById("header__logo");
   let contacts = document.getElementById("menu__contacts");
+  let weCanHelp = document.getElementById("menu__weCanHelp")
 
   let j = 0;
   let jOld;
@@ -196,6 +202,17 @@ $(document).ready(function () {
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
   })
 
+  $(weCanHelp).click(function () {
+    scrollbarLeft = (16.666666 * 1);
+    jOld = j;
+    j = 1;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  })
+
   $(contacts).click(function () {
     scrollbarLeft = (16.666666 * 5);
     jOld = j;
@@ -212,6 +229,7 @@ $(document).ready(function () {
     switch (page) {
       case 0:
         logo.classList.add('active');
+        weCanHelp.classList.remove('active');
         contacts.classList.remove('active');
         contentHide[0].style.opacity = 1;
         contentHide[1].style.opacity = 0;
@@ -226,6 +244,7 @@ $(document).ready(function () {
         break;
       case 1:
         logo.classList.remove('active');
+        weCanHelp.classList.add('active');
         contacts.classList.remove('active');
         contentHide[0].style.opacity = 0;
         contentHide[1].style.opacity = 1;
@@ -240,6 +259,7 @@ $(document).ready(function () {
         break;
       case 2:
         logo.classList.remove('active');
+        weCanHelp.classList.remove('active');
         contacts.classList.remove('active');
         contentHide[0].style.opacity = 0;
         contentHide[1].style.opacity = 0;
@@ -254,6 +274,7 @@ $(document).ready(function () {
         break;
       case 3:
         logo.classList.remove('active');
+        weCanHelp.classList.remove('active');
         contacts.classList.remove('active');
         contentHide[0].style.opacity = 0;
         contentHide[1].style.opacity = 0;
@@ -268,6 +289,7 @@ $(document).ready(function () {
         break;
       case 4:
         logo.classList.remove('active');
+        weCanHelp.classList.remove('active');
         contacts.classList.remove('active');
         contentHide[0].style.opacity = 0;
         contentHide[1].style.opacity = 0;
@@ -282,6 +304,7 @@ $(document).ready(function () {
         break;
       case 5:
         logo.classList.remove('active');
+        weCanHelp.classList.remove('active');
         contacts.classList.add('active');
         contentHide[0].style.opacity = 0;
         contentHide[1].style.opacity = 0;

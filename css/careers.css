@@ -387,6 +387,18 @@ section{
   
   .careers__card__body__form{
     margin-top: 5px;
+    display: flex;
+  }
+
+  .careers__card__body__form__file + label{
+    /* width: 100%; */
+    word-wrap: break-word;
+    width: 80%;
+  }
+
+  .careers__card__body__form .button{
+    margin-left: 0;
+    width: 20%;
   }
   
   .careers__text{
@@ -397,6 +409,10 @@ section{
   
   .careers__form{
     margin: 0 6vw;
+  }
+
+  .careers__file + label::after{
+    word-wrap: normal;
   }
   
   .careers__question{
@@ -412,6 +428,15 @@ section{
 
   .footer{
     top: 0;
+  }
+
+}
+
+@media (max-width: 360px){
+
+  .careers__question{
+    font-size: 46px;
+    line-height: 50px;
   }
 
 }
