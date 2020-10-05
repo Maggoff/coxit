@@ -307,6 +307,10 @@ section {
 	text-decoration: none;
 }
 
+.weCanHelp__container__item__button:hover{
+	text-decoration: none;
+}
+
 .weCanHelp__container__item:hover .weCanHelp__container__item__button{
 	color: #ffffff;
 }
@@ -428,7 +432,13 @@ section {
 }
 
 #form__second__select{
-	display: none;
+	width: 0.1px;
+	height: 0.1px;
+	left: 0;
+	top: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .form__second__item{
@@ -683,6 +693,11 @@ section {
 	text-shadow: -5px -5px 10px rgba(8, 55, 219, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
+.medium-widget-article__title:hover{
+	color: #ffffff;
+	text-decoration: none;
+}
+
 .medium-widget-article__item:hover .medium-widget-article__title{
 	text-shadow: -5px -5px 10px rgba(255, 77, 0, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
@@ -800,7 +815,8 @@ section {
 }
 
 .footer__text a{
-  color: #ffffff;
+	color: #ffffff;
+	text-decoration: underline;
 }
 
 @media(max-width: 768px) {

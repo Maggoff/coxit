@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+  $("#header__logo, #menu__contacts").click(function (event) {
+    event.preventDefault();
+    let id = $(this).attr('href'),
+      top = $(id).offset().left;
+    $('#slider').animate({ scrollLeft: top }, 600);
+  });
+
+
   let scrollbarLeft;
 
   let contentHide = document.getElementsByClassName("content__hide");
@@ -17,14 +25,21 @@ $(document).ready(function () {
     scrollbarLeft = (16.666666 * 5);
     jOld = j;
     j = 5;
-    if(document.documentElement.clientWidth > 768){
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+  } else if (window.location.hash == '#whoWe') {
+    scrollbarLeft = (16.666666 * 2);
+    jOld = j;
+    j = 2;
+    if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
   } else {
     scrollbarLeft = 0;
     jOld = j;
     j = 0;
-    if(document.documentElement.clientWidth > 768){
+    if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
   }
@@ -51,9 +66,9 @@ $(document).ready(function () {
   let weCanHelpCheckMobile = document.getElementById("weCanHelp__check__mobile");
   let weCanHelpMobile = document.getElementsByClassName("mobile__card__head");
 
-  for(let i = 0; i<weCanHelpMobile.length; i++){
-    $(weCanHelpMobile).click(function(){
-      $(weCanHelpCheckMobile).animate({opacity: 0}, 400, function(){
+  for (let i = 0; i < weCanHelpMobile.length; i++) {
+    $(weCanHelpMobile).click(function () {
+      $(weCanHelpCheckMobile).animate({ opacity: 0 }, 400, function () {
         weCanHelpCheckMobile.style.display = 'none';
       })
     })
@@ -141,7 +156,7 @@ $(document).ready(function () {
     }
 
 
-    if(document.documentElement.clientWidth > 768){
+    if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
 
@@ -175,7 +190,7 @@ $(document).ready(function () {
     jOld = j;
     j = 0;
     timer();
-    if(document.documentElement.clientWidth > 768){
+    if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
@@ -186,7 +201,7 @@ $(document).ready(function () {
     jOld = j;
     j = 5;
     timer();
-    if(document.documentElement.clientWidth > 768){
+    if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
@@ -352,17 +367,23 @@ $(document).ready(function () {
   let choiceThird = document.getElementsByClassName("form__third__item");
   let choiceFourth = document.getElementsByClassName("form__fourth__item");
 
-  choice(choiceSecond);
-  choice(choiceThird);
-  choice(choiceFourth);
+  let selectChoiseSecond = document.getElementById("form__second__select");
+  let selectChoiseThird = document.getElementById("form__third__select");
+  let selectChoiseFourth = document.getElementById("form__fourth__select");
 
-  function choice(choiceItem) {
+  choice(choiceSecond, selectChoiseSecond);
+  choice(choiceThird, selectChoiseThird);
+  choice(choiceFourth, selectChoiseFourth);
+
+  function choice(choiceItem, select) {
     let choiceOld = choiceItem[0];
     for (let i = 0; i < choiceItem.length; i++) {
       $(choiceItem[i]).click(function () {
         choiceOld.classList.remove("active");
         choiceItem[i].classList.add("active");
         choiceOld = choiceItem[i];
+        select.options[i].selected = 'true';
+        console.log(select.options);
       })
     }
   }
@@ -378,15 +399,15 @@ $(document).ready(function () {
   let blogDescriptionTwo = document.getElementById("collapseTwoBlog");
   let blogDescriptionThree = document.getElementById("collapseThreeBlog");
 
-window.onload = function(){
-  blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
-  blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
-  blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
+  window.onload = function () {
+    blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
+    blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
+    blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
 
-  blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-  blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-  blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-}
+    blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+    blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+    blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+  }
 
   // blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
   // blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;

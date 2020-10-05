@@ -167,6 +167,14 @@ section{
   background-color: transparent;
   border: none;
   color: #c4c4c4;
+  cursor: none;
+  pointer-events: none;
+  outline: none;
+}
+
+.careers__card__body__form .button.active{
+  pointer-events: all;
+  color: #fa8c16;
 }
 
 .careers__text{
@@ -223,6 +231,13 @@ section{
   display: inline-block;
   margin-top: 25px;
   margin-bottom: 20px;
+  cursor: none;
+  pointer-events: none;
+}
+
+.careers__form .button.active{
+  pointer-events: all;
+  color: #fa8c16;
 }
 
 .careers__question{
@@ -251,9 +266,14 @@ section{
   text-decoration: none;
 }
 
+.careers__contact a:hover{
+  text-decoration: underline;
+}
+
 .footer{
   position: relative;
   background-color: #232323;
+  top: 0;
 }
 
 .footer::before{
