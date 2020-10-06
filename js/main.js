@@ -1,15 +1,13 @@
 $(document).ready(function () {
 
-  let topOld = 0;
+  const slider = document.getElementById('slider');
 
   $("#header__logo, #menu__contacts, #menu__weCanHelp").click(function (event) {
     event.preventDefault();
     let id = $(this).attr('href');
     let top = $(id).offset().left;
-    topOld += (-(document.documentElement.clientWidth / (100 / 9)) + top);
-    console.log(top);
-    console.log(topOld);
-    $('#slider').animate({ scrollLeft: topOld}, 600);
+    top = slider.scrollLeft + top;
+    $(slider).animate({ scrollLeft: top}, 600);
   });
 
 
@@ -127,8 +125,6 @@ $(document).ready(function () {
   };
   timer();
 
-
-  const slider = document.getElementById('slider');
 
   const onWheel = (e) => {
     slider.removeEventListener("wheel", onWheel);
