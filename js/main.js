@@ -7,7 +7,7 @@ $(document).ready(function () {
     let id = $(this).attr('href');
     let top = $(id).offset().left;
     top = slider.scrollLeft + top;
-    $(slider).animate({ scrollLeft: top}, 600);
+    $(slider).animate({ scrollLeft: top }, 600);
   });
 
 
@@ -125,6 +125,89 @@ $(document).ready(function () {
   };
   timer();
 
+  let oldScroll = 0;
+  let block = 'false';
+  let blockOld = 100;
+
+  let scrollToThis = 0;
+
+  
+
+  // const onScrollY = (e) => {
+  //   slider.removeEventListener("scroll", onScrollY);
+  //   e = e || window.event;
+
+  //   let delta;
+
+  //   if (slider.scrollLeft > oldScroll) {
+  //     oldScroll = slider.scrollLeft;
+  //     console.log('js');
+  //     delta = 1;
+  //   } else if (slider.scrollLeft < oldScroll){
+  //     oldScroll = slider.scrollLeft;
+  //     delta = -1;
+  //   } else{
+  //     delta = 0;
+  //   }
+    
+
+  //   console.log(delta);
+
+  //   const left = delta > 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+
+  //   // slider.scrollBy({ left: left, behavior: 'smooth' });
+  //   setTimeout(() => { slider.addEventListener("scroll", onScrollY); }, 600);
+  //   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+  //   if (delta > 0) {
+  //     if (scrollbarLeft < 83) {
+  //       scrollbarLeft = scrollbarLeft + 16.666666;
+  //       jOld = j;
+  //       j++;
+  //       timer();
+  //     }
+  //   } else {
+  //     if (scrollbarLeft > 0) {
+  //       scrollbarLeft = scrollbarLeft - 16.666666;
+  //       jOld = j;
+  //       j--;
+  //       timer();
+  //     }
+  //   }
+
+  //   if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+  //     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  //   }
+
+  // }
+
+  // slider.addEventListener("scroll", onScrollY);
+
+  // slider.addEventListener('scroll', function () {
+  //   if (slider.scrollLeft > oldScroll) {
+  //     oldScroll = slider.scrollLeft;
+  //     // scrollToThis += (document.documentElement.clientWidth / (100 / 91));
+  //     // $(slider).animate({ scrollLeft: scrollToThis }, 600, function () {
+  //     //   block = 'false';
+  //     // });
+  //     scrollToThis++;
+  //     $(scrollbar).animate({ left: scrollToThis + '%' }, 20);
+  //     console.log("right");
+  //   } else {
+  //     oldScroll = slider.scrollLeft;
+  //     scrollToThis--;
+  //     $(scrollbar).animate({ left: scrollToThis + '%' }, 20);
+  //   }
+  //   // } else {
+  //   //   block--;
+  //   //   oldScroll = slider.scrollLeft;
+  //   //   scrollToThis -= (document.documentElement.clientWidth / (100 / 91));
+  //   //   $(slider).animate({ scrollLeft: scrollToThis }, 600);
+  //   //   console.log("left");
+
+  //   // }
+  //   // }
+  // });
 
   const onWheel = (e) => {
     slider.removeEventListener("wheel", onWheel);
