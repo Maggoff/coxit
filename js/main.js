@@ -57,26 +57,26 @@ $(document).ready(function () {
 
   let weCanHelpCheck = document.getElementById("weCanHelp__check");
 
-  timerCheck(weCanHelpCheck);
+  timerCheck(weCanHelpCheck, 12, 12, -2, 86);
 
-  function timerCheck(check) {
-    idTimer = setTimeout(function tick() {
-      $(check).animate({ height: '120px', width: '120px', left: '-2px', top: '86px' }, 400);
-      $(check).animate({ height: '8px', width: '8px', left: '0px', top: '88px' }, 400);
-      idTimer = setTimeout(tick, 2800);
-    }, 2000);
+  function timerCheck(check, height, width, left, top) {
+    setTimeout(function tick() {
+      $(check).animate({ height: height, width: width, left: left, top: top }, 400);
+      $(check).animate({ height: height - 4, width: width - 4, left: left + 2, top: top + 2 }, 400);
+      setTimeout(tick, 800);
+    }, 0);
   };
 
   let weCanHelpCheckMobile = document.getElementById("weCanHelp__check__mobile");
   let weCanHelpMobile = document.getElementsByClassName("mobile__card__head");
 
-  for (let i = 0; i < weCanHelpMobile.length; i++) {
-    $(weCanHelpMobile).click(function () {
-      $(weCanHelpCheckMobile).animate({ opacity: 0 }, 400, function () {
-        weCanHelpCheckMobile.style.display = 'none';
-      })
+  timerCheck(weCanHelpCheckMobile, 12, 12, -2, '55%');
+
+  $(weCanHelpMobile).click(function () {
+    $(weCanHelpCheckMobile).finish().animate({ opacity: 0 }, 400, function () {
+      weCanHelpCheckMobile.style.display = 'none';
     })
-  }
+  })
 
 
   let itemServices = document.getElementsByClassName("weCanHelp__container__item");
@@ -100,6 +100,7 @@ $(document).ready(function () {
     }
   }
 
+  let idTimer;
 
   function timer() {
     clearTimeout(idTimer);
@@ -438,7 +439,6 @@ $(document).ready(function () {
   changeNext(nextFourth, formFourth, formFifth);
 
   changePrev(prevFifth, formFifth, formFourth);
-  changeNext(nextFifth, formFifth, formSixth);
 
   function changePrev(prev, currentSlide, changeSlide) {
     for (let i = 0; i < prev.length; i++) {
@@ -490,18 +490,35 @@ $(document).ready(function () {
     }
   }
 
+  $(nextFifth).click(function () {
 
-  let blogItemTitle = document.getElementsByClassName("medium-widget-article__title");
-  let blogItemDescript = document.getElementsByClassName("medium-widget-article__description");
+    let inputEmail = document.getElementById("input__email");
+    let inputRequired = document.getElementsByClassName("form__input__required");
 
-  let blogTitleOne = document.getElementById("headingOneBlog");
-  let blogTitleTwo = document.getElementById("headingTwoBlog");
-  let blogTitleThree = document.getElementById("headingThreeBlog");
-  let blogDescriptionOne = document.getElementById("collapseOneBlog");
-  let blogDescriptionTwo = document.getElementById("collapseTwoBlog");
-  let blogDescriptionThree = document.getElementById("collapseThreeBlog");
+    console.log(inputRequired[0].style);
+
+    if (!inputEmail.value) {
+      inputRequired[0].style.display = 'block';
+    } else {
+      changeNext(nextFifth, formFifth, formSixth);
+    }
+
+  })
+
+
 
   window.onload = function () {
+    let blogItemTitle = document.getElementsByClassName("medium-widget-article__title");
+    let blogItemDescript = document.getElementsByClassName("medium-widget-article__description");
+
+    let blogTitleOne = document.getElementById("headingOneBlog");
+    let blogTitleTwo = document.getElementById("headingTwoBlog");
+    let blogTitleThree = document.getElementById("headingThreeBlog");
+    let blogDescriptionOne = document.getElementById("collapseOneBlog");
+    let blogDescriptionTwo = document.getElementById("collapseTwoBlog");
+    let blogDescriptionThree = document.getElementById("collapseThreeBlog");
+
+
     blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
     blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
     blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
@@ -511,58 +528,49 @@ $(document).ready(function () {
     blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
   }
 
-  // blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
-  // blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
-  // blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
-
-  // blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-  // blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-  // blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-
-
   //Слайд за допомогою drag
 
-  if (document.documentElement.clientWidth < 768) {
+  // if (document.documentElement.clientWidth < 768) {
 
 
-    let oldx = 0;
+  //   let oldx = 0;
 
-    const onMouseDown = (e) => {
-      dragging = true;
-      oldx = e.pageX;
-    }
-    const onMouseUp = (e) => {
-      const difference = e.pageX - oldx;
+  //   const onMouseDown = (e) => {
+  //     dragging = true;
+  //     oldx = e.pageX;
+  //   }
+  //   const onMouseUp = (e) => {
+  //     const difference = e.pageX - oldx;
 
-      if (Math.abs(difference) > 50) {
-        const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
-        slider.scrollBy({ left: left, behavior: 'smooth' });
-      }
+  //     if (Math.abs(difference) > 50) {
+  //       const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+  //       slider.scrollBy({ left: left, behavior: 'smooth' });
+  //     }
 
-      if (difference < 0) {
-        if (scrollbarLeft < 83) {
-          scrollbarLeft = scrollbarLeft + 16.666666;
-          jOld = j;
-          j++;
-          timer();
-        }
-      } else {
-        if (scrollbarLeft > 0) {
-          scrollbarLeft = scrollbarLeft - 16.666666;
-          jOld = j;
-          j--;
-          timer();
-        }
-      }
+  //     if (difference < 0) {
+  //       if (scrollbarLeft < 83) {
+  //         scrollbarLeft = scrollbarLeft + 16.666666;
+  //         jOld = j;
+  //         j++;
+  //         timer();
+  //       }
+  //     } else {
+  //       if (scrollbarLeft > 0) {
+  //         scrollbarLeft = scrollbarLeft - 16.666666;
+  //         jOld = j;
+  //         j--;
+  //         timer();
+  //       }
+  //     }
 
-      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-      }
+  //     if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+  //       $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+  //     }
 
-    }
+  //   }
 
-    slider.addEventListener('mousedown', onMouseDown);
-    slider.addEventListener('mouseup', onMouseUp);
-  }
+  //   slider.addEventListener('mousedown', onMouseDown);
+  //   slider.addEventListener('mouseup', onMouseUp);
+  // }
 
 });

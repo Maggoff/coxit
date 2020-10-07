@@ -256,7 +256,7 @@
       </div>
     </section>
     <section id="howCanWeHelp">
-      <form action="/" class="form" method="POST">
+      <form action="" class="form" method="POST">
         <div class="form__first" id="form__first">
           <div class="title">
             How can we help you
@@ -302,7 +302,6 @@
             </div>
             <div class="form__buttons">
               <a href="javascript:void(0);" class="button line next__form__second">Next step</a>
-              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -334,7 +333,6 @@
             </div>
             <div class="form__buttons">
               <a href="javascript:void(0);" class="button line next__form__third">Next step</a>
-              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -366,7 +364,6 @@
             </div>
             <div class="form__buttons">
               <a href="javascript:void(0);" class="button line next__form__fourth">Next step</a>
-              <a href="javascript:void(0);" class="button line skip__button">Skip</a>
             </div>
           </div>
         </div>
@@ -382,12 +379,11 @@
             </div>
           </div>
           <div class="content__hide">
-            <input required class="form__input" type="email" name="email" placeholder="Your E-mail" autocomplete="off">
+            <input required class="form__input" id="input__email" type="email" name="email" placeholder="Your E-mail" autocomplete="off" oninvalid="this.setCustomValidity(' ')">
             <div class="form__input__required">*This field is mandatory</div>
             <input class="form__input" type="text" name="text" placeholder="Anything else you want to tell us" autocomplete="off">
             <div class="form__buttons">
               <button class="button line next__form__fifth" type="submit">Send</button>
-              <a href="javascript:void(0);" class="button line skip__button">Cancell</a>
             </div>
           </div>
         </div>

@@ -11,9 +11,12 @@ section{
 }
 
 .arrowDown{
-  position: absolute;
+  position: fixed;
   right: 9vw;
   bottom: 8vh;
+  z-index: 3;
+  background-color: #fa8c16;
+  transition: 0.4s;
 }
 
 .title{
@@ -156,6 +159,7 @@ section{
   font-size: 22px;
   line-height: 26px;
   font-weight: 400;
+  text-align: center;
   color: #ffffff;
   background-color: #fa8c16;
   padding: 12px 55px;
@@ -296,13 +300,6 @@ section{
   
   .screen{
     height: 90vh;
-  }
-  
-  .arrowDown{
-    position: absolute;
-    right: 9vw;
-    bottom: 8vh;
-    transform: rotate(180deg);
   }
   
   .title{
