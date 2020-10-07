@@ -209,50 +209,84 @@ $(document).ready(function () {
   //   // }
   // });
 
+  let delta;
+  let marker = true;
+  let counter1 = 0;
+  let counter2;
+
+  const wheelEnd = () => {
+    counter1 = 0;
+    counter2 = null;
+    direction = null;
+    marker = true;
+  }
+
+  const wheelAct = () => {
+    counter2 = counter1;
+    setTimeout(() => {
+      if (counter2 == counter1) {
+        wheelEnd();
+      } else {
+        wheelAct();
+      }
+    }, 50);
+  }
+
+  const wheelStart = () => {
+    marker = false;
+    wheelAct();
+  }
+
   const onWheel = (e) => {
-    slider.removeEventListener("wheel", onWheel);
-    e = e || window.event;
+    counter1 += 1;
+    delta = e.deltaY;
+    
+    if (marker) { 
+      wheelStart();
+      let left;
 
-    const delta = e.deltaY || e.detail || e.wheelDelta;
-    const left = delta > 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+      if (delta > 1)
+        left = window.innerWidth * 0.8;
+      if (delta < -1)
+        left = -window.innerWidth * 0.8;
 
-    slider.scrollBy({ left: left, behavior: 'smooth' });
-    setTimeout(() => { slider.addEventListener("wheel", onWheel); }, 600);
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-    if (delta > 0) {
-      if (scrollbarLeft < 83) {
-        scrollbarLeft = scrollbarLeft + 16.666666;
-        jOld = j;
-        j++;
-        timer();
+      if (delta > 1) {
+        if (scrollbarLeft < 83) {
+          scrollbarLeft = scrollbarLeft + 16.666666;
+          jOld = j;
+          j++;
+          timer();
+        }
+      } else if (delta < -1) {
+        if (scrollbarLeft > 0) {
+          scrollbarLeft = scrollbarLeft - 16.666666;
+          jOld = j;
+          j--;
+          timer();
+        }
       }
-    } else {
-      if (scrollbarLeft > 0) {
-        scrollbarLeft = scrollbarLeft - 16.666666;
-        jOld = j;
-        j--;
-        timer();
+
+      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+      }
+
+
+      if (document.documentElement.clientWidth > 768) {
+        opacityOn(j);
+      }
+
+
+      itemBlog = document.getElementsByClassName("medium-widget-article__item");
+
+      if (z == 0) {
+        zIndex(itemBlog, footer);
+        z++;
       }
     }
-
-    if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-      $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-    }
-
-
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-
-
-    itemBlog = document.getElementsByClassName("medium-widget-article__item");
-
-    if (z == 0) {
-      zIndex(itemBlog, footer);
-      z++;
-    }
-
+    return false;
   }
 
 
@@ -521,22 +555,65 @@ $(document).ready(function () {
 
 
   //Слайд за допомогою drag
-  // let oldx = 0;
+  /*let oldx = 0;
 
-  // const onMouseDown = (e) => {
-  //   dragging = true;
-  //   oldx = e.pageX;
-  // }
-  // const onMouseUp = (e) => {
-  //   const difference = e.pageX - oldx;
+  const onMouseDown = (e) => {
+     dragging = true;
+     oldx = e.pageX;
+  }
+  const onMouseUp = (e) => {
+     const difference = e.pageX - oldx;
 
-  //   if (Math.abs(difference) > 50) {
-  //     const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
-  //     slider.scrollBy({ left: left, behavior: 'smooth' });
-  //   }
-  // }
+     if (Math.abs(difference) > 50) {
+       const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
+       slider.scrollBy({ left: left, behavior: 'smooth' });
+     }
+   }
 
-  // slider.addEventListener('mousedown', onMouseDown);
-  // slider.addEventListener('mouseup', onMouseUp);
+   slider.addEventListener('mousedown', onMouseDown);
+   slider.addEventListener('mouseup', onMouseUp);*/
+
+  let lastX;
+  slider.addEventListener('touchstart', (e) => {
+    lastX = e.touches ? e.touches[0].pageX : e.pageX;
+  });
+
+  let currentX;
+  slider.addEventListener('touchmove', (e) => {
+    currentX = e.touches ? e.touches[0].pageX : e.pageX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    if (Math.abs(currentX - lastX) > 80) {
+      if (currentX > lastX) {
+        const left = -window.innerWidth * 0.8;
+        slider.scrollBy({ left: left, behavior: 'smooth' });
+        
+
+        if (scrollbarLeft > 0) {
+          scrollbarLeft = scrollbarLeft - 16.666666;
+          jOld = j;
+          j--;
+          timer();
+        }
+      }
+      else {
+        const left = window.innerWidth * 0.8;
+        slider.scrollBy({ left: left, behavior: 'smooth' });
+        
+
+        if (scrollbarLeft < 83) {
+          scrollbarLeft = scrollbarLeft + 16.666666;
+          jOld = j;
+          j++;
+          timer();
+        }
+      }
+
+      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+      }
+    }
+  });
 
 });
