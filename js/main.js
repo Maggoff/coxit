@@ -538,6 +538,27 @@ $(document).ready(function () {
         const left = difference < 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
         slider.scrollBy({ left: left, behavior: 'smooth' });
       }
+
+      if (difference < 0) {
+        if (scrollbarLeft < 83) {
+          scrollbarLeft = scrollbarLeft + 16.666666;
+          jOld = j;
+          j++;
+          timer();
+        }
+      } else {
+        if (scrollbarLeft > 0) {
+          scrollbarLeft = scrollbarLeft - 16.666666;
+          jOld = j;
+          j--;
+          timer();
+        }
+      }
+
+      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+      }
+
     }
 
     slider.addEventListener('mousedown', onMouseDown);
