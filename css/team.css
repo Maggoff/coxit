@@ -7,9 +7,12 @@ section{
 }
 
 .arrowDown{
-  position: absolute;
+  position: fixed;
   right: 9vw;
   bottom: 8vh;
+  z-index: 3;
+  transition: 0.4s;
+  background-color: #fa8c16;
 }
 
 .title{
@@ -128,10 +131,6 @@ section{
   section{
     margin: 0 6vw;
     min-width: 88vw;
-  }
-  
-  .arrowDown{
-    transform: rotate(180deg);
   }
   
   .title{
