@@ -394,6 +394,7 @@ section {
 	background-color: transparent;
 	padding: 10px 0;
 	border: none;
+	border-radius: 0;
 	border-bottom: 1px solid #ffffff;
 	outline: none;
 	color: #fa8c16;
@@ -609,7 +610,12 @@ section {
 	line-height: 17px;
 	font-weight: 400;
 	color: #982e00;
+	display: none;
 }
+
+/* #input__email:invalid + .form__input__required{
+	display: block;
+} */
 
 .form__fifth .form__input:last-of-type{
 	margin-top: 0;
@@ -995,7 +1001,6 @@ section {
 	
 	.form__second__item{
 		width: 47%;
-		height: 100%;
 		margin-bottom: 3vh;
 	}
 	
