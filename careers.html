@@ -103,10 +103,11 @@
               </div>
             </div>
           </div>
-          <form action="" method="POST" class="careers__card__body__form">
+          <form action="/sendResume" method="POST" class="careers__card__body__form" enctype="multipart/form-data">
             <input type="file" name="file" id="fileJuniorIos" class="careers__card__body__form__file">
             <label for="fileJuniorIos">Attach Resume</label>
             <button type="submit" class="button line">Send</button>
+            <input type="text" name="position" value="Junior IOS Developer" style="display: none;" />
           </form>
         </div>
       </div>
@@ -151,10 +152,11 @@
               </div>
             </div>
           </div>
-          <form action="" method="POST" class="careers__card__body__form">
+          <form action="/sendResume" method="POST" class="careers__card__body__form" enctype="multipart/form-data">
             <input type="file" name="file" id="fileSeniorUx" class="careers__card__body__form__file">
             <label for="fileSeniorUx">Attach Resume</label>
             <button type="submit" class="button line">Send</button>
+            <input type="text" name="position" value="Senior UX Designer" style="display: none;" />
           </form>
         </div>
       </div>
@@ -199,10 +201,11 @@
               </div>
             </div>
           </div>
-          <form action="" method="POST" class="careers__card__body__form">
+          <form action="/sendResume" method="POST" class="careers__card__body__form" enctype="multipart/form-data">
             <input type="file" name="file" id="fileProjectMan" class="careers__card__body__form__file">
             <label for="fileProjectMan">Attach Resume</label>
             <button type="submit" class="button line">Send</button>
+            <input type="text" name="position" value="Project Manager" style="display: none;" />
           </form>
         </div>
       </div>
@@ -247,10 +250,11 @@
               </div>
             </div>
           </div>
-          <form action="" method="POST" class="careers__card__body__form">
+          <form action="/sendResume" method="POST" class="careers__card__body__form" enctype="multipart/form-data">
             <input type="file" name="file" id="fileJuniorJs" class="careers__card__body__form__file">
             <label for="fileJuniorJs">Attach Resume</label>
             <button type="submit" class="button line">Send</button>
+            <input type="text" name="position" value="Junior JS Developer" style="display: none;" />
           </form>
         </div>
       </div>
@@ -259,7 +263,7 @@
       We are always looking for talents. If there aren`t any positions that feet your preferences send us your resume,
       and we will contact you when suitable position opens.
     </div>
-    <form action="/" method="POST" class="careers__form">
+    <form action="/sendResume" method="POST" class="careers__form" enctype="multipart/form-data">
       <input type="file" name="file" id="file" class="careers__file">
       <label for="file">Attach your resume here</label>
       <button type="submit" class="button line">Send</button>

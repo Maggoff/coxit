@@ -486,14 +486,31 @@ $(document).ready(function () {
     }
   }
 
+
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+
   function changeNext(next, currentSlide, changeSlide) {
     for (let i = 0; i < next.length; i++) {
       $(next[i]).click(function () {
-        $(currentSlide).animate({ opacity: 0 }, 400, function () {
-          currentSlide.style.display = 'none';
-          changeSlide.style.display = 'block';
-        });
-        $(changeSlide).animate({ opacity: 1 }, 400);
+        if (next[i].classList.contains('next__form__fifth')) {
+          if (validateEmail($("#inputEmail").val())) {
+            $(currentSlide).animate({ opacity: 0 }, 400, function () {
+              currentSlide.style.display = 'none';
+              changeSlide.style.display = 'block';
+            });
+            $(changeSlide).animate({ opacity: 1 }, 400);
+          }
+        } else {
+          $(currentSlide).animate({ opacity: 0 }, 400, function () {
+            currentSlide.style.display = 'none';
+            changeSlide.style.display = 'block';
+          });
+          $(changeSlide).animate({ opacity: 1 }, 400);
+        }
       })
     }
   }
