@@ -86,7 +86,7 @@ body {
   display: flex;
 	scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-	overflow-x: scroll;
+	overflow-x: hidden;
 	overflow-y: hidden;
 	height: 88.5vh;
 }
