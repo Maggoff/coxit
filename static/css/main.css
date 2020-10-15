@@ -96,7 +96,7 @@ section {
   min-width: 82vw;
 	scroll-snap-align: start;
 	scroll-margin: 9vw;
-	margin-right: 5vw;
+	margin-right: 5vw;	
 }
 
 /* Поки зі скролбаром є проблема: зменшення товщини */
@@ -116,6 +116,8 @@ section {
 #main {
 	padding-left: 9vw;
 	min-width: 91vw;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .title{
@@ -1197,4 +1199,15 @@ section {
 		width: 55%;
 	}
 
+}
+
+
+/* IMAGE ANIMATION CONTAINER */
+.imageanimation {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: calc(90.5vh * 1.78);
+	height: 90.5vh;
+	z-index: 0;
 }
