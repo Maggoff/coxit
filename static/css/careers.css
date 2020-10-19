@@ -1,5 +1,7 @@
 body{
   overflow-y: scroll;
+  padding-top: 11.5vh;
+  overflow-x: hidden;
 }
 
 section{
@@ -7,7 +9,10 @@ section{
 }
 
 .screen{
+  position: relative;
   height: 88.5vh;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .arrowDown{

@@ -22,8 +22,8 @@ export default class Particles {
 
 
 			// 0.5625 - for images with 640x360 
-			this.width = this.webgl.width;
-			this.height = this.webgl.height;
+			this.width = texture.image.width;
+			this.height = texture.image.height;
 
 			this.initPoints(true);
 			this.initHitArea();
@@ -66,9 +66,9 @@ export default class Particles {
 
 		const uniforms = {
 			uTime: { value: 0 },
-			uRandom: { value: 3.05 },
-			uDepth: { value: 1.0 },
-			uSize: { value: 2.41 },
+			uRandom: { value: 1.27 },
+			uDepth: { value: 1.27 },
+			uSize: { value: 1.25 },
 			uTextureSize: { value: new THREE.Vector2(this.width, this.height) },
 			uTexture: { value: this.texture },
 			uTouch: { value: null },
@@ -172,9 +172,9 @@ export default class Particles {
 
 	show(time = 1.0) {
 		// reset
-		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time, { value: 0.5 }, { value: 2.41 });
-		TweenLite.to(this.object3D.material.uniforms.uRandom, time, { value: 3.05 });
-		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 1.5, { value: 40.0 }, { value: 1.0 });
+		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time, { value: 0.5 }, { value: 1.25 });
+		TweenLite.to(this.object3D.material.uniforms.uRandom, time, { value: 1.27 });
+		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 1.5, { value: 40.0 }, { value: 1.27 });
 
 		this.addListeners();
 	}
