@@ -122,7 +122,7 @@ app.post('/sendEmail', (req, res) => {
 
     const mailOptions = {
         from: 'mail@coxit.co',
-        to: 'leha.volodymyr@gmail.com',
+        to: 'volodymyr.hresko@coxit.co,iryna.mykytyn@coxit.co',
         subject: `[Help Me] ${req.body.email}`,
         html: `<p>Letter was send by <b>${req.body.email}</b></p>
                 ${title}${role}${period}${budget}${additional}`
@@ -169,16 +169,23 @@ app.post('/sendResume', (req, res) => {
     req.busboy.on('finish', () => {
         if (!error) {
             const transporter = nodemailer.createTransport({
-                service: process.env.EMAIL_SERVICE,
+                host: 'coxit.co',
+                port: 587,
+                secure: false, // true for 465, false for other ports
+                requireTLS: true, //Force TLS
+                tls: {  
+                    rejectUnauthorized: false
+                },
                 auth: {
-                    user: process.env.EMAIL,
-                    pass: process.env.EMAIL_PASSWORD
+                    user: 'mail@coxit.co',
+                    pass: '6o25eJMV2eHgYDEc'
                 }
             });
         
+        
             const mailOptions = {
-                from: process.env.EMAIL,
-                to: 'volodymyr.hresko@coxit.co',
+                from: 'mail@coxit.co',
+                to: 'volodymyr.hresko@coxit.co,iryna.mykytyn@coxit.co',
                 subject: `[Resume] New resume ${position}`,
                 html: `<p>You received new resume ${position ? 'for ' + position : ''}</p>`,
                 attachments: [{
