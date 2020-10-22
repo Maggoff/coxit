@@ -29,6 +29,16 @@ body {
 	transition: 0.4s ease;
 }
 
+.careers__question .line::after {
+	bottom: -16px;
+	height: 6px;
+}
+
+.medium-widget-article__column .line::after {
+	background-color: #ffffff;
+}
+
+
 .desctop{
 	display: block;
 }
@@ -317,13 +327,14 @@ section {
 	margin-top: 10px;
 	color: transparent;
 	text-decoration: none;
+	margin-left: 8px;
 }
 
 .weCanHelp__container__item__button:hover{
 	text-decoration: none;
 }
 
-.weCanHelp__container__item:hover .weCanHelp__container__item__button{
+.weCanHelp__container__item:hover .weCanHelp__container__item__button, .medium-widget-article__column:hover .weCanHelp__container__item__button{
 	color: #ffffff;
 }
 
@@ -742,6 +753,7 @@ section {
 
 #contacts .content__hide, #contacts .title {
 	position: relative;
+	pointer-events: none;
 }
 
 .contacts__address{
@@ -785,6 +797,7 @@ section {
 	display: inline-block;
 	margin-right: 16px;
 	height: 100%;
+	pointer-events: all;
 }
 
 .content__hide{

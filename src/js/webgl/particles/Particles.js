@@ -220,8 +220,10 @@ export default class Particles {
 		this.hitArea.scale.set(scale, scale, 1);
 	}
 
-	onInteractiveMove(e) {
-		const uv = e.intersectionData.uv;
-		if (this.touch) this.touch.addTouch(uv);
+	onInteractiveMove(e) {		
+		if (window.innerWidth > 768) {
+			const uv = e.intersectionData.uv;
+			if (this.touch) this.touch.addTouch(uv);
+		}
 	}
 }

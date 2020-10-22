@@ -1,13 +1,10 @@
 $(document).ready(function () {
-
   const slider = document.getElementById('slider');
 
-  $("#header__logo, #menu__contacts, #menu__weCanHelp").click(function (event) {
+  $("#header__logo, #menu__contacts, #menu__weCanHelp, .toServices").click(function (event) {
     event.preventDefault();
     let id = $(this).attr('href');
     let top = $(id).offset().left;
-    top = slider.scrollLeft + top;
-    $(slider).animate({ scrollLeft: top }, 600);
   });
 
 
@@ -18,6 +15,7 @@ $(document).ready(function () {
   let logo = document.getElementById("header__logo");
   let contacts = document.getElementById("menu__contacts");
   let weCanHelp = document.getElementById("menu__weCanHelp")
+  let toServices = document.getElementsByClassName("toServices");
 
   let j = 0;
   let jOld;
@@ -39,7 +37,14 @@ $(document).ready(function () {
     if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
-  } else {
+  } else if (window.location.hash == '#howCanWeHelp') {
+    scrollbarLeft = (16.666666 * 3);
+    jOld = j;
+    j = 3;
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+  }else {
     scrollbarLeft = 0;
     jOld = j;
     j = 0;
@@ -103,7 +108,14 @@ $(document).ready(function () {
   let idTimer;
 
   function timer() {
-    clearTimeout(idTimer);
+    if (window.innerWidth > 768) {
+      window.pageXOffset = window.innerWidth * j * 0.87;
+    } else {
+      window.pageXOffset = window.innerWidth * j;  
+    }
+
+    clearTimeout(idTimer);    
+
     idTimer = setTimeout(function tick() {
       let time = 0;
       if (scrollbarLeft != (16.666666 * 5)) {
@@ -214,12 +226,14 @@ $(document).ready(function () {
   let marker = true;
   let counter1 = 0;
   let counter2;
+  let newScroll = true;
+  let wheelFree = true;
 
   const wheelEnd = () => {
     counter1 = 0;
     counter2 = null;
-    direction = null;
     marker = true;
+    wheelFree = true;
   }
 
   const wheelAct = () => {
@@ -235,15 +249,35 @@ $(document).ready(function () {
 
   const wheelStart = () => {
     marker = false;
+    wheelFree = false;
+  
     wheelAct();
   }
 
+
+  let tempBlock = true;
+
   const onWheel = (e) => {
     counter1 += 1;
-    delta = e.deltaY;
+    delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
+
+    // NEEDED FOR NEW SCROLL ON TOUCHPAD BEFORE PREVIOUS ENDED
+    if (newScroll && Math.abs(delta) > 70) {
+      marker = true;
+      newScroll = false;
+      setTimeout(() => { 
+        newScroll = true; 
+      }, 600);
+    }
+
     
     if (marker) { 
-      wheelStart();
+      marker = false;
+      
+      if (wheelFree) {
+        wheelStart();
+      }
+
       let left;
 
       if (delta > 1)
@@ -254,37 +288,41 @@ $(document).ready(function () {
       slider.scrollBy({ left: left, behavior: 'smooth' });
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-      if (delta > 1) {
-        if (scrollbarLeft < 83) {
-          scrollbarLeft = scrollbarLeft + 16.666666;
-          jOld = j;
-          j++;
-          timer();
+      
+      if (tempBlock) {
+        tempBlock = false;
+        if (delta > 1) {
+          if (scrollbarLeft < 83) {
+            scrollbarLeft = scrollbarLeft + 16.666666;
+            jOld = j;
+            j++;
+            timer();
+          }
+        } else if (delta < -1) {
+          if (scrollbarLeft > 0) {
+            scrollbarLeft = scrollbarLeft - 16.666666;
+            jOld = j;
+            j--;
+            timer();
+          }
         }
-      } else if (delta < -1) {
-        if (scrollbarLeft > 0) {
-          scrollbarLeft = scrollbarLeft - 16.666666;
-          jOld = j;
-          j--;
-          timer();
+  
+        if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+          $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
         }
-      }
+  
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }
+  
+        itemBlog = document.getElementsByClassName("medium-widget-article__item");
+  
+        if (z == 0) {
+          zIndex(itemBlog, footer);
+          z++;
+        }
 
-      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-      }
-
-
-      if (document.documentElement.clientWidth > 768) {
-        opacityOn(j);
-      }
-
-
-      itemBlog = document.getElementsByClassName("medium-widget-article__item");
-
-      if (z == 0) {
-        zIndex(itemBlog, footer);
-        z++;
+        setTimeout(() => { tempBlock = true }, 300);
       }
     }
     return false;
@@ -313,8 +351,38 @@ $(document).ready(function () {
     if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
+
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = -window.innerWidth * coff * Math.abs(jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
   })
+
+  $(toServices).click(() => {
+    scrollbarLeft = (16.666666 * 3);
+    jOld = j;
+    j = 3;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
+  });
 
   $(weCanHelp).click(function () {
     scrollbarLeft = (16.666666 * 1);
@@ -325,6 +393,15 @@ $(document).ready(function () {
       opacityOn(j);
     }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
   })
 
   $(contacts).click(function () {
@@ -336,6 +413,15 @@ $(document).ready(function () {
       opacityOn(j);
     }
     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
   })
 
 
@@ -536,7 +622,6 @@ $(document).ready(function () {
         choiceItem[i].classList.add("active");
         choiceOld = choiceItem[i];
         select.options[i].selected = 'true';
-        console.log(select.options);
       })
     }
   }
@@ -546,7 +631,6 @@ $(document).ready(function () {
     let inputEmail = document.getElementById("input__email");
     let inputRequired = document.getElementsByClassName("form__input__required");
 
-    console.log(inputRequired[0].style);
 
     if (!inputEmail.value) {
       inputRequired[0].style.display = 'block';
@@ -577,6 +661,11 @@ $(document).ready(function () {
     blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
     blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
     blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+
+    let desktopData = document.getElementsByClassName("medium-widget-article__content");
+    for (let i = 0; i < desktopData.length; i++) {
+      desktopData[i].innerHTML += '<a href="' + blogItemTitle[i].href + '" class="weCanHelp__container__item__button line">Read more</a>';
+    }
   }
 
   //Слайд за допомогою drag

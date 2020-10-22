@@ -14,7 +14,7 @@ const dev = app.get('env') !== 'production';
 if (dev)
     require('dotenv').config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,23 +50,18 @@ app.post('/sendEmail', (req, res) => {
 
     switch(role) {
         case '-1':
-            console.log("Switch");
             role = '';
             break;
         case '0':
-            console.log("Switch");
             role = `<p>Role: CEO/CTO</p>`;
             break;
         case '1':
-            console.log("Switch");
             role = `<p>Role: Project Manager</p>`;
             break;
         case '2':
-            console.log("Switch");
             role = `<p>Role: Technical Lead</p>`;
             break;
         case '3':
-            console.log("Switch");
             role = `<p>Role: Other</p>`;
             break;
     }
@@ -112,16 +107,22 @@ app.post('/sendEmail', (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-        service: process.env.EMAIL_SERVICE,
+        host: 'coxit.co',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        requireTLS: true, //Force TLS
+        tls: {  
+            rejectUnauthorized: false
+        },
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.EMAIL_PASSWORD
+            user: 'mail@coxit.co',
+            pass: '6o25eJMV2eHgYDEc'
         }
     });
 
     const mailOptions = {
-        from: process.env.EMAIL,
-        to: 'volodymyr.hresko@coxit.co',
+        from: 'mail@coxit.co',
+        to: 'leha.volodymyr@gmail.com',
         subject: `[Help Me] ${req.body.email}`,
         html: `<p>Letter was send by <b>${req.body.email}</b></p>
                 ${title}${role}${period}${budget}${additional}`
@@ -130,7 +131,7 @@ app.post('/sendEmail', (req, res) => {
 
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
-            console.log(err);
+            console.log(err);            
             return res.status(400).json({"msg": "Email was not sended."});
         }
         else

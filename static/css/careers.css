@@ -20,7 +20,12 @@ section{
   right: 9vw;
   bottom: 8vh;
   z-index: 3;
-  background-color: #fa8c16;
+  background-color: #fa8c16a8;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: rgba(236, 130, 43, 0.459) 0px 7px 29px 0px;
   transition: 0.4s;
 }
 
