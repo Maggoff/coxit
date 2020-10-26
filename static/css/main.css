@@ -843,6 +843,7 @@ section {
 	width: 16.666666%;
 	height: 6px;
 	background-color: #fa8c16;
+	transition: .6s;
 }
 
 .footer__text{
@@ -1272,6 +1273,7 @@ section {
 	height: calc(100vw / 1.78);
 	min-height: 800px;
 	min-width: calc(800px * 1.78);
+	opacity: 0.2;
 }
 
 .imageanimation--careers {

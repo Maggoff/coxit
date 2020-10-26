@@ -23,409 +23,8 @@ $(document).ready(function () {
   let thirdTitle = document.getElementById("form__third__title");
   thirdTitle.style.marginTop = (document.documentElement.clientHeight / (100 / 12)) - 57 + 'px';
 
-  if (window.location.hash == '#contacts') {
-    scrollbarLeft = (16.666666 * 5);
-    jOld = j;
-    j = 5;
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-  } else if (window.location.hash == '#whoWe') {
-    scrollbarLeft = (16.666666 * 2);
-    jOld = j;
-    j = 2;
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-  } else if (window.location.hash == '#howCanWeHelp') {
-    scrollbarLeft = (16.666666 * 3);
-    jOld = j;
-    j = 3;
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-  }else {
-    scrollbarLeft = 0;
-    jOld = j;
-    j = 0;
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-  }
 
-  let scrollbar = document.getElementById('scrollbar');
-
-  scrollbar.style.left = scrollbarLeft + '%';
-
-  // let hashs = ['#main', '#weCanHelp', '#whoWe', '#howCanWeHelp', '#blog', '#contacts'];
-
-
-  let weCanHelpCheck = document.getElementById("weCanHelp__check");
-
-  timerCheck(weCanHelpCheck, 12, 12, -2, 86);
-
-  function timerCheck(check, height, width, left, top) {
-    setTimeout(function tick() {
-      $(check).animate({ height: height, width: width, left: left, top: top }, 400);
-      $(check).animate({ height: height - 4, width: width - 4, left: left + 2, top: top + 2 }, 400);
-      setTimeout(tick, 800);
-    }, 0);
-  };
-
-  let weCanHelpCheckMobile = document.getElementById("weCanHelp__check__mobile");
-  let weCanHelpMobile = document.getElementsByClassName("mobile__card__head");
-
-  timerCheck(weCanHelpCheckMobile, 12, 12, -2, '55%');
-
-  $(weCanHelpMobile).click(function () {
-    $(weCanHelpCheckMobile).finish().animate({ opacity: 0 }, 400, function () {
-      weCanHelpCheckMobile.style.display = 'none';
-    })
-  })
-
-
-  let itemServices = document.getElementsByClassName("weCanHelp__container__item");
-  let itemBlog = document.getElementsByClassName("medium-widget-article__item");
-  let footer = document.getElementById("footer");
-
-  let z = 0;
-
-  zIndex(itemServices, footer);
-
-  function zIndex(itemHover, footerZ) {
-    for (let i = 0; i < itemHover.length; i++) {
-      $(itemHover[i]).hover(function () {
-        $(weCanHelpCheck).finish().animate({ opacity: 0 }, 400, function () {
-          weCanHelpCheck.style.display = 'none';
-        });
-        footerZ.style.zIndex = -2;
-      }, function () {
-        footerZ.style.zIndex = 2;
-      })
-    }
-  }
-
-  let idTimer;
-
-  function timer() {
-    if (window.innerWidth > 768) {
-      window.pageXOffset = window.innerWidth * j * 0.87;
-    } else {
-      window.pageXOffset = window.innerWidth * j;  
-    }
-
-    clearTimeout(idTimer);    
-
-    idTimer = setTimeout(function tick() {
-      let time = 0;
-      if (scrollbarLeft != (16.666666 * 5)) {
-        $('#flesh').finish().animate({ opacity: 0.05 }, 1000);
-        $('#flesh').finish().animate({ opacity: 0.4 }, 1000);
-        $(scrollbar).finish().animate({ left: '83.3%' }, 2000);
-        time += 2000;
-      }
-      if (scrollbarLeft != 0) {
-        $('#flesh').animate({ opacity: 0.05 }, 1000);
-        $('#flesh').animate({ opacity: 0.4 }, 1000);
-        $(scrollbar).animate({ left: '0%' }, 2000);
-        time += 2000;
-      }
-      $('#flesh').animate({ opacity: 0.05 }, 1000);
-      $('#flesh').animate({ opacity: 0.4 }, 1000);
-      $(scrollbar).animate({ left: scrollbarLeft + '%' }, 2000);
-      idTimer = setTimeout(tick, 32000 + time);
-    }, 30000);
-  };
-  timer();
-
-  let oldScroll = 0;
-  let block = 'false';
-  let blockOld = 100;
-
-  let scrollToThis = 0;
-
-
-
-  // const onScrollY = (e) => {
-  //   slider.removeEventListener("scroll", onScrollY);
-  //   e = e || window.event;
-
-  //   let delta;
-
-  //   if (slider.scrollLeft > oldScroll) {
-  //     oldScroll = slider.scrollLeft;
-  //     console.log('js');
-  //     delta = 1;
-  //   } else if (slider.scrollLeft < oldScroll){
-  //     oldScroll = slider.scrollLeft;
-  //     delta = -1;
-  //   } else{
-  //     delta = 0;
-  //   }
-
-
-  //   console.log(delta);
-
-  //   const left = delta > 0 ? window.innerWidth * 0.8 : -window.innerWidth * 0.8;
-
-  //   // slider.scrollBy({ left: left, behavior: 'smooth' });
-  //   setTimeout(() => { slider.addEventListener("scroll", onScrollY); }, 600);
-  //   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
-  //   if (delta > 0) {
-  //     if (scrollbarLeft < 83) {
-  //       scrollbarLeft = scrollbarLeft + 16.666666;
-  //       jOld = j;
-  //       j++;
-  //       timer();
-  //     }
-  //   } else {
-  //     if (scrollbarLeft > 0) {
-  //       scrollbarLeft = scrollbarLeft - 16.666666;
-  //       jOld = j;
-  //       j--;
-  //       timer();
-  //     }
-  //   }
-
-  //   if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-  //     $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-  //   }
-
-  // }
-
-  // slider.addEventListener("scroll", onScrollY);
-
-  // slider.addEventListener('scroll', function () {
-  //   if (slider.scrollLeft > oldScroll) {
-  //     oldScroll = slider.scrollLeft;
-  //     // scrollToThis += (document.documentElement.clientWidth / (100 / 91));
-  //     // $(slider).animate({ scrollLeft: scrollToThis }, 600, function () {
-  //     //   block = 'false';
-  //     // });
-  //     scrollToThis++;
-  //     $(scrollbar).animate({ left: scrollToThis + '%' }, 20);
-  //     console.log("right");
-  //   } else {
-  //     oldScroll = slider.scrollLeft;
-  //     scrollToThis--;
-  //     $(scrollbar).animate({ left: scrollToThis + '%' }, 20);
-  //   }
-  //   // } else {
-  //   //   block--;
-  //   //   oldScroll = slider.scrollLeft;
-  //   //   scrollToThis -= (document.documentElement.clientWidth / (100 / 91));
-  //   //   $(slider).animate({ scrollLeft: scrollToThis }, 600);
-  //   //   console.log("left");
-
-  //   // }
-  //   // }
-  // });
-
-  let delta;
-  let marker = true;
-  let counter1 = 0;
-  let counter2;
-  let newScroll = true;
-  let wheelFree = true;
-
-  const wheelEnd = () => {
-    counter1 = 0;
-    counter2 = null;
-    marker = true;
-    wheelFree = true;
-  }
-
-  const wheelAct = () => {
-    counter2 = counter1;
-    setTimeout(() => {
-      if (counter2 == counter1) {
-        wheelEnd();
-      } else {
-        wheelAct();
-      }
-    }, 50);
-  }
-
-  const wheelStart = () => {
-    marker = false;
-    wheelFree = false;
-  
-    wheelAct();
-  }
-
-
-  let tempBlock = true;
-
-  const onWheel = (e) => {
-    counter1 += 1;
-    delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
-
-    // NEEDED FOR NEW SCROLL ON TOUCHPAD BEFORE PREVIOUS ENDED
-    if (newScroll && Math.abs(delta) > 70) {
-      marker = true;
-      newScroll = false;
-      setTimeout(() => { 
-        newScroll = true; 
-      }, 600);
-    }
-
-    
-    if (marker) { 
-      marker = false;
-      
-      if (wheelFree) {
-        wheelStart();
-      }
-
-      let left;
-
-      if (delta > 1)
-        left = window.innerWidth * 0.8;
-      if (delta < -1)
-        left = -window.innerWidth * 0.8;
-
-      slider.scrollBy({ left: left, behavior: 'smooth' });
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
-      
-      if (tempBlock) {
-        tempBlock = false;
-        if (delta > 1) {
-          if (scrollbarLeft < 83) {
-            scrollbarLeft = scrollbarLeft + 16.666666;
-            jOld = j;
-            j++;
-            timer();
-          }
-        } else if (delta < -1) {
-          if (scrollbarLeft > 0) {
-            scrollbarLeft = scrollbarLeft - 16.666666;
-            jOld = j;
-            j--;
-            timer();
-          }
-        }
-  
-        if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-          $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-        }
-  
-        if (document.documentElement.clientWidth > 768) {
-          opacityOn(j);
-        }
-  
-        itemBlog = document.getElementsByClassName("medium-widget-article__item");
-  
-        if (z == 0) {
-          zIndex(itemBlog, footer);
-          z++;
-        }
-
-        setTimeout(() => { tempBlock = true }, 300);
-      }
-    }
-    return false;
-  }
-
-
-  // Забезпечення підтримки старих браузерів
-  if (slider.addEventListener) {
-    if ('onwheel' in document) {
-      slider.addEventListener("wheel", onWheel);
-    } else if ('onmousewheel' in document) {
-      slider.addEventListener("mousewheel", onWheel);
-    } else {
-      slider.addEventListener("MozMousePixelScroll", onWheel);
-    }
-  } else {
-    slider.attachEvent("onmousewheel", onWheel);
-  }
-
-
-  $(logo).click(function () {
-    scrollbarLeft = 0;
-    jOld = j;
-    j = 0;
-    timer();
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
-    let coff = 1;
-    coff = window.innerWidth > 768 ? 0.8 : 1;      
-
-    let scrollTemp = 0;
-    if (jOld !== j) {
-      scrollTemp = -window.innerWidth * coff * Math.abs(jOld - j);
-    } 
-    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
-  })
-
-  $(toServices).click(() => {
-    scrollbarLeft = (16.666666 * 3);
-    jOld = j;
-    j = 3;
-    timer();
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
-    let coff = 1;
-    coff = window.innerWidth > 768 ? 0.8 : 1;      
-
-    let scrollTemp = 0;
-    if (jOld !== j) {
-      scrollTemp = - window.innerWidth * coff * (jOld - j);
-    } 
-    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
-  });
-
-  $(weCanHelp).click(function () {
-    scrollbarLeft = (16.666666 * 1);
-    jOld = j;
-    j = 1;
-    timer();
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
-    let coff = 1;
-    coff = window.innerWidth > 768 ? 0.8 : 1;      
-
-    let scrollTemp = 0;
-    if (jOld !== j) {
-      scrollTemp = - window.innerWidth * coff * (jOld - j);
-    } 
-    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
-  })
-
-  $(contacts).click(function () {
-    scrollbarLeft = (16.666666 * 5);
-    jOld = j;
-    j = 5;
-    timer();
-    if (document.documentElement.clientWidth > 768) {
-      opacityOn(j);
-    }
-    $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-
-    let coff = 1;
-    coff = window.innerWidth > 768 ? 0.8 : 1;      
-
-    let scrollTemp = 0;
-    if (jOld !== j) {
-      scrollTemp = - window.innerWidth * coff * (jOld - j);
-    } 
-    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
-  })
-
-
-  function opacityOn(page) {
+  function opacityOn(page) {    
     switch (page) {
       case 0:
         logo.classList.add('active');
@@ -519,6 +118,368 @@ $(document).ready(function () {
         break;
     }
   }
+
+
+  if (window.location.hash == '#contacts') {
+    $("#scrollbar").width('100%');
+    jOld = j;
+    j = 5;
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp });
+
+
+  } else if (window.location.hash == '#weCanHelp') {
+    $("#scrollbar").width(16.666666 * 2 + '%');
+    jOld = j;
+    j = 1;
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    }
+    if (window.location.href.split('/').includes("index.html#weCanHelp")) { 
+      slider.scrollBy({ left: window.innerWidth * coff * 1 });
+    }
+
+  } else if (window.location.hash == '#howCanWeHelp') {
+    $("#scrollbar").width(16.666666 * 4 + '%');
+    jOld = j;
+    j = 3;
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    }     
+    slider.scrollBy({ left: scrollTemp });
+  }else {
+    $("#scrollbar").width('16.66666%');
+    jOld = j;
+    j = 0;
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp });
+  }
+
+  let scrollbar = document.getElementById('scrollbar');
+
+  scrollbar.style.left = scrollbarLeft + '%';
+
+  // let hashs = ['#main', '#weCanHelp', '#whoWe', '#howCanWeHelp', '#blog', '#contacts'];
+
+
+  let weCanHelpCheck = document.getElementById("weCanHelp__check");
+
+  timerCheck(weCanHelpCheck, 12, 12, -2, 86);
+
+  function timerCheck(check, height, width, left, top) {
+    setTimeout(function tick() {
+      $(check).animate({ height: height, width: width, left: left, top: top }, 400);
+      $(check).animate({ height: height - 4, width: width - 4, left: left + 2, top: top + 2 }, 400);
+      setTimeout(tick, 800);
+    }, 0);
+  };
+
+  let weCanHelpCheckMobile = document.getElementById("weCanHelp__check__mobile");
+  let weCanHelpMobile = document.getElementsByClassName("mobile__card__head");
+
+  timerCheck(weCanHelpCheckMobile, 12, 12, -2, '55%');
+
+  $(weCanHelpMobile).click(function () {
+    $(weCanHelpCheckMobile).finish().animate({ opacity: 0 }, 400, function () {
+      weCanHelpCheckMobile.style.display = 'none';
+    })
+  })
+
+
+  let itemServices = document.getElementsByClassName("weCanHelp__container__item");
+  let itemBlog = document.getElementsByClassName("medium-widget-article__item");
+  let footer = document.getElementById("footer");
+
+  let z = 0;
+
+  zIndex(itemServices, footer);
+
+  function zIndex(itemHover, footerZ) {
+    for (let i = 0; i < itemHover.length; i++) {
+      $(itemHover[i]).hover(function () {
+        $(weCanHelpCheck).finish().animate({ opacity: 0 }, 400, function () {
+          weCanHelpCheck.style.display = 'none';
+        });
+        footerZ.style.zIndex = -2;
+      }, function () {
+        footerZ.style.zIndex = 2;
+      })
+    }
+  }
+
+  //let idTimer;
+
+  function timer() {
+    if (window.innerWidth > 768) {
+      window.pageXOffset = window.innerWidth * j * 0.87;
+    } else {
+      window.pageXOffset = window.innerWidth * j;  
+    }
+
+    //clearTimeout(idTimer);    
+
+    /*idTimer = setTimeout(function tick() {
+      let time = 0;
+      if (scrollbarLeft != (16.666666 * 5)) {
+        $('#flesh').finish().animate({ opacity: 0.05 }, 1000);
+        $('#flesh').finish().animate({ opacity: 0.4 }, 1000);
+        $(scrollbar).finish().animate({ left: '83.3%' }, 2000);
+        time += 2000;
+      }
+      if (scrollbarLeft != 0) {
+        $('#flesh').animate({ opacity: 0.05 }, 1000);
+        $('#flesh').animate({ opacity: 0.4 }, 1000);
+        $(scrollbar).animate({ left: '0%' }, 2000);
+        time += 2000;
+      }
+      $('#flesh').animate({ opacity: 0.05 }, 1000);
+      $('#flesh').animate({ opacity: 0.4 }, 1000);
+      $(scrollbar).animate({ left: scrollbarLeft + '%' }, 2000);
+      idTimer = setTimeout(tick, 32000 + time);
+    }, 4000);*/
+  };
+  timer();
+
+
+
+
+  let delta;
+  let marker = true;
+  let counter1 = 0;
+  let counter2;
+  let newScroll = true;
+  let wheelFree = true;
+
+  const wheelEnd = () => {
+    counter1 = 0;
+    counter2 = null;
+    marker = true;
+    wheelFree = true;
+  }
+
+  const wheelAct = () => {
+    counter2 = counter1;
+    setTimeout(() => {
+      if (counter2 == counter1) {
+        wheelEnd();
+      } else {
+        wheelAct();
+      }
+    }, 50);
+  }
+
+  const wheelStart = () => {
+    marker = false;
+    wheelFree = false;
+  
+    wheelAct();
+  }
+
+
+  let tempBlock = true;
+
+  const onWheel = (e) => {
+    counter1 += 1;
+    delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
+
+    // NEEDED FOR NEW SCROLL ON TOUCHPAD BEFORE PREVIOUS ENDED
+    if (newScroll && Math.abs(delta) > 70) {
+      marker = true;
+      newScroll = false;
+      setTimeout(() => { 
+        newScroll = true; 
+      }, 600);
+    }
+
+    
+    if (marker) { 
+      marker = false;
+      
+      if (wheelFree) {
+        wheelStart();
+      }
+
+      let left;
+
+      if (delta > 1)
+        left = window.innerWidth * 0.8;
+      if (delta < -1)
+        left = -window.innerWidth * 0.8;
+
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+      
+      if (tempBlock) {
+        tempBlock = false;
+        const percentage = $("#scrollbar").width() / $("#scrollbar").parent().width() * 100;
+
+        if (delta > 1) {
+          if (percentage < 96) {
+            $("#scrollbar").width(percentage + 16.666666 + '%');
+            jOld = j;
+            j++;
+            timer();
+          }
+        } else if (delta < -1) {
+          if (percentage > 20) {
+            $("#scrollbar").width(percentage - 16.666666 + '%');
+            jOld = j;
+            j--;
+            timer();
+          }
+        }
+  
+        if (scrollbarLeft > -1 && scrollbarLeft < 99) {
+          $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+        }
+  
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }
+  
+        itemBlog = document.getElementsByClassName("medium-widget-article__item");
+  
+        if (z == 0) {
+          zIndex(itemBlog, footer);
+          z++;
+        }
+
+        setTimeout(() => { tempBlock = true }, 300);
+      }
+    }
+    return false;
+  }
+
+
+  // Забезпечення підтримки старих браузерів
+  if (slider.addEventListener) {
+    if ('onwheel' in document) {
+      slider.addEventListener("wheel", onWheel);
+    } else if ('onmousewheel' in document) {
+      slider.addEventListener("mousewheel", onWheel);
+    } else {
+      slider.addEventListener("MozMousePixelScroll", onWheel);
+    }
+  } else {
+    slider.attachEvent("onmousewheel", onWheel);
+  }
+
+
+  $(logo).click(function () {
+    $("#scrollbar").width("16.66666%");
+    jOld = j;
+    j = 0;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = -window.innerWidth * coff * Math.abs(jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
+  })
+
+  $(toServices).click(() => {
+    $("#scrollbar").width(16.666666 * 4 + '%');
+    jOld = j;
+    j = 3;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+    
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
+  });
+
+  $(weCanHelp).click(function () {
+    $("#scrollbar").width(16.666666 * 2 + '%');
+    jOld = j;
+    j = 1;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;
+    
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' }); 
+  })
+
+  $(contacts).click(function () {
+    $("#scrollbar").width('100%');
+    jOld = j;
+    j = 5;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;      
+
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
+  })
+
 
 
   let cookie = document.getElementById("cookie");

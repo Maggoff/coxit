@@ -107,16 +107,15 @@ app.post('/sendEmail', (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-        host: 'coxit.co',
+        host: '159.253.21.38',
         port: 587,
-        secure: false, // true for 465, false for other ports
-        requireTLS: true, //Force TLS
+        secure: false, 
         tls: {  
             rejectUnauthorized: false
         },
         auth: {
             user: 'mail@coxit.co',
-            pass: '6o25eJMV2eHgYDEc'
+            pass: 'CkMMbt1V5Hpyr4Dz'
         }
     });
 
@@ -169,16 +168,15 @@ app.post('/sendResume', (req, res) => {
     req.busboy.on('finish', () => {
         if (!error) {
             const transporter = nodemailer.createTransport({
-                host: 'coxit.co',
+                host: '159.253.21.38',
                 port: 587,
-                secure: false, // true for 465, false for other ports
-                requireTLS: true, //Force TLS
+                secure: false,
                 tls: {  
                     rejectUnauthorized: false
                 },
                 auth: {
                     user: 'mail@coxit.co',
-                    pass: '6o25eJMV2eHgYDEc'
+                    pass: 'CkMMbt1V5Hpyr4Dz'
                 }
             });
         
@@ -220,4 +218,4 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => { console.log('Server started!') });
+app.listen(PORT, () => { console.log(`Server started on PORT: ${PORT}!`) });
