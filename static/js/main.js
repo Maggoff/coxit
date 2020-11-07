@@ -1,10 +1,12 @@
 $(document).ready(function () {
   const slider = document.getElementById('slider');
+  let checkScrollAnimation = true;
 
   $("#header__logo, #menu__contacts, #menu__weCanHelp, .toServices").click(function (event) {
     event.preventDefault();
     let id = $(this).attr('href');
     let top = $(id).offset().left;
+    checkScrollAnimation = false;
   });
 
 
@@ -128,6 +130,8 @@ $(document).ready(function () {
       opacityOn(j);
     }
 
+    checkScrollAnimation = false;
+
 
     let coff = 1;
     coff = window.innerWidth > 768 ? 0.8 : 1;      
@@ -147,6 +151,8 @@ $(document).ready(function () {
       opacityOn(j);
     }
 
+    checkScrollAnimation = false;
+
     let coff = 1;
     coff = window.innerWidth > 768 ? 0.8 : 1;      
 
@@ -154,9 +160,7 @@ $(document).ready(function () {
     if (jOld !== j) {
       scrollTemp = - window.innerWidth * coff * (jOld - j);
     }
-    if (window.location.href.split('/').includes("index.html#weCanHelp")) { 
-      slider.scrollBy({ left: window.innerWidth * coff * 1 });
-    }
+    slider.scrollLeft = window.innerWidth * 0.82;
 
   } else if (window.location.hash == '#howCanWeHelp') {
     $("#scrollbar").width(16.666666 * 4 + '%');
@@ -165,6 +169,8 @@ $(document).ready(function () {
     if (document.documentElement.clientWidth > 768) {
       opacityOn(j);
     }
+
+    checkScrollAnimation = false;
 
     let coff = 1;
     coff = window.innerWidth > 768 ? 0.8 : 1;      
@@ -194,7 +200,7 @@ $(document).ready(function () {
 
   let scrollbar = document.getElementById('scrollbar');
 
-  scrollbar.style.left = scrollbarLeft + '%';
+  //scrollbar.style.left = scrollbarLeft + '%';
 
   // let hashs = ['#main', '#weCanHelp', '#whoWe', '#howCanWeHelp', '#blog', '#contacts'];
 
@@ -316,6 +322,7 @@ $(document).ready(function () {
   let tempBlock = true;
 
   const onWheel = (e) => {
+    checkScrollAnimation = false;
     counter1 += 1;
     delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
 
@@ -335,45 +342,34 @@ $(document).ready(function () {
       if (wheelFree) {
         wheelStart();
       }
-
-      let left;
-
-      if (delta > 1)
-        left = window.innerWidth * 0.8;
-      if (delta < -1)
-        left = -window.innerWidth * 0.8;
-
-      slider.scrollBy({ left: left, behavior: 'smooth' });
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
       
       if (tempBlock) {
         tempBlock = false;
-        const percentage = $("#scrollbar").width() / $("#scrollbar").parent().width() * 100;
+
+        let left;
 
         if (delta > 1) {
-          if (percentage < 96) {
-            $("#scrollbar").width(percentage + 16.666666 + '%');
-            jOld = j;
-            j++;
-            timer();
-          }
-        } else if (delta < -1) {
-          if (percentage > 20) {
-            $("#scrollbar").width(percentage - 16.666666 + '%');
-            jOld = j;
-            j--;
-            timer();
-          }
+          left = $("#main").width();
         }
-  
-        if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-          $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
+        if (delta < -1) {
+          left = -$("#main").width();
         }
-  
-        if (document.documentElement.clientWidth > 768) {
-          opacityOn(j);
-        }
+
+        slider.scrollBy({ left: left, behavior: 'smooth' });
+        setTimeout(() => {
+          jOld = j;
+          j = Math.round(slider.scrollLeft / $("#main").width());
+          $("#scrollbar").width((j + 1) * 16.666666 + '%');
+
+          timer();
+
+          if (document.documentElement.clientWidth > 768) {
+            opacityOn(j);
+          }  
+        }, 600)
+
+        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
   
         itemBlog = document.getElementsByClassName("medium-widget-article__item");
   
@@ -404,6 +400,7 @@ $(document).ready(function () {
 
 
   $(logo).click(function () {
+    checkScrollAnimation = false;
     $("#scrollbar").width("16.66666%");
     jOld = j;
     j = 0;
@@ -423,6 +420,7 @@ $(document).ready(function () {
   })
 
   $(toServices).click(() => {
+    checkScrollAnimation = false;
     $("#scrollbar").width(16.666666 * 4 + '%');
     jOld = j;
     j = 3;
@@ -442,7 +440,28 @@ $(document).ready(function () {
     slider.scrollBy({ left: scrollTemp, behavior: 'smooth' });
   });
 
+  $("#flesh").click(() => {
+    checkScrollAnimation = false;
+    $("#scrollbar").width(16.666666 * 2 + '%');
+    jOld = j;
+    j = 1;
+    timer();
+    if (document.documentElement.clientWidth > 768) {
+      opacityOn(j);
+    }
+
+    let coff = 1;
+    coff = window.innerWidth > 768 ? 0.8 : 1;
+    
+    let scrollTemp = 0;
+    if (jOld !== j) {
+      scrollTemp = - window.innerWidth * coff * (jOld - j);
+    } 
+    slider.scrollBy({ left: scrollTemp, behavior: 'smooth' }); 
+  });
+
   $(weCanHelp).click(function () {
+    checkScrollAnimation = false;
     $("#scrollbar").width(16.666666 * 2 + '%');
     jOld = j;
     j = 1;
@@ -462,6 +481,7 @@ $(document).ready(function () {
   })
 
   $(contacts).click(function () {
+    checkScrollAnimation = false;
     $("#scrollbar").width('100%');
     jOld = j;
     j = 5;
@@ -588,17 +608,11 @@ $(document).ready(function () {
   }
 
   $(nextFifth).click(function () {
-
-    let inputEmail = document.getElementById("input__email");
-    let inputRequired = document.getElementsByClassName("form__input__required");
-
-
-    if (!inputEmail.value) {
-      inputRequired[0].style.display = 'block';
-    } else {
-      changeNext(nextFifth, formFifth, formSixth);
-    }
-
+    $(formFifth).animate({ opacity: 0 }, 400, function () {
+      formFifth.style.display = 'none';
+      formSixth.style.display = 'block';
+    });
+    $(formSixth).animate({ opacity: 1 }, 400);
   })
 
 
@@ -658,43 +672,78 @@ $(document).ready(function () {
     lastX = e.touches ? e.touches[0].pageX : e.pageX;
   });
 
-  let currentX;
+  let currentX = null;
   slider.addEventListener('touchmove', (e) => {
     currentX = e.touches ? e.touches[0].pageX : e.pageX;
   });
 
-  slider.addEventListener('touchend', (e) => {
-    if (Math.abs(currentX - lastX) > 80) {
+  slider.addEventListener('touchend', (e) => {  
+    if (Math.abs(currentX - lastX) > 80 && currentX !== null) {
+      checkScrollAnimation = false;
+      const percentage = $("#scrollbar").width() / $("#scrollbar").parent().width() * 100;
+      
       if (currentX > lastX) {
         const left = -window.innerWidth * 0.8;
         slider.scrollBy({ left: left, behavior: 'smooth' });
         
-
-        if (scrollbarLeft > 0) {
-          scrollbarLeft = scrollbarLeft - 16.666666;
+        if (percentage > 20) {
           jOld = j;
           j--;
+          $("#scrollbar").width((j + 1) * 16.666666 + '%');
           timer();
         }
+        
       }
       else {
         const left = window.innerWidth * 0.8;
         slider.scrollBy({ left: left, behavior: 'smooth' });
         
-
-        if (scrollbarLeft < 83) {
-          scrollbarLeft = scrollbarLeft + 16.666666;
+        if (percentage < 96) {
           jOld = j;
           j++;
+          $("#scrollbar").width((j + 1) * 16.666666 + '%');
           timer();
         }
       }
-
-      if (scrollbarLeft > -1 && scrollbarLeft < 99) {
-        $(scrollbar).finish().animate({ left: scrollbarLeft + '%' }, 600);
-      }
     }
+    currentX = null;
+    lastX = 0;
   });
 
+  document.addEventListener('keydown', (event) => {
+    event.preventDefault();
 
+    if (event.keyCode === 39) {
+      left = $("#main").width();
+
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      setTimeout(() => {
+        jOld = j;
+        j = Math.round(slider.scrollLeft / $("#main").width());
+        $("#scrollbar").width((j + 1) * 16.666666 + '%');
+
+        timer();
+
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }  
+      }, 600);
+
+    } else if (event.keyCode === 37) {
+      left = -$("#main").width();
+
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      setTimeout(() => {
+        jOld = j;
+        j = Math.round(slider.scrollLeft / $("#main").width());
+        $("#scrollbar").width((j + 1) * 16.666666 + '%');
+
+        timer();
+
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }  
+      }, 600);
+    }
+  });
 });

@@ -170,6 +170,7 @@ section {
 	color: #ffffff;
 	opacity: 0.4;
 	padding-right: 30px;
+	pointer-events: all;
 }
 
 .flesh::after{
@@ -202,6 +203,7 @@ section {
 	display: flex;
 	align-items: center;
 	z-index: 1;
+	pointer-events: all;
 }
 
 .cookie img{
@@ -342,8 +344,9 @@ section {
 	background-color: #ffffff;
 }
 
-#whoWe {
+#whoWe, #howCanWeHelp, #weCanHelp, .mobile__card {
 	z-index: 2;
+	pointer-events: all;
 }
 
 #whoWe .title{
@@ -1143,12 +1146,43 @@ section {
 		text-decoration: underline;
 	}
 
-	.imageanimation--coxit {
-		right: -640px !important;
+	#weCanHelp {
+		pointer-events: all;
 	}
 
-	.imageanimation--team {	
-		left: calc((100vw - (800px * 1.78)) / 2) !important;
+	.imageanimation canvas {
+		display: none;
+	}
+
+	.imageanimation--contacts {
+		top: -20vh !important;
+		height: 120vh !important;
+	}
+
+	.imageanimation .imageanimation__background {
+		display: block !important;
+	}
+
+	.imageanimation--coxit {
+		right: -400px !important;
+	}
+
+	.imageanimation--team {
+		display: none;
+		left: 0 !important;
+		width: 100vw !important;
+		height: calc(100vw * 0.8) !important;
+	}
+
+	.imageanimation__background--team {
+		position: absolute;
+		background-position: center; 
+		background-repeat: no-repeat; 
+		background-size: cover;
+		width: 100vw;
+		height: calc(100vw * 0.8);
+		z-index: 0;
+		bottom: 0;
 	}
 }
 
@@ -1253,6 +1287,15 @@ section {
 	z-index: 0;
 }
 
+.imageanimation .imageanimation__background {
+	width: 100%;
+	height: 100%;
+	background-position: center; 
+  	background-repeat: no-repeat; 
+	background-size: cover;
+	display: none;
+}
+
 .imageanimation canvas { 
 	width: 100% !important;
 	height: 100% !important;
@@ -1279,3 +1322,18 @@ section {
 .imageanimation--careers {
 	top: 0;
 }
+
+.arrowDown{
+	position: fixed;
+	right: 9vw;
+	bottom: 8vh;
+	z-index: 3;
+	background-color: #fa8c16a8;
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	border-radius: 50%;
+	box-shadow: rgba(236, 130, 43, 0.459) 0px 7px 29px 0px;
+	transition: 0.4s;
+	pointer-events: all;
+  }

@@ -107,20 +107,20 @@ app.post('/sendEmail', (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-        host: '159.253.21.38',
+        host: 'COXIT.chost.com.ua',
         port: 587,
         secure: false, 
         tls: {  
             rejectUnauthorized: false
         },
         auth: {
-            user: 'mail@coxit.co',
-            pass: 'CkMMbt1V5Hpyr4Dz'
+            user: 'new@coxit.chost.com.ua',
+            pass: 'aZpOni3CKE'
         }
     });
 
     const mailOptions = {
-        from: 'mail@coxit.co',
+        from: 'new@coxit.chost.com.ua',
         to: 'volodymyr.hresko@coxit.co,iryna.mykytyn@coxit.co',
         subject: `[Help Me] ${req.body.email}`,
         html: `<p>Letter was send by <b>${req.body.email}</b></p>
