@@ -1,5 +1,8 @@
 body{
   overflow-y: scroll;
+  padding-top: 11.5vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 section{
@@ -18,6 +21,8 @@ section{
 .title{
   margin: 2vh 0 7vh;
 }
+
+.team { position: relative; z-index: 2; pointer-events: none; }
 
 .team__text{
   font-family: 'Futura', sans-serif;
@@ -93,6 +98,7 @@ section{
   display: inline-block;
   width: 22%;
   margin-right: 10px;
+  pointer-events: all;
 }
 
 .team__item__social__icon:last-of-type{
@@ -111,6 +117,7 @@ section{
 
 .team__button{
   display: inline-block;
+  pointer-events: all;
 }
 
 .footer{

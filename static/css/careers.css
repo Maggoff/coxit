@@ -1,5 +1,7 @@
 body{
   overflow-y: scroll;
+  padding-top: 11.5vh;
+  overflow-x: hidden;
 }
 
 section{
@@ -7,16 +9,10 @@ section{
 }
 
 .screen{
+  position: relative;
   height: 88.5vh;
-}
-
-.arrowDown{
-  position: fixed;
-  right: 9vw;
-  bottom: 8vh;
-  z-index: 3;
-  background-color: #fa8c16;
-  transition: 0.4s;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .title{
@@ -87,7 +83,7 @@ section{
 }
 
 .careers__card__head__position{
-  width: 50%;
+  width: 33.5%;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   line-height: 24px;
@@ -98,7 +94,7 @@ section{
 
 .careers__card__head__type,
 .careers__card__head__location{
-  width: 30%;
+  width: 80%;
   font-family: 'Futura', sans-serif;
   font-size: 22px;
   line-height: 26px;
@@ -110,12 +106,9 @@ section{
   width: 20%;
 }
 
-.careers__card__body{
-  padding: 20px 9vw 40px;
-}
-
 .careers__card__body__info{
   display: flex;
+  padding: 20px 9vw 0px;
 }
 
 .careers__card__body__info__item{
@@ -144,6 +137,7 @@ section{
 .careers__card__body__form{
   margin-top: 45px;
   transition: 0.4s;
+  padding: 20px 9vw 40px;
 }
 
 .careers__card__body__form__file{
@@ -292,6 +286,16 @@ section{
   display: none;
 }
 
+#resumeSendDone {
+  display: none;
+  margin-bottom: 60px;
+  transition: .3s;
+}
+
+#careerForm {
+  transition: .3s;
+}
+
 @media (max-width: 768px) {
 
   section{
@@ -362,13 +366,11 @@ section{
     width: 30%;
   }
   
-  .careers__card__body{
-    padding: 20px 6vw 40px;
-  }
   
   .careers__card__body__info{
     display: flex;
     flex-direction: column;
+    padding: 20px 6vw 0px;
   }
   
   .careers__card__body__info__item{
@@ -385,6 +387,7 @@ section{
   .careers__card__body__form{
     margin-top: 5px;
     display: flex;
+    padding: 0px 6vw 40px;
   }
 
   .careers__card__body__form__file + label{

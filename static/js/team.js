@@ -10,10 +10,6 @@ $(document).ready(function () {
   })
 
   window.addEventListener('scroll', function () {
-    if (pageYOffset == 0) {
-      document.location = 'index.html#whoWe';
-    };
-
     if (pageYOffset > 50) {
       $('#arrowDown').css('webkit-transform', 'rotate(180deg)');
     }
@@ -24,9 +20,12 @@ $(document).ready(function () {
   });
 
   $('#arrowDown').click(function () {
-    console.log('das');
-    $('html, body').animate({ scrollTop: 1 }, 400);
-  })
+    if (pageYOffset > 50) {
+      $('html, body').animate({ scrollTop: 1 }, 800);
+    } else {
+      $('html, body').animate({ scrollTop: 400 }, 800);
+    }
+  });
 
 
 
