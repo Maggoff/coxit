@@ -385,19 +385,56 @@ $(document).ready(function () {
   }
 
 
-  // Забезпечення підтримки старих браузерів
-  if (slider.addEventListener) {
-    if ('onwheel' in document) {
-      slider.addEventListener("wheel", onWheel);
-    } else if ('onmousewheel' in document) {
-      slider.addEventListener("mousewheel", onWheel);
+  const isMacOs = navigator.platform.toUpperCase().indexOf('MAC')>=0;
+
+  if (!isMacOs) {
+    if (slider.addEventListener) {
+      if ('onwheel' in document) {
+        slider.addEventListener("wheel", onWheel);
+      } else if ('onmousewheel' in document) {
+        slider.addEventListener("mousewheel", onWheel);
+      } else {
+        slider.addEventListener("MozMousePixelScroll", onWheel);
+      }
     } else {
-      slider.addEventListener("MozMousePixelScroll", onWheel);
+      slider.attachEvent("onmousewheel", onWheel);
     }
   } else {
-    slider.attachEvent("onmousewheel", onWheel);
-  }
+    $(".leftArrow").css({ display: 'block' });
+    $(".rightArrow").css({ display: 'block' });
 
+    $(".leftArrow").click(() => {
+      const left = -$("#main").width();
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      setTimeout(() => {
+        jOld = j;
+        j = Math.round(slider.scrollLeft / $("#main").width());
+        $("#scrollbar").width((j + 1) * 16.666666 + '%');
+
+        timer();
+
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }  
+      }, 600);
+    });
+
+    $(".rightArrow").click(() => {
+      const left = $("#main").width();
+      slider.scrollBy({ left: left, behavior: 'smooth' });
+      setTimeout(() => {
+        jOld = j;
+        j = Math.round(slider.scrollLeft / $("#main").width());
+        $("#scrollbar").width((j + 1) * 16.666666 + '%');
+
+        timer();
+
+        if (document.documentElement.clientWidth > 768) {
+          opacityOn(j);
+        }  
+      }, 600);
+    });
+  }
 
   $(logo).click(function () {
     checkScrollAnimation = false;
@@ -608,11 +645,13 @@ $(document).ready(function () {
   }
 
   $(nextFifth).click(function () {
-    $(formFifth).animate({ opacity: 0 }, 400, function () {
-      formFifth.style.display = 'none';
-      formSixth.style.display = 'block';
-    });
-    $(formSixth).animate({ opacity: 1 }, 400);
+    if (validateEmail($("#inputEmail").val())) {
+      $(formFifth).animate({ opacity: 0 }, 400, function () {
+        formFifth.style.display = 'none';
+        formSixth.style.display = 'block';
+      });
+      $(formSixth).animate({ opacity: 1 }, 400);
+    }
   })
 
 
@@ -711,8 +750,6 @@ $(document).ready(function () {
   });
 
   document.addEventListener('keydown', (event) => {
-    event.preventDefault();
-
     if (event.keyCode === 39) {
       left = $("#main").width();
 
