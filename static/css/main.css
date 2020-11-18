@@ -228,12 +228,13 @@ body {
 
 #weCanHelp{
 	position: relative;
-	pointer-events: none;
+	pointer-events: none !important;
 }
 
 #weCanHelp .title{
 	margin-top: 12vh;
 	width: 50%;
+	pointer-events: none;
 }
 
 .weCanHelp__container{
