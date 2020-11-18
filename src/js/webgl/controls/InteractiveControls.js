@@ -93,7 +93,11 @@ export default class InteractiveControls extends EventEmitter {
 
 	onMove(e) {		
 		const t = (e.touches) ? e.touches[0] : e;
-		const touch = { x: t.clientX + window.pageXOffset, y: t.clientY + window.pageYOffset};		
+		const touch = { x: t.clientX + window.pageXOffset, y: t.clientY + window.pageYOffset};	
+		
+		this.rect = this.el.getBoundingClientRect();
+		this.rect.x += pageXOffset;
+		this.rect.y += pageYOffset;
 
 		this.mouse.x = ((touch.x - this.rect.x) / this.rect.width) * 2 - 1;
 		this.mouse.y = -((touch.y - this.rect.y) / this.rect.height) * 2 + 1;	

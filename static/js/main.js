@@ -349,16 +349,16 @@ $(document).ready(function () {
         let left;
 
         if (delta > 1) {
-          left = $("#main").width();
+          left = $("#whoWe").width() * 0.88;
         }
         if (delta < -1) {
-          left = -$("#main").width();
+          left = -$("#whoWe").width() * 0.88;
         }
 
         slider.scrollBy({ left: left, behavior: 'smooth' });
         setTimeout(() => {
           jOld = j;
-          j = Math.round(slider.scrollLeft / $("#main").width());
+          j = Math.round(slider.scrollLeft / $("#whoWe").width() * 0.88);
           $("#scrollbar").width((j + 1) * 16.666666 + '%');
 
           timer();

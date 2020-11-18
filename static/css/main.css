@@ -102,7 +102,6 @@ body {
 	height: 77.3vh;
 	display: -webkit-box;
 	display: -ms-flexbox;
-	display: flex;
 	-ms-scroll-snap-type: x mandatory;
 	    scroll-snap-type: x mandatory;
   	-webkit-overflow-scrolling: touch;
@@ -111,12 +110,11 @@ body {
 	height: 100vh;
 }
 
-section {
-  height: 100%;
-  min-width: 82vw;
+#slider > section {
+	height: 100%;
+	width: 82vw;
 	scroll-snap-align: start;
-	scroll-margin: 9vw;
-	margin-right: 5vw;	
+	padding-left: 9vw;
 }
 
 /* Поки зі скролбаром є проблема: зменшення товщини */
@@ -134,10 +132,20 @@ section {
 }
 
 #main {
+	position: relative;
 	padding-left: 9vw;
+	margin-right: -9vw;
 	min-width: 91vw;
-	z-index: 1;
+	z-index: 2;
 	pointer-events: none;
+}
+
+#slider > #contacts {
+	padding-left: 24px;
+}
+
+#slider > #blog {
+	margin-right: 9vw;
 }
 
 .title{
@@ -671,6 +679,7 @@ section {
 #medium-widget,
 .medium-widget__wrapper{
 	height: 100%;
+	width: 82vw;
 }
 
 .medium-widget-article__row{
@@ -867,6 +876,9 @@ section {
 }
 
 @media(max-width: 768px) {
+	.imageanimation {
+		z-index: -2 !important;
+	}
 
 	.desctop{
 		display: none;
@@ -889,10 +901,10 @@ section {
 		margin-left: 4vw;
 	}
 
-  section {
+  	#slider > section {
 		min-width: 100vw;
-		scroll-margin: 0;
 		margin-right: 0;
+		padding: 0 6vw;
 	}
 	
 	#main {
@@ -922,7 +934,7 @@ section {
 		padding: 0 6vw;
 	}
 	
-	#weCanHelp .title{
+	#weCanHelp .title {
 		margin-top: 11vh;
 		width: 100%;
 	}
