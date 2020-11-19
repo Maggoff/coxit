@@ -644,15 +644,13 @@ $(document).ready(function () {
     }
   }
 
-  $(nextFifth).click(function () {
-    if (validateEmail($("#inputEmail").val())) {
-      $(formFifth).animate({ opacity: 0 }, 400, function () {
-        formFifth.style.display = 'none';
-        formSixth.style.display = 'block';
-      });
-      $(formSixth).animate({ opacity: 1 }, 400);
-    }
-  })
+  $("#sendEmailForm").submit(function () {
+    $(formFifth).animate({ opacity: 0 }, 400, function () {
+      formFifth.style.display = 'none';
+      formSixth.style.display = 'block';
+    });
+    $(formSixth).animate({ opacity: 1 }, 400);
+  });
 
 
 

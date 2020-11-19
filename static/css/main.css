@@ -678,6 +678,7 @@ body {
 }
 
 #medium-widget,
+.medium-widget,
 .medium-widget__wrapper{
 	height: 100%;
 	width: 82vw;
