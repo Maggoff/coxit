@@ -29,7 +29,6 @@ $(document).ready(function () {
   });
 
   $('.formHandler').submit(e => {
-    $("#resumeSendDone").show(600);
-    $("#careerFrom").hide(600);
+    $("#resumeSended").modal();
   });
 })

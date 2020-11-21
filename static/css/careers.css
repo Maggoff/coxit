@@ -296,6 +296,26 @@ section{
   transition: .3s;
 }
 
+.modal-content {
+  border: none;
+  border-radius: 0%;
+  font-family: 'Futura';
+}
+
+.modal-header {
+  padding: 24px 24px 16px 24px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.modal-body {
+  font-size: 18px;
+  padding: 16px 24px 24px 24px;
+}
+
 @media (max-width: 768px) {
 
   section{
