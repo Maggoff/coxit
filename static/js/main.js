@@ -230,10 +230,8 @@ $(document).ready(function () {
 
 
   let itemServices = document.getElementsByClassName("weCanHelp__container__item");
-  let itemBlog = document.getElementsByClassName("medium-widget-article__item");
   let footer = document.getElementById("footer");
 
-  let z = 0;
 
   zIndex(itemServices, footer);
 
@@ -370,13 +368,6 @@ $(document).ready(function () {
 
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-  
-        itemBlog = document.getElementsByClassName("medium-widget-article__item");
-  
-        if (z == 0) {
-          zIndex(itemBlog, footer);
-          z++;
-        }
 
         setTimeout(() => { tempBlock = true }, 300);
       }
@@ -653,32 +644,6 @@ $(document).ready(function () {
   });
 
 
-
-  window.onload = function () {
-    let blogItemTitle = document.getElementsByClassName("medium-widget-article__title");
-    let blogItemDescript = document.getElementsByClassName("medium-widget-article__description");
-
-    let blogTitleOne = document.getElementById("headingOneBlog");
-    let blogTitleTwo = document.getElementById("headingTwoBlog");
-    let blogTitleThree = document.getElementById("headingThreeBlog");
-    let blogDescriptionOne = document.getElementById("collapseOneBlog");
-    let blogDescriptionTwo = document.getElementById("collapseTwoBlog");
-    let blogDescriptionThree = document.getElementById("collapseThreeBlog");
-
-
-    blogTitleOne.innerHTML = blogItemTitle[0].innerHTML;
-    blogTitleTwo.innerHTML = blogItemTitle[1].innerHTML;
-    blogTitleThree.innerHTML = blogItemTitle[2].innerHTML;
-
-    blogDescriptionOne.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[0].innerHTML + '</div> <a href="' + blogItemTitle[0].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-    blogDescriptionTwo.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[1].innerHTML + '</div> <a href="' + blogItemTitle[1].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-    blogDescriptionThree.innerHTML = '<div class="weCanHelp__container__item__text">' + blogItemDescript[2].innerHTML + '</div> <a href="' + blogItemTitle[2].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-
-    let desktopData = document.getElementsByClassName("medium-widget-article__content");
-    for (let i = 0; i < desktopData.length; i++) {
-      desktopData[i].innerHTML += '<a href="' + blogItemTitle[i].href + '" class="weCanHelp__container__item__button line">Read more</a>';
-    }
-  }
 
   //Слайд за допомогою drag
 
